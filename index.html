@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AnonymousIPTV Channel</title>
+  <title>Anonymous IPTV Channel</title>
   <link href="https://vjs.zencdn.net/8.3.0/video-js.css" rel="stylesheet">
   
   
@@ -612,7 +612,7 @@
    <!-- Add up to 50 channels here following the same structure -->
   <!-- Example for Channel 3 -->
   <div class="channel" data-type="hls" data-url="https://rakuten-family-1-eu.rakuten.wurl.tv/2000.m3u8">
-    <img src="https://tse1.mm.bing.net/th?id=OIP.R8n02ePaRtaMK-O0ZyD0MgHaHa&pid=Api&P=0&h=180" alt="Channel 80">
+    <img src="https://img.netzwelt.de/dw1600_dh900_sw0_sh0_sx0_sy0_sr16x9_nu2/picture/original/2023/08/rakuten-tv-family-379464.png" alt="Channel 80">
     <p>Rakuten Tv Family</p>
   </div>
    <!-- Add up to 50 channels here following the same structure -->
@@ -1185,15 +1185,6 @@
             overrideNative: true,
             bandwidth: 500000, // Specify bandwidth for smooth playback
             bufferSpace: 0.5 // Set minimal buffer (in seconds)
-
-        // Configure buffer settings
-
-        .setBufferDurationsMs(
-                2500, // Minimum buffer duration in milliseconds
-                5000, // Maximum buffer duration in milliseconds
-                1500, // Buffer before playback in milliseconds
-                2000  // Buffer after rebuffering in milliseconds
-        )
          
         });
         hls.on(Hls.Events.BUFFER_APPENDING, () => console.log('Appending buffer'));
