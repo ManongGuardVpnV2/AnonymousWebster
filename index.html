@@ -59,7 +59,7 @@
       border: 5px solid transparent;
       margin-bottom: 10px;
       box-shadow: 0 0 10px rgb(9, 9, 9), 0 0 20px rgb(242, 4, 250), 0 0 30px rgb(192, 255, 2), 0 0 40px rgb(10, 35, 35);
-     
+      
       
     }
     
@@ -75,6 +75,38 @@
       justify-content: center;
       align-items: center;
       z-index: 1000;
+      
+
+    }
+
+.channel:hover {
+  animation: neon-glow-hover 1.9s infinite alternate;
+}
+
+@keyframes neon-glow {
+  0% {
+    box-shadow: 0 0 20px #00ff3c, 0 0 10px #ff00ff, 0 0 15px #ff0000;
+  }
+  70% {
+    box-shadow: 0 0 30px #000000, 0 0 40px #ff0000, 0 0 30px #ff0000;
+  }
+  100% {
+    box-shadow: 0 0 30px #ff00ff, 0 0 30px #ff00ff, 0 0 40px #ff00ff;
+  }
+}
+
+@keyframes neon-glow-hover {
+  0% {
+    box-shadow: 0 0 40px #ff00ff, 0 0 20px #af02ff, 0 0 40px #ff00ff;
+  }
+  70% {
+    box-shadow: 0 0 30px #000000, 0 0 40px #ff0000, 0 0 15px #ff0000;
+  }
+  100% {
+    box-shadow: 0 0 50px #ff0000, 0 0 30px #ffff00, 0 0 20px #00ff3c;
+  }
+
+
 }
     
 
@@ -87,8 +119,9 @@
       border-spacing: 10px;
       overflow: hidden;
       border: 8px solid transparent;
-      box-shadow: 0 0 10px rgb(9, 9, 9), 0 0 20px rgb(242, 4, 250), 0 0 30px rgb(192, 255, 2), 0 0 40px rgb(10, 35, 35);
-      animation: zoomIn 0.10s ease-in-out;
+      box-shadow: 0 0 30px rgb(9, 9, 9), 0 0 20px rgb(242, 4, 250), 0 0 30px rgb(192, 255, 2), 0 0 40px rgb(10, 35, 35);
+      animation: neon-glow-hover 1.9s infinite alternate;
+      
       
       }
       @keyframes zoomIn {
@@ -109,7 +142,7 @@
       border: none;
       border-radius: 30%;
       padding: 5px;
-      animation: fadeIn 0.5s ease-in-out;
+      animation: zoomIn 0.10s ease-in-out;
       box-shadow: 0 0 10px #0ff, 0 0 20px #0ff, 0 0 30px #0ff, 0 0 40px #0ff;
     }
  
@@ -1128,7 +1161,7 @@
 <!-- HLS Player Popup -->
 <div id="player-container">
   <button id="close-player">X</button>
-  <video id="video-player" controls></video> <type="video/mp4">
+  <video id="video-player" controls></video> <type="video-js">
   <source src="video.mp4" class=video.js type="video/mp4">
 
 </script>
@@ -1146,8 +1179,11 @@
   const channels = document.querySelectorAll('.channel');
   const playerContainer = document.getElementById('player-container');
   const videoPlayer = document.getElementById('video-player');
+  const videomp4 = document.getElementById('video.mp4');
   const closePlayerButton = document.getElementById('close-player');
   const videoSource = document.getElementById('video-source');
+
+
 
   // Function to handle HLS playback
   function playHLS(url) {
@@ -1156,13 +1192,12 @@
 
       hls.loadSource(url);
       hls.attachMedia(videoPlayer);
-
-      
+         
       // Optional: Event listeners for buffering and playback
     } else if (Hls.isSupported()) {
         const hls = new Hls({
                   
-            bufferingGoal: 30, // Desired buffer length in seconds
+            bufferingGoal: 3, // Desired buffer length in seconds
             rebufferingGoal: 5, // Minimum buffer required to resume playback
             maxBufferLength: 3, // Adjust for faster buffer
             maxBufferSize: 60 * 1000 * 1000, // Max buffer size in bytes
@@ -1183,7 +1218,7 @@
             fragLoadingRetryDelay : 250,
             startFragPrefetch : true,
             overrideNative: true,
-            bandwidth: 500000, // Specify bandwidth for smooth playback
+            bandwidth: 1, // Specify bandwidth for smooth playback
             bufferSpace: 0.5 // Set minimal buffer (in seconds)
          
         });
