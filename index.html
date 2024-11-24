@@ -33,7 +33,7 @@
 
     /* Individual channel box */
     .channel {
-      background: #8c8888;
+      background: #2d0606;
       border: 3px solid #ea07ff;
       padding: 10px;
       text-align: center;
@@ -74,9 +74,168 @@
       justify-content: center;
       align-items: center;
       z-index: 1000;
-      
+
 
     }
+
+
+
+  .channel p {
+  font-size: 1.1rem;
+  padding: auto;
+  border: none;
+  outline: none;
+  border-radius: 0.4rem;
+  cursor: pointer;
+  text-transform: uppercase;
+  background-color: rgb(14, 14, 26);
+  color: rgb(234, 234, 234);
+  font-weight: 700;
+  transition: 0.6s;
+  box-shadow: 0px 0px 60px #1f4c65;
+  -webkit-box-reflect: below 10px linear-gradient(to bottom, rgba(0,0,0,0.0), rgba(0,0,0,0.4));
+}
+
+.channel p:active {
+  scale: 0.99;
+}
+
+.channel p:hover {
+  background: rgb(2,29,78);
+  background: linear-gradient(270deg, rgba(2, 29, 78, 0.681) 0%, rgba(31, 215, 232, 0.873) 60%);
+  color: rgb(4, 4, 38);
+}
+
+.channel img {
+ height: 8em;
+ width: 12em;
+ border: none;
+ border-radius: 1em;
+ background: #016DD9;
+ font-size: 1rem;
+ color: #ffffff;
+ font-family: inherit;
+ font-weight: 500;
+}
+
+.channel img:hover {
+ animation: shake3856 0.3s linear infinite both;
+}
+
+@keyframes shake3856 {
+ 0% {
+  -webkit-transform: translate(0);
+  transform: translate(0);
+ }
+
+ 20% {
+  -webkit-transform: translate(-2px, 2px);
+  transform: translate(-2px, 2px);
+ }
+
+ 40% {
+  -webkit-transform: translate(-2px, -2px);
+  transform: translate(-2px, -2px);
+ }
+
+ 60% {
+  -webkit-transform: translate(2px, 2px);
+  transform: translate(2px, 2px);
+ }
+
+ 80% {
+  -webkit-transform: translate(2px, -2px);
+  transform: translate(2px, -2px);
+ }
+
+ 100% {
+  -webkit-transform: translate(0);
+  transform: translate(0);
+ }
+}
+.close {
+  height: 55px;
+  width: 2rem;
+  background: linear-gradient(135deg, #14ffe9, #ffeb3b, #ff00e0);
+  border-radius: 20px;
+  animation: animate 1.5s linear infinite;
+  border: none;
+  cursor: pointer;
+}
+
+.close , .display, #msg {
+  transition: 0.3s;
+}
+
+.close :active .display {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.close :active .display #msg {
+  -webkit-text-fill-color: #1b1b1b;
+}
+
+.close :hover {
+  scale: 1.15;
+  animation: animate 0.7s linear infinite;
+  transform: translateY(-15px);
+}
+
+.close  .display, .close span {
+  position: absolute;
+  top: 50%;
+  left: 90%;
+  transform: translate(-50%, -50%);
+}
+
+.close  .display {
+  z-index: 1;
+  background-color: #1b1b1b;
+  height: 42.5px;
+  width: 172.5px;
+  border-radius: 1px;
+  text-align: center;
+}
+
+.close .display #msg {
+  line-height: 42.5px;
+  font-size: 1px;
+  font-weight: 800;
+  letter-spacing: 10px;
+  background: linear-gradient(135deg, #14ffe9, #ffeb3b, #ff00e0);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@keyframes animate {
+  100% {
+    filter: hue-rotate(360deg);
+  }
+}
+
+.close  span {
+  height: 100%;
+  width: 100%;
+  background: inherit;
+  border-radius: 25px;
+}
+
+.close  span:first-child {
+  filter: blur(15px);
+}
+
+.modal-content span:last-child {
+  filter: blur(15px);
+  transition: 0.3s;
+}
+
+.close :hover span:last-child {
+  width: 110%;
+  height: 120%;
+}
+
+
+    
 
 .channel:hover {
   animation: neon-glow-hover 1.9s infinite alternate;
@@ -110,8 +269,8 @@
     
 
     #video-player {
-      width: 80%;
-      max-width: 1200px;
+      width: 100%;
+      max-width: 900px;
       background: #000;
       border: 2px solid #ddd;
       border-radius: 20px;
@@ -132,15 +291,16 @@
     /* Close button for player */
     #close-player {
       position: absolute;
-      top: 20px;
-      right: 20px;
+      width: 50px;
+      top: 3em;
+      left: 1170px;
       font-size: 24px;
       color: rgb(84, 255, 5);
       cursor: pointer;
       background-color: rgba(253, 0, 0, 0.5);
       border: none;
-      border-radius: 30%;
-      padding: 5px;
+      border-radius: 20%;
+      padding: 8px;
       animation: zoomIn 0.10s ease-in-out;
       box-shadow: 0 0 10px #0ff, 0 0 20px #0ff, 0 0 30px #0ff, 0 0 40px #0ff;
     }
@@ -157,100 +317,9 @@
 
   </style>
 
-</head>
-<body>
-
-  <div class="top-text">
-    Anonymous IPTV Channel
-  </div>
-  
-  <style>
-  /* Container for the top text */
-  .top-text {
-    position: fixed;
-    top: -10px;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 40px;
-    font-weight: bold;
-    color: #fff;
-    text-align: center;
-    letter-spacing: 5px;
-    text-transform: uppercase;
-    animation: move-text 1s infinite alternate, neonGlow 1.5s infinite alternate;
-    animation: neon 1.5s ease-in-out infinite, move-text 6s infinite alternate;
-  }
-
-    
-
-    @keyframes neon {
-      0% {
-        text-shadow: 
-          0 0 5px #ff00ff, 
-          0 0 10px hsl(285, 100%, 50%), 
-          0 0 15px #ff00ff, 
-          0 0 20px #ff00ff, 
-          0 0 25px #ff00ff, 
-          0 0 30px #0f080f, 
-          0 0 35px #ff00ff;
-      }
-      50% {
-        text-shadow: 
-          0 0 5px #00ffff, 
-          0 0 10px #00ffff, 
-          0 0 15px #ff0000, 
-          0 0 20px #00ffff, 
-          0 0 25px #00ffff, 
-          0 0 30px #030707, 
-          0 0 35px #00ffff;
-      }
-      100% {
-        text-shadow: 
-          0 0 5px #ffff00, 
-          0 0 10px #ffff00, 
-          0 0 15px #f01111, 
-          0 0 20px #ffff00, 
-          0 0 25px #ffff00, 
-          0 0 30px #ff0000, 
-          0 0 35px #ffff00;
-      }
-    }
-
-
-  
-  /* Neon glow animation */
-  @keyframes neonGlow {
-    0% {
-      text-shadow: 0 0 5px #ff00ff, 0 0 10px #ff00ff, 0 0 20px #ff00ff;
-    }
-    50% {
-      text-shadow: 0 0 20px #00ffff, 0 0 40px #00ffff, 0 0 60px #00ffff;
-    }
-    100% {
-      text-shadow: 0 0 10px #ffff00, 0 0 20px #ffff00, 0 0 30px #ffff00;
-    }
-  }
-  
-  /* Moving effect for the text */
-
-
-@keyframes move-text {
-  0% {
-    transform: translateX(-800px);
-  }
-  100% {
-    transform: translateX(100px);
-  }
-}
-  
-  </style>
   
 
   
-
-
-
-
 
 
 <!-- Channel list -->
@@ -278,7 +347,7 @@
    <!-- Add up to 50 channels here following the same structure -->
   <!-- Example for Channel 4 -->
   <div class="channel" data-type="hls" data-url="https://cinemaone-abscbn-ono.amagi.tv/index.m3u8">
-    <img src="https://th.bing.com/th/id/OIP._tnakf-zp_xLXv4wEmTY3gHaGT?rs=1&pid=ImgDetMain" alt="Channel 4">
+    <img src="https://img.mytfc.com/cmsroot/abscms/media/mytfctv/channels/cinemaone/cinema-one-channel-thumbnail-348x196.jpg?ext=.jpg" alt="Channel 4">
     <p>Cinema One</p>
   </div>
   
@@ -809,7 +878,7 @@
    <!-- Add up to 50 channels here following the same structure -->
   <!-- Example for Channel 3 -->
   <div class="channel" data-type="hls" data-url="https://aegis-cloudfront-1.tubi.video/35b865e3-cb8d-4d5b-9202-5490fce4477c/playlist.m3u8">
-    <img src="https://th.bing.com/th/id/R.6bf88a2af6c3ffcaddb122b824a65d24?rik=Zhlxibhn9GmmVA&riu=http%3a%2f%2fimg1.wikia.nocookie.net%2f__cb20150713233109%2flogopedia%2fimages%2f0%2f09%2fAntiques_Roadshow.png&ehk=eDtn2JSXXQjrfEWZQV4bmEx6WrM8xu%2b7hM0yaWndjmU%3d&risl=&pid=ImgRaw&r=0" alt="Channel 92">
+    <img src="https://th.bing.com/th/id/R.5c1bd4f20e29f1f39c47e282174c413e?rik=ReJgVpaRaBCp3A&riu=http%3a%2f%2f3.bp.blogspot.com%2f-MHdxCCrJd70%2fT5SKRjJGMiI%2fAAAAAAAACJw%2f1rOJtbAItOg%2fs1600%2fantiques%2broadshow%2bUK.jpg&ehk=GhDYMV8SWjdTdgHN0Iv%2bcDg5Ncu%2b7EyT9b0rGLCiCso%3d&risl=&pid=ImgRaw&r=0" alt="Channel 92">
     <p>Antiques RoadShow</p>
   </div>
    <!-- Add up to 50 channels here following the same structure -->
@@ -1082,163 +1151,202 @@
     <img src="https://yt3.ggpht.com/a/AATXAJzfDNuGyDiZq7D19sx0k48BvvNEV2QJ1JpSGQ=s900-c-k-c0xffffffff-no-rj-mo" alt="Channel 140">
     <p>PBS Nature</p>
   </div>
-  <div class="channel" data-type="hls" data-url=" https://v10.thetvapp.to/hls/FXMovieChannel/tracks-v1a1/mono.m3u8?token=T1BrVVhvQ3N5Yk5BRm9MYlA0UjRLbFlVTDBORzZsWGdEd05VVzRncQ%3D%3D">
+  <div class="channel" data-type="hls" data-url=" https://v10.thetvapp.to/hls/FXMovieChannel/tracks-v1a1/mono.m3u8?token=
+https://v7.thetvapp.to/hls/TBSEast/tracks-v1a1/mono.m3u8?token=ZTExN3JTVlN2MEdxcWl6WVhzN1dPam1ueHp1TXlZM3hZRTEyS05ZaA%3D%3D">
     <img src="https://vignette.wikia.nocookie.net/logopedia/images/7/72/FXM_HD.svg/revision/latest/scale-to-width-down/130?cb=20180331155956" alt="Channel 141">
     <p>FXM Movie</p>
   </div>
-  <div class="channel" data-type="hls" data-url="https://v15.thetvapp.to/hls/TheMovieChannelEast/tracks-v1a1/mono.m3u8?token=T1BrVVhvQ3N5Yk5BRm9MYlA0UjRLbFlVTDBORzZsWGdEd05VVzRncQ%3D%3D">
+  <div class="channel" data-type="hls" data-url="https://v15.thetvapp.to/hls/TheMovieChannelEast/tracks-v1a1/mono.m3u8?token=
+https://v7.thetvapp.to/hls/TBSEast/tracks-v1a1/mono.m3u8?token=ZTExN3JTVlN2MEdxcWl6WVhzN1dPam1ueHp1TXlZM3hZRTEyS05ZaA%3D%3D">
     <img src="https://tse4.mm.bing.net/th?id=OIP.sWOH-Oy7Yd3L7mJfTFTZ7QHaHa&pid=Api&P=0&h=180" alt="Channel 142">
     <p>The Movie Channel</p>
   </div>
-  <div class="channel" data-type="hls" data-url="https://v2.thetvapp.to/hls/Boomerang/tracks-v1a1/mono.m3u8?token=T1BrVVhvQ3N5Yk5BRm9MYlA0UjRLbFlVTDBORzZsWGdEd05VVzRncQ%3D%3D">
+  <div class="channel" data-type="hls" data-url="https://v2.thetvapp.to/hls/Boomerang/tracks-v1a1/mono.m3u8?token=
+https://v7.thetvapp.to/hls/TBSEast/tracks-v1a1/mono.m3u8?token=ZTExN3JTVlN2MEdxcWl6WVhzN1dPam1ueHp1TXlZM3hZRTEyS05ZaA%3D%3D">
     <img src="https://alchetron.com/cdn/boomerang-tv-channel-a88c911e-2dad-4538-9199-b908742b9f9-resize-750.jpg" alt="Channel 143">
     <p>Boomerang</p>
   </div>
-  <div class="channel" data-type="hls" data-url="https://v9.thetvapp.to/hls/CartoonNetworkEast/tracks-v1a1/mono.m3u8?token=T1BrVVhvQ3N5Yk5BRm9MYlA0UjRLbFlVTDBORzZsWGdEd05VVzRncQ%3D%3D">
+  <div class="channel" data-type="hls" data-url="https://v9.thetvapp.to/hls/CartoonNetworkEast/tracks-v1a1/mono.m3u8?token=
+https://v7.thetvapp.to/hls/TBSEast/tracks-v1a1/mono.m3u8?token=ZTExN3JTVlN2MEdxcWl6WVhzN1dPam1ueHp1TXlZM3hZRTEyS05ZaA%3D%3D">
     <img src="https://logodix.com/logo/1197841.jpg" alt="Channel 144">
     <p>Cartoon Network HD</p>
   </div>
-  <div class="channel" data-type="hls" data-url="https://v14.thetvapp.to/hls/CinemaxEast/tracks-v1a1/mono.m3u8?token=T1BrVVhvQ3N5Yk5BRm9MYlA0UjRLbFlVTDBORzZsWGdEd05VVzRncQ%3D%3D">
+  <div class="channel" data-type="hls" data-url="https://v14.thetvapp.to/hls/CinemaxEast/tracks-v1a1/mono.m3u8?token=
+https://v7.thetvapp.to/hls/TBSEast/tracks-v1a1/mono.m3u8?token=ZTExN3JTVlN2MEdxcWl6WVhzN1dPam1ueHp1TXlZM3hZRTEyS05ZaA%3D%3D">
     <img src="https://1.bp.blogspot.com/-u8M9A83toOU/UCBMVMh-IJI/AAAAAAAAAk4/1YvelbNXG3k/s1600/cinemax-hd-logo-478x170.png" alt="Channel 145">
     <p>Cinemax HD</p>
   </div>
-  <div class="channel" data-type="hls" data-url="https://v2.thetvapp.to/hls/CrimePlusInvestigation/tracks-v1a1/mono.m3u8?token=T1BrVVhvQ3N5Yk5BRm9MYlA0UjRLbFlVTDBORzZsWGdEd05VVzRncQ%3D%3D">
+  <div class="channel" data-type="hls" data-url="https://v2.thetvapp.to/hls/CrimePlusInvestigation/tracks-v1a1/mono.m3u8?token=
+https://v7.thetvapp.to/hls/TBSEast/tracks-v1a1/mono.m3u8?token=ZTExN3JTVlN2MEdxcWl6WVhzN1dPam1ueHp1TXlZM3hZRTEyS05ZaA%3D%3D">
     <img src="https://www.crimeandinvestigation.co.uk/themes/custom/crimeandinvestigation/images/social-cards/ci-homepage.jpg" alt="Channel 146">
     <p>Crime And Investigation HD</p>
   </div>
-  <div class="channel" data-type="hls" data-url="https://v8.thetvapp.to/hls/ESPN2/tracks-v1a1/mono.m3u8?token=T1BrVVhvQ3N5Yk5BRm9MYlA0UjRLbFlVTDBORzZsWGdEd05VVzRncQ%3D%3D">
+  <div class="channel" data-type="hls" data-url="https://v8.thetvapp.to/hls/ESPN2/tracks-v1a1/mono.m3u8?token=
+https://v7.thetvapp.to/hls/TBSEast/tracks-v1a1/mono.m3u8?token=ZTExN3JTVlN2MEdxcWl6WVhzN1dPam1ueHp1TXlZM3hZRTEyS05ZaA%3D%3D">
     <img src="https://www.logolynx.com/images/logolynx/3c/3c287305599f6b82c6313e33f2a2fe23.png" alt="Channel 147">
     <p>ESPN 2 HD</p>
   </div>
-  <div class="channel" data-type="hls" data-url="https://v9.thetvapp.to/hls/FreeformEast/tracks-v1a1/mono.m3u8?token=T1BrVVhvQ3N5Yk5BRm9MYlA0UjRLbFlVTDBORzZsWGdEd05VVzRncQ%3D%3D">
+  <div class="channel" data-type="hls" data-url="https://v9.thetvapp.to/hls/FreeformEast/tracks-v1a1/mono.m3u8?token=
+https://v7.thetvapp.to/hls/TBSEast/tracks-v1a1/mono.m3u8?token=ZTExN3JTVlN2MEdxcWl6WVhzN1dPam1ueHp1TXlZM3hZRTEyS05ZaA%3D%3D">
     <img src="https://tse1.mm.bing.net/th?id=OIP.zh1eD7EYr__EtJPDiLeIjgHaIH&pid=Api&P=0&h=180" alt="Channel 148">
     <p>Freeform Movie HD</p>
   </div>
-  <div class="channel" data-type="hls" data-url=" https://v6.thetvapp.to/hls/FXEast/tracks-v1a1/mono.m3u8?token=T1BrVVhvQ3N5Yk5BRm9MYlA0UjRLbFlVTDBORzZsWGdEd05VVzRncQ%3D%3D">
+  <div class="channel" data-type="hls" data-url=" https://v6.thetvapp.to/hls/FXEast/tracks-v1a1/mono.m3u8?token=
+https://v7.thetvapp.to/hls/TBSEast/tracks-v1a1/mono.m3u8?token=ZTExN3JTVlN2MEdxcWl6WVhzN1dPam1ueHp1TXlZM3hZRTEyS05ZaA%3D%3D">
     <img src="https://tse1.mm.bing.net/th?id=OIP.Q_AHZq5MpitvXredrT4RtAHaEK&pid=Api&P=0&h=180" alt="Channel 149">
     <p>FX Movie HD</p>
   </div>
-  <div class="channel" data-type="hls" data-url="https://v11.thetvapp.to/hls/FXXEast/tracks-v1a1/mono.m3u8?token=T1BrVVhvQ3N5Yk5BRm9MYlA0UjRLbFlVTDBORzZsWGdEd05VVzRncQ%3D%3D">
+  <div class="channel" data-type="hls" data-url="https://v11.thetvapp.to/hls/FXXEast/tracks-v1a1/mono.m3u8?token=
+https://v7.thetvapp.to/hls/TBSEast/tracks-v1a1/mono.m3u8?token=ZTExN3JTVlN2MEdxcWl6WVhzN1dPam1ueHp1TXlZM3hZRTEyS05ZaA%3D%3D">
     <img src="https://tse4.mm.bing.net/th?id=OIP.kxXe6E2DGfaa2Dlof2A5RwHaEK&pid=Api&P=0&h=180" alt="Channel 150">
     <p>FXX Cartoon</p>
   </div>
-  <div class="channel" data-type="hls" data-url="https://v14.thetvapp.to/hls/HBO2East/tracks-v1a1/mono.m3u8?token=T1BrVVhvQ3N5Yk5BRm9MYlA0UjRLbFlVTDBORzZsWGdEd05VVzRncQ%3D%3D">
+  <div class="channel" data-type="hls" data-url="https://v14.thetvapp.to/hls/HBO2East/tracks-v1a1/mono.m3u8?token=
+https://v7.thetvapp.to/hls/TBSEast/tracks-v1a1/mono.m3u8?token=ZTExN3JTVlN2MEdxcWl6WVhzN1dPam1ueHp1TXlZM3hZRTEyS05ZaA%3D%3D">
     <img src="https://tse2.mm.bing.net/th?id=OIP.FVGhK_sT007WnKvlllaUKgAAAA&pid=Api&P=0&h=180" alt="Channel 151">
     <p>HBO 2 East HD</p>
   </div>
-  <div class="channel" data-type="hls" data-url="https://v10.thetvapp.to/hls/HBOComedyEast/tracks-v1a1/mono.m3u8?token=T1BrVVhvQ3N5Yk5BRm9MYlA0UjRLbFlVTDBORzZsWGdEd05VVzRncQ%3D%3D">
+  <div class="channel" data-type="hls" data-url="https://v10.thetvapp.to/hls/HBOComedyEast/tracks-v1a1/mono.m3u8?token=
+https://v7.thetvapp.to/hls/TBSEast/tracks-v1a1/mono.m3u8?token=ZTExN3JTVlN2MEdxcWl6WVhzN1dPam1ueHp1TXlZM3hZRTEyS05ZaA%3D%3D">
     <img src="https://tse3.mm.bing.net/th?id=OIP.FE0G5rapNE2KaWuulJSdDQHaCv&pid=Api&P=0&h=180" alt="Channel 152">
     <p>HBO Comedy HD</p>
   </div>
-  <div class="channel" data-type="hls" data-url="https://v8.thetvapp.to/hls/HBOEast/tracks-v1a1/mono.m3u8?token=T1BrVVhvQ3N5Yk5BRm9MYlA0UjRLbFlVTDBORzZsWGdEd05VVzRncQ%3D%3D">
+  <div class="channel" data-type="hls" data-url="https://v8.thetvapp.to/hls/HBOEast/tracks-v1a1/mono.m3u8?token=
+https://v7.thetvapp.to/hls/TBSEast/tracks-v1a1/mono.m3u8?token=ZTExN3JTVlN2MEdxcWl6WVhzN1dPam1ueHp1TXlZM3hZRTEyS05ZaA%3D%3D">
     <img src="https://tse4.mm.bing.net/th?id=OIP.9WxLuQPhH2Qm-gCaRckdHgAAAA&pid=Api&P=0&h=180" alt="Channel 153">
     <p>HBO East HD</p>
   </div>
-  <div class="channel" data-type="hls" data-url="https://v7.thetvapp.to/hls/HBOFamilyEast/tracks-v1a1/mono.m3u8?token=T1BrVVhvQ3N5Yk5BRm9MYlA0UjRLbFlVTDBORzZsWGdEd05VVzRncQ%3D%3D">
+  <div class="channel" data-type="hls" data-url="https://v7.thetvapp.to/hls/HBOFamilyEast/tracks-v1a1/mono.m3u8?token=
+https://v7.thetvapp.to/hls/TBSEast/tracks-v1a1/mono.m3u8?token=ZTExN3JTVlN2MEdxcWl6WVhzN1dPam1ueHp1TXlZM3hZRTEyS05ZaA%3D%3D">
     <img src="https://tse2.mm.bing.net/th?id=OIP.UxJaKGDZAOiOCLrfqRk-8gHaHa&pid=Api&P=0&h=180" alt="Channel 154">
     <p>HBO Family East HD</p>
   </div>
-  <div class="channel" data-type="hls" data-url="https://v16.thetvapp.to/hls/HBOSignatureEast/tracks-v1a1/mono.m3u8?token=T1BrVVhvQ3N5Yk5BRm9MYlA0UjRLbFlVTDBORzZsWGdEd05VVzRncQ%3D%3D">
+  <div class="channel" data-type="hls" data-url="https://v16.thetvapp.to/hls/HBOSignatureEast/tracks-v1a1/mono.m3u8?token=
+https://v4.thetvapp.to/hls/TBSEast/tracks-v1a1/mono.m3u8?token=ZTExN3JTVlN2MEdxcWl6WVhzN1dPam1ueHp1TXlZM3hZRTEyS05ZaA%3D%3D">
     <img src="https://tse2.mm.bing.net/th?id=OIP.AZNcjC7wAn2nM5arKov_TQAAAA&pid=Api&P=0&h=180" alt="Channel 155">
     <p>HBO Signature HD</p>
   </div>
-  <div class="channel" data-type="hls" data-url="https://v16.thetvapp.to/hls/HBOZoneEast/tracks-v1a1/mono.m3u8?token=T1BrVVhvQ3N5Yk5BRm9MYlA0UjRLbFlVTDBORzZsWGdEd05VVzRncQ%3D%3D">
+  <div class="channel" data-type="hls" data-url="https://v4.thetvapp.to/hls/HBOZoneEast/tracks-v1a1/mono.m3u8?token=ZTExN3JTVlN2MEdxcWl6WVhzN1dPam1ueHp1TXlZM3hZRTEyS05ZaA%3D%3D">
     <img src="https://tse4.mm.bing.net/th?id=OIP.TE8wklvL9UOJR5l8VdGowAAAAA&pid=Api&P=0&h=180" alt="Channel 156">
     <p>HBO Zone HD</p>
   </div>
-  <div class="channel" data-type="hls" data-url="https://v5.thetvapp.to/hls/metv-toons/tracks-v1a1/mono.m3u8?token=T1BrVVhvQ3N5Yk5BRm9MYlA0UjRLbFlVTDBORzZsWGdEd05VVzRncQ%3D%3D">
+  <div class="channel" data-type="hls" data-url="https://v5.thetvapp.to/hls/metv-toons/tracks-v1a1/mono.m3u8?token=
+https://v7.thetvapp.to/hls/TBSEast/tracks-v1a1/mono.m3u8?token=ZTExN3JTVlN2MEdxcWl6WVhzN1dPam1ueHp1TXlZM3hZRTEyS05ZaA%3D%3D">
     <img src="https://tse3.mm.bing.net/th?id=OIP.JgkCKN9t6vamNU6JNheLKAHaEK&pid=Api&P=0&h=180" alt="Channel 157">
     <p>Me Tv Toons HD</p>
   </div>
-  <div class="channel" data-type="hls" data-url="https://v13.thetvapp.to/hls/MoreMaxEast/tracks-v1a1/mono.m3u8?token=T1BrVVhvQ3N5Yk5BRm9MYlA0UjRLbFlVTDBORzZsWGdEd05VVzRncQ%3D%3D">
+  <div class="channel" data-type="hls" data-url="https://v13.thetvapp.to/hls/MoreMaxEast/tracks-v1a1/mono.m3u8?token=
+https://v7.thetvapp.to/hls/TBSEast/tracks-v1a1/mono.m3u8?token=ZTExN3JTVlN2MEdxcWl6WVhzN1dPam1ueHp1TXlZM3hZRTEyS05ZaA%3D%3D">
     <img src="https://logodix.com/logo/1987663.png" alt="Channel 158">
     <p>More Max Movie HD</p>
   </div>
-  <div class="channel" data-type="hls" data-url="https://v7.thetvapp.to/hls/NationalGeographicWildEast/tracks-v1a1/mono.m3u8?token=T1BrVVhvQ3N5Yk5BRm9MYlA0UjRLbFlVTDBORzZsWGdEd05VVzRncQ%3D%3D">
+  <div class="channel" data-type="hls" data-url="https://v7.thetvapp.to/hls/NationalGeographicWildEast/tracks-v1a1/mono.m3u8?token=
+https://v7.thetvapp.to/hls/TBSEast/tracks-v1a1/mono.m3u8?token=ZTExN3JTVlN2MEdxcWl6WVhzN1dPam1ueHp1TXlZM3hZRTEyS05ZaA%3D%3D">
     <img src="http://www.ranklogos.com/wp-content/uploads/2014/12/Nat-Geo-Wild-HD.png" alt="Channel 159">
     <p>NAT GEO Wild HD</p>
   </div>
-  <div class="channel" data-type="hls" data-url="https://v16.thetvapp.to/hls/NationalGeographicEast/tracks-v1a1/mono.m3u8?token=T1BrVVhvQ3N5Yk5BRm9MYlA0UjRLbFlVTDBORzZsWGdEd05VVzRncQ%3D%3D">
+  <div class="channel" data-type="hls" data-url="https://v16.thetvapp.to/hls/NationalGeographicEast/tracks-v1a1/mono.m3u8?token=
+https://v7.thetvapp.to/hls/TBSEast/tracks-v1a1/mono.m3u8?token=ZTExN3JTVlN2MEdxcWl6WVhzN1dPam1ueHp1TXlZM3hZRTEyS05ZaA%3D%3D">
     <img src="https://wallpapercave.com/wp/wp8223158.jpg" alt="Channel 160">
     <p>National Geographic HD</p>
   </div>
-  <div class="channel" data-type="hls" data-url="https://v7.thetvapp.to/hls/NBATV/tracks-v1a1/mono.m3u8?token=T1BrVVhvQ3N5Yk5BRm9MYlA0UjRLbFlVTDBORzZsWGdEd05VVzRncQ%3D%3D">
+  <div class="channel" data-type="hls" data-url="https://v7.thetvapp.to/hls/NBATV/tracks-v1a1/mono.m3u8?token=
+https://v7.thetvapp.to/hls/TBSEast/tracks-v1a1/mono.m3u8?token=ZTExN3JTVlN2MEdxcWl6WVhzN1dPam1ueHp1TXlZM3hZRTEyS05ZaA%3D%3D">
     <img src="https://tse3.mm.bing.net/th?id=OIP.Sl8BjoR3a6kUYloXkeqZVwHaE4&pid=Api&P=0&h=180" alt="Channel 161">
     <p>N B A TV HD</p>
   </div>
-  <div class="channel" data-type="hls" data-url="https://v9.thetvapp.to/hls/NickelodeonEast/tracks-v1a1/mono.m3u8?token=T1BrVVhvQ3N5Yk5BRm9MYlA0UjRLbFlVTDBORzZsWGdEd05VVzRncQ%3D%3D">
+  <div class="channel" data-type="hls" data-url="https://v9.thetvapp.to/hls/NickelodeonEast/tracks-v1a1/mono.m3u8?token=
+https://v7.thetvapp.to/hls/TBSEast/tracks-v1a1/mono.m3u8?token=ZTExN3JTVlN2MEdxcWl6WVhzN1dPam1ueHp1TXlZM3hZRTEyS05ZaA%3D%3D">
     <img src="https://tse4.mm.bing.net/th?id=OIP.A9fverYL4zs7P7u2pLNyRAHaFj&pid=Api&P=0&h=180" alt="Channel 162">
     <p>Nickelodeon East HD</p>
   </div>
-  <div class="channel" data-type="hls" data-url="https://v14.thetvapp.to/hls/NicktoonsEast/tracks-v1a1/mono.m3u8?token=T1BrVVhvQ3N5Yk5BRm9MYlA0UjRLbFlVTDBORzZsWGdEd05VVzRncQ%3D%3D">
+  <div class="channel" data-type="hls" data-url="https://v14.thetvapp.to/hls/NicktoonsEast/tracks-v1a1/mono.m3u8?token=
+https://v7.thetvapp.to/hls/TBSEast/tracks-v1a1/mono.m3u8?token=ZTExN3JTVlN2MEdxcWl6WVhzN1dPam1ueHp1TXlZM3hZRTEyS05ZaA%3D%3D">
     <img src="https://tse2.mm.bing.net/th?id=OIP.R0KORUrfm0OEB6Pk7wYhmAHaFj&pid=Api&P=0&h=180" alt="Channel 163">
     <p>NICKTOONS HD</p>
   </div>
-  <div class="channel" data-type="hls" data-url="https://v10.thetvapp.to/hls/Science/tracks-v1a1/mono.m3u8?token=T1BrVVhvQ3N5Yk5BRm9MYlA0UjRLbFlVTDBORzZsWGdEd05VVzRncQ%3D%3D">
+  <div class="channel" data-type="hls" data-url="https://v10.thetvapp.to/hls/Science/tracks-v1a1/mono.m3u8?token=
+https://v7.thetvapp.to/hls/TBSEast/tracks-v1a1/mono.m3u8?token=ZTExN3JTVlN2MEdxcWl6WVhzN1dPam1ueHp1TXlZM3hZRTEyS05ZaA%3D%3D">
     <img src="https://i.ytimg.com/vi/joGXG5IGnXg/maxresdefault.jpg" alt="Channel 164">
     <p>Discovery Science</p>
   </div>
-  <div class="channel" data-type="hls" data-url="https://v3.thetvapp.to/hls/ShowtimeEast/tracks-v1a1/mono.m3u8?token=T1BrVVhvQ3N5Yk5BRm9MYlA0UjRLbFlVTDBORzZsWGdEd05VVzRncQ%3D%3D">
+  <div class="channel" data-type="hls" data-url="https://v3.thetvapp.to/hls/ShowtimeEast/tracks-v1a1/mono.m3u8?token=
+https://v7.thetvapp.to/hls/TBSEast/tracks-v1a1/mono.m3u8?token=ZTExN3JTVlN2MEdxcWl6WVhzN1dPam1ueHp1TXlZM3hZRTEyS05ZaA%3D%3D">
     <img src="https://vignette4.wikia.nocookie.net/logopedia/images/1/1e/Showtime_HD.svg/revision/latest?cb=20141031203917" alt="Channel 165">
     <p>ShowTime Movie HD</p>
   </div>
-  <div class="channel" data-type="hls" data-url="https://v9.thetvapp.to/hls/Showtime2East/tracks-v1a1/mono.m3u8?token=T1BrVVhvQ3N5Yk5BRm9MYlA0UjRLbFlVTDBORzZsWGdEd05VVzRncQ%3D%3D">
+  <div class="channel" data-type="hls" data-url="https://v9.thetvapp.to/hls/Showtime2East/tracks-v1a1/mono.m3u8?token=
+https://v7.thetvapp.to/hls/TBSEast/tracks-v1a1/mono.m3u8?token=ZTExN3JTVlN2MEdxcWl6WVhzN1dPam1ueHp1TXlZM3hZRTEyS05ZaA%3D%3D">
     <img src="https://tse3.mm.bing.net/th?id=OIP.m-PWSv3ygblxtn3LkdE4rAHaCU&pid=Api&P=0&h=180" alt="Channel 166">
     <p>ShowTime Movie 2 HD</p>
   </div>
-  <div class="channel" data-type="hls" data-url="https://v3.thetvapp.to/hls/StarzEast/tracks-v1a1/mono.m3u8?token=T1BrVVhvQ3N5Yk5BRm9MYlA0UjRLbFlVTDBORzZsWGdEd05VVzRncQ%3D%3D">
+  <div class="channel" data-type="hls" data-url="https://v3.thetvapp.to/hls/StarzEast/tracks-v1a1/mono.m3u8?token=
+https://v7.thetvapp.to/hls/TBSEast/tracks-v1a1/mono.m3u8?token=ZTExN3JTVlN2MEdxcWl6WVhzN1dPam1ueHp1TXlZM3hZRTEyS05ZaA%3D%3D">
     <img src="https://tse2.mm.bing.net/th?id=OIP.DgHNFuZjZxB0o6lcMPaPBgHaFu&pid=Api&P=0&h=180" alt="Channel 167">
     <p>Starz East Movie HD</p>
   </div>
-  <div class="channel" data-type="hls" data-url="https://v9.thetvapp.to/hls/SyfyEast/tracks-v1a1/mono.m3u8?token=T1BrVVhvQ3N5Yk5BRm9MYlA0UjRLbFlVTDBORzZsWGdEd05VVzRncQ%3D%3D">
+  <div class="channel" data-type="hls" data-url="https://v9.thetvapp.to/hls/SyfyEast/tracks-v1a1/mono.m3u8?token=
+https://v7.thetvapp.to/hls/TBSEast/tracks-v1a1/mono.m3u8?token=ZTExN3JTVlN2MEdxcWl6WVhzN1dPam1ueHp1TXlZM3hZRTEyS05ZaA%3D%3D">
     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Syfy-HD-Logo.svg/1280px-Syfy-HD-Logo.svg.png" alt="Channel 168">
     <p>SYFY Movies HD</p>
   </div>
-  <div class="channel" data-type="hls" data-url="https://v13.thetvapp.to/hls/TBSEast/tracks-v1a1/mono.m3u8?token=T1BrVVhvQ3N5Yk5BRm9MYlA0UjRLbFlVTDBORzZsWGdEd05VVzRncQ%3D%3D">
+  <div class="channel" data-type="hls" data-url="https://v13.thetvapp.to/hls/TBSEast/tracks-v1a1/mono.m3u8?token=
+https://v7.thetvapp.to/hls/TBSEast/tracks-v1a1/mono.m3u8?token=ZTExN3JTVlN2MEdxcWl6WVhzN1dPam1ueHp1TXlZM3hZRTEyS05ZaA%3D%3D">
     <img src="https://tse3.mm.bing.net/th?id=OIP.Vl49Irxfvf8GKuYprY0c5QHaHa&pid=Api&P=0&h=180" alt="Channel 169">
     <p>TBS Comedy TV</p>
   </div>
-  <div class="channel" data-type="hls" data-url="https://v11.thetvapp.to/hls/TNTEast/tracks-v1a1/mono.m3u8?token=T1BrVVhvQ3N5Yk5BRm9MYlA0UjRLbFlVTDBORzZsWGdEd05VVzRncQ%3D%3D">
+  <div class="channel" data-type="hls" data-url="https://v11.thetvapp.to/hls/TNTEast/tracks-v1a1/mono.m3u8?token=
+https://v7.thetvapp.to/hls/TBSEast/tracks-v1a1/mono.m3u8?token=ZTExN3JTVlN2MEdxcWl6WVhzN1dPam1ueHp1TXlZM3hZRTEyS05ZaA%3D%3D">
     <img src="http://vignette2.wikia.nocookie.net/logosfake/images/3/3b/TNT_HD.png/revision/latest?cb=20140407183245" alt="Channel 170">
     <p>T N T HD</p>
   </div>
-  <div class="channel" data-type="hls" data-url="https://v9.thetvapp.to/hls/truTVEast/tracks-v1a1/mono.m3u8?token=T1BrVVhvQ3N5Yk5BRm9MYlA0UjRLbFlVTDBORzZsWGdEd05VVzRncQ%3D%3D">
+  <div class="channel" data-type="hls" data-url="https://v9.thetvapp.to/hls/truTVEast/tracks-v1a1/mono.m3u8?token=
+https://v7.thetvapp.to/hls/TBSEast/tracks-v1a1/mono.m3u8?token=ZTExN3JTVlN2MEdxcWl6WVhzN1dPam1ueHp1TXlZM3hZRTEyS05ZaA%3D%3D">
     <img src="https://tse4.mm.bing.net/th?id=OIP.uy26dq24bzY1Y65cpW5KJQHaFj&pid=Api&P=0&h=180" alt="Channel 171">
     <p>Tru TV HD</p>
   </div>
-  <div class="channel" data-type="hls" data-url="https://v9.thetvapp.to/hls/USANetworkEast/tracks-v1a1/mono.m3u8?token=T1BrVVhvQ3N5Yk5BRm9MYlA0UjRLbFlVTDBORzZsWGdEd05VVzRncQ%3D%3D">
+  <div class="channel" data-type="hls" data-url="https://v9.thetvapp.to/hls/USANetworkEast/tracks-v1a1/mono.m3u8?token=
+https://v7.thetvapp.to/hls/TBSEast/tracks-v1a1/mono.m3u8?token=ZTExN3JTVlN2MEdxcWl6WVhzN1dPam1ueHp1TXlZM3hZRTEyS05ZaA%3D%3D">
     <img src="https://tse2.mm.bing.net/th?id=OIP.eWhwGYZ4OwFGbeAurY6PCwHaEK&pid=Api&P=0&h=180" alt="Channel 172">
     <p>USA Network</p>
   </div>
-  <div class="channel" data-type="hls" data-url="https://v12.thetvapp.to/hls/UniversalKidsEast/tracks-v1a1/mono.m3u8?token=T1BrVVhvQ3N5Yk5BRm9MYlA0UjRLbFlVTDBORzZsWGdEd05VVzRncQ%3D%3D">
+  <div class="channel" data-type="hls" data-url="https://v12.thetvapp.to/hls/UniversalKidsEast/tracks-v1a1/mono.m3u8?token=
+https://v7.thetvapp.to/hls/TBSEast/tracks-v1a1/mono.m3u8?token=ZTExN3JTVlN2MEdxcWl6WVhzN1dPam1ueHp1TXlZM3hZRTEyS05ZaA%3D%3D">
     <img src="https://tse4.mm.bing.net/th?id=OIP.ER9AxkIygHWbg97roMZinAHaE8&pid=Api&P=0&h=180" alt="Channel 173">
     <p>Universal Kids</p>
   </div>
-  <div class="channel" data-type="hls" data-url="https://v9.thetvapp.to/hls/WeTVEast/tracks-v1a1/mono.m3u8?token=T1BrVVhvQ3N5Yk5BRm9MYlA0UjRLbFlVTDBORzZsWGdEd05VVzRncQ%3D%3D">
+  <div class="channel" data-type="hls" data-url="https://v9.thetvapp.to/hls/WeTVEast/tracks-v1a1/mono.m3u8?token=
+https://v7.thetvapp.to/hls/TBSEast/tracks-v1a1/mono.m3u8?token=ZTExN3JTVlN2MEdxcWl6WVhzN1dPam1ueHp1TXlZM3hZRTEyS05ZaA%3D%3D">
     <img src="https://tse2.mm.bing.net/th?id=OIP.W10e3PtuJ0jjaPOx8QjDcAHaD4&pid=Api&P=0&h=180" alt="Channel 174">
     <p>We TV</p>
   </div>
-  <div class="channel" data-type="hls" data-url="https://v2.thetvapp.to/hls/AEEast/tracks-v2a1/mono.m3u8?token=T1BrVVhvQ3N5Yk5BRm9MYlA0UjRLbFlVTDBORzZsWGdEd05VVzRncQ%3D%3D">
+  <div class="channel" data-type="hls" data-url="https://v2.thetvapp.to/hls/AEEast/tracks-v2a1/mono.m3u8?token=
+https://v7.thetvapp.to/hls/TBSEast/tracks-v1a1/mono.m3u8?token=ZTExN3JTVlN2MEdxcWl6WVhzN1dPam1ueHp1TXlZM3hZRTEyS05ZaA%3D%3D">
     <img src="https://tse3.mm.bing.net/th?id=OIP.xVBWkTLwXLd9Q7cOSy5xXwHaHa&pid=Api&P=0&h=180" alt="Channel 175">
     <p>A and E TV</p>
   </div>
-  <div class="channel" data-type="hls" data-url="https://v11.thetvapp.to/hls/AMCEast/tracks-v1a1/mono.m3u8?token=T1BrVVhvQ3N5Yk5BRm9MYlA0UjRLbFlVTDBORzZsWGdEd05VVzRncQ%3D%3D">
+  <div class="channel" data-type="hls" data-url="https://v11.thetvapp.to/hls/AMCEast/tracks-v1a1/mono.m3u8?token=
+https://v7.thetvapp.to/hls/TBSEast/tracks-v1a1/mono.m3u8?token=ZTExN3JTVlN2MEdxcWl6WVhzN1dPam1ueHp1TXlZM3hZRTEyS05ZaA%3D%3D">
     <img src="https://tse4.mm.bing.net/th?id=OIP.Tj5PLl89W87h565p5YalKwHaEJ&pid=Api&P=0&h=180" alt="Channel 176">
     <p>AMC Movies</p>
   </div>
-  <div class="channel" data-type="hls" data-url="https://v15.thetvapp.to/hls/ComedyCentralEast/tracks-v1a1/mono.m3u8?token=T1BrVVhvQ3N5Yk5BRm9MYlA0UjRLbFlVTDBORzZsWGdEd05VVzRncQ%3D%3D">
+  <div class="channel" data-type="hls" data-url="https://v15.thetvapp.to/hls/ComedyCentralEast/tracks-v1a1/mono.m3u8?token=
+https://v7.thetvapp.to/hls/TBSEast/tracks-v1a1/mono.m3u8?token=ZTExN3JTVlN2MEdxcWl6WVhzN1dPam1ueHp1TXlZM3hZRTEyS05ZaA%3D%3D">
     <img src="https://tse4.mm.bing.net/th?id=OIP.zo8EPrw6NQ7YREQ_118oQAHaEK&pid=Api&P=0&h=180" alt="Channel 177">
     <p>Comedy Central</p>
   </div>
-  <div class="channel" data-type="hls" data-url="https://v13.thetvapp.to/hls/MovieMaxEast/tracks-v1a1/mono.m3u8?token=T1BrVVhvQ3N5Yk5BRm9MYlA0UjRLbFlVTDBORzZsWGdEd05VVzRncQ%3D%3D">
+  <div class="channel" data-type="hls" data-url="https://v13.thetvapp.to/hls/MovieMaxEast/tracks-v1a1/mono.m3u8?token=
+https://v7.thetvapp.to/hls/TBSEast/tracks-v1a1/mono.m3u8?token=ZTExN3JTVlN2MEdxcWl6WVhzN1dPam1ueHp1TXlZM3hZRTEyS05ZaA%3D%3D">
     <img src="https://yt3.ggpht.com/a/AATXAJxccedx17IvNabqa3lM0g6yb9JTYHTlOj92=s900-c-k-c0xffffffff-no-rj-mo" alt="Channel 178">
     <p>MovieMax</p>
   </div>
-  <div class="channel" data-type="hls" data-url="https://v3.thetvapp.to/hls/CookingChannel/tracks-v1a1/mono.m3u8?token=T1BrVVhvQ3N5Yk5BRm9MYlA0UjRLbFlVTDBORzZsWGdEd05VVzRncQ%3D%3D">
+  <div class="channel" data-type="hls" data-url="https://v3.thetvapp.to/hls/CookingChannel/tracks-v1a1/mono.m3u8?token=
+https://v7.thetvapp.to/hls/TBSEast/tracks-v1a1/mono.m3u8?token=ZTExN3JTVlN2MEdxcWl6WVhzN1dPam1ueHp1TXlZM3hZRTEyS05ZaA%3D%3D">
     <img src="https://tse3.mm.bing.net/th?id=OIP.tH14T6BJi7q2Cj2L-bKhUQHaEK&pid=Api&P=0&h=180" alt="Channel 179">
     <p>A and E TV</p>
   </div>
-  <div class="channel" data-type="hls" data-url="https://v15.thetvapp.to/hls/InvestigationDiscoveryEast/tracks-v1a1/mono.m3u8?token=T1BrVVhvQ3N5Yk5BRm9MYlA0UjRLbFlVTDBORzZsWGdEd05VVzRncQ%3D%3D">
+  <div class="channel" data-type="hls" data-url="https://v15.thetvapp.to/hls/InvestigationDiscoveryEast/tracks-v1a1/mono.m3u8?token=
+https://v7.thetvapp.to/hls/TBSEast/tracks-v1a1/mono.m3u8?token=ZTExN3JTVlN2MEdxcWl6WVhzN1dPam1ueHp1TXlZM3hZRTEyS05ZaA%3D%3D">
     <img src="https://tse1.mm.bing.net/th?id=OIP.USO7dcIro7XgAMZVXBpuigHaEJ&pid=Api&P=0&h=180" alt="Channel 180">
     <p>Investigation Discovery</p>
   </div>
