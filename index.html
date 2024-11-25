@@ -292,8 +292,9 @@
     #close-player {
       position: absolute;
       width: 50px;
-      top: 60px;
-      left: 1170px;
+      top: 50px;
+      left: auto;
+      right: auto;
       font-size: 24px;
       color: rgb(84, 255, 5);
       cursor: pointer;
@@ -1448,14 +1449,18 @@ https://v7.thetvapp.to/hls/TBSEast/tracks-v1a1/mono.m3u8?token=ZTExN3JTVlN2MEdxc
       videoPlayer.load();
       videoPlayer.play();
     });
-  });
+ 
+});
 
   // Close the player popup
   closePlayerButton.addEventListener('click', () => {
     playerContainer.style.display = 'none';
+    videoPlayer.load();
     videoPlayer.pause();
-  });
+  
 
+  });
+  
 </script>
 <script>
   document.addEventListener('keydown', function(event) {
@@ -1538,6 +1543,8 @@ if (typeof console != "undefined") {
       event.preventDefault();
       alert("Right-click is disabled.");
     });
+
+
 </script>
 
  
