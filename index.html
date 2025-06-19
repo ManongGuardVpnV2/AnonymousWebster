@@ -3,252 +3,149 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>Anonymous IPTV Channel</title>
-  <link href="https://vjs.zencdn.net/8.3.0/video-js.css" rel="stylesheet">
-
-
-
-
-
-
+  <title>Anonynous IPTV</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <style>
-    /* General Reset */
     body {
-        margin: -0.1rem;
-        font-family: Arial, sans-serif;
-        background: transparent;
-        color: #000000;
-        overflow-x: hidden;
-        text-align: center;
-        
+      background-color: #0f0f0f;
+      color: #044b3f;
+      font-family: 'Arial', sans-serif;
     }
-
-    /* Neon Modal Box */
-    .modal {
-        position: fixed;
-        top: 10%;
-        left: 50%;
-        transform: translate(-50%, 0);
-        width: 80%;
-        max-width: 800px;
-        background: rgba(20, 20, 20, 0.9);
-        border: 2px solid #0ff;
-        border-radius: 10px;
-        padding: 20px;
-        box-shadow: 0 0 20px #0ff, 0 0 40px #0ff, 0 0 60px #0ff;
-        display: none;
-        z-index: 1000;
-    }
-
-    .modal iframe {
-        width: 100%;
-        height: 450px;
-        border: none;
-        animation: neon-glow-hover 1.9s infinite alternate;
-    }
-
-    /* List with Neon Images */
-    .image-list {
-        display: flex;
-        justify-content: space-around;
-        margin-top: 20px;
-      
-  
-    }
-
-    .image-list img {
-        margin: 100px;
-        width: 13%;
-        height: 8%;
-        object-fit: cover;
-        border-radius: 5px;
-        cursor: pointer;
-        transition: transform 0.3s, box-shadow 0.3s;
-        box-shadow: 0 0 10px rgb(9, 9, 9), 0 0 20px rgb(242, 4, 250), 0 0 30px rgb(192, 255, 2), 0 0 40px rgb(10, 35, 35);
-        
-    }
-
-    .image-list img:hover {
-        transform: scale(1.1);
-        box-shadow: 0 0 15px #0ff;
-        animation: neon-glow-hover 0.5s infinite alternate;
-        animation: shake3856 0.3s linear infinite both;
-    }
-
-    /* Neon Button */
-    .neon-button {
-        margin-top: 10px;
-        padding: 5px 20px;
-        border: none;
-        border-radius: 5px;
-        background: #000;
-        color: #0ff;
-        font-size: 16px;
-        text-transform: uppercase;
-        cursor: pointer;
-        transition: box-shadow 0.3s, background 0.3s;
-        animation: neon-glow-hover 0.6s infinite alternate;
-        box-shadow: 0 0 10px rgb(9, 9, 9), 0 0 20px rgb(242, 4, 250), 0 0 30px rgb(192, 255, 2), 0 0 40px rgb(10, 35, 35);
-    }
-
-    .neon-button:hover {
-        background: #0ff;
-        color: #000;
-        box-shadow: 0 0 10px #0ff, 0 0 20px #0ff, 0 0 30px #0ff;
-        
-    }
-
-    /* Modal Overlay */
-    .overlay {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.8);
-        z-index: 999;
-        display: none;
-       
-    }
-
-    .overlay.active,
-    .modal.active {
-        display: block;
-      
-    }
-</style>
-</head>
-<body>
-
-<!-- Modal Box -->
-<div class="overlay" id="modalOverlay"></div>
-<div class="modal" id="videoModal">
-    <iframe id="youtubeVideo" src="" allowfullscreen allow="autoplay" accelerometer></iframe>
-    <button class="neon-button" id="closeModal">Close</button>
-</div>
-
-<!-- Image List -->
-<div class="image-list">
-    <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/01093dcf-3500-4866-b84d-fb3c90fa9cfc/dgiy8ib-cabe9b16-f3f7-41a9-85ef-ef1a12dda970.png/v1/fill/w_1189,h_672,q_70,strp/_1277_kapamilya_channel_logo_abs_cbn_black_by_mfdanhstudiosart_dgiy8ib-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NzI0IiwicGF0aCI6IlwvZlwvMDEwOTNkY2YtMzUwMC00ODY2LWI4NGQtZmIzYzkwZmE5Y2ZjXC9kZ2l5OGliLWNhYmU5YjE2LWYzZjctNDFhOS04NWVmLWVmMWExMmRkYTk3MC5wbmciLCJ3aWR0aCI6Ijw9MTI4MCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.byrGFqhAV-Rre3PGba1qkCQvjibc5R5NZH4CovUjdUo" alt="Video 1" data-video="https://www.youtube.com/embed/NZtbaaxUodQ?autoplay=1&controls=0&accelerometer=1">
-    <img src="https://pageone.zyndk8.com/wp-content/uploads/2024/07/GMA-Network-proudly-proclaims-its-unwavering-dedication-to-Filipinos-worldwide-with-the-launch-of-its-new-station-I.D.-Isa-Sa-Puso-ng-Pilipino.-scaled.jpg" alt="Video 2" data-video="https://www.youtube.com/embed/0gZS35PIrUY?autoplay=1&controls=0&accelerometer=1">
-    <img src="https://sa.kapamilya.com/absnews/abscbnnews/media/2021/news/12/12/abs-cbn-news.jpg" alt="Video 3" data-video="https://www.youtube.com/embed/_QTCRSOlItM?autoplay=1&showinfo=0&controls=0&accelerometer=1">
-</div>
-
-  <body oncontextmenu="return false">
-  <style>
-    /* Basic reset */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    /* Page container */
     body {
-      font-family: Arial, sans-serif;
-      background-color: black;
-      padding: 10px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
     }
-
-    /* Channel list container */
-    #channel-list {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 15px;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    /* Individual channel box */
-    .channel {
-      background: #2d0606;
-      border: 3px solid #ea07ff;
-      padding: 10px;
+         
+    /* Neon text effect */
+    .neon-text {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 5rem;
       text-align: center;
-      border-radius: 8px;
-      cursor: pointer;
+      text-shadow: 
+        0 0 5px rgb(255, 51, 0), 
+        0 0 10px rgb(255, 0, 128), 
+        0 0 20px #0ff, 
+        0 0 40px rgb(0, 255, 94), 
+        0 0 80px #0ff;
+      animation: neon 1.5s ease-in-out infinite;
+    }
+
+    /* Neon animation */
+    @keyframes neon {
+      0% { text-shadow: 0 0 5px #0ff, 0 0 10px #0ff, 0 0 20px #0ff; }
+      50% { text-shadow: 0 0 10px #ff0, 0 0 20px #ff0, 0 0 30px #ff0; }
+      100% { text-shadow: 0 0 5px #0ff, 0 0 10px #0ff, 0 0 20px #0ff; }
+    }
+
+    /* Playlist items with transparent box and neon border */
+    .playlist-item {
+      position: relative;
+      padding: 15px;
+      border-radius: 15px;
+      margin-bottom: 15px;
+      border: 2px solid transparent;
+      background: rgba(0, 0, 0, 0.5); /* Transparent background */
+      box-shadow: 0 0 10px rgba(72, 255, 0, 0.3);
       transition: all 0.3s ease;
-      font-family: bold;
-    
-    
+      cursor: pointer;
+      animation: pulse 1.5s infinite ease-in-out;
     }
 
-    .channel:hover {
-      border-color: #9f8484;
-      box-shadow: 0 0 10px rgb(102, 255, 0), 0 0 20px #0ff, 0 0 30px rgb(11, 11, 11), 0 0 40px rgb(10, 35, 35);
+    .playlist-item:hover {
+      border-color: #0ff;
+      transform: scale(1.05);
+      box-shadow: 0 0 20px #0ff;
     }
 
-    .channel img {
+    /* Pulse animation for playlist item */
+    @keyframes pulse {
+      0%, 100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.05);
+      }
+    }
+
+    /* Image optimization */
+    .playlist-item img {
       width: 100%;
-      height: 150px;
-      object-fit: fixed;
+      height: auto;
+      max-height: 150px;
       border-radius: 10px;
-      border: 5px solid transparent;
-      margin-bottom: 10px;
-      box-shadow: 0 0 10px rgb(9, 9, 9), 0 0 20px rgb(242, 4, 250), 0 0 30px rgb(192, 255, 2), 0 0 40px rgb(10, 35, 35);
-      
-      
+      object-fit: cover; /* Ensures images fit without distortion */
+      transition: transform 0.3s ease;
     }
-    
-    /* HLS player container */
-    #player-container {
-      display: none;
+
+    .playlist-item img:hover {
+      transform: scale(1.1);
+      animation: shake3856 0.3s linear infinite both;
+    }
+
+    /* Modal styles */
+    .modal {
       position: fixed;
       top: 0;
       left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.7);
+      right: 0;
+      bottom: 0;
+      display: flex;
       justify-content: center;
       align-items: center;
-      z-index: 1000;
-
-
+      z-index: 50;
+      opacity: 0;
+      pointer-events: none;
+      background-color: rgba(0, 0, 0, 0.8);
+      transition: opacity 0.5s ease, transform 0.5s ease;
     }
 
+    .modal.open {
+      opacity: 1;
+      pointer-events: auto;
+      transform: scale(1);
+    }
 
+    .modal-content {
+      background-color: #000;
+      border-radius: 10px;
+      padding: 20px;
+      max-width: 95%;
+      margin: auto;
+      box-shadow: 0 0 30px rgba(0, 255, 255, 0.5);
+      animation: modalFadeIn 0.5s ease-in-out;
+      animation: neon-glow-hover 1.9s infinite alternate;
+    }
 
-  .channel p {
-  font-size: 1.1rem;
-  padding: auto;
-  border: none;
-  outline: none;
-  border-radius: 0.4rem;
-  cursor: pointer;
-  text-transform: uppercase;
-  background-color: rgb(14, 14, 26);
-  color: rgb(234, 234, 234);
-  font-weight: 700;
-  transition: 0.6s;
-  box-shadow: 0px 0px 60px #1f4c65;
-  -webkit-box-reflect: below 10px linear-gradient(to bottom, rgba(0,0,0,0.0), rgba(0,0,0,0.4));
+    @keyframes modalFadeIn {
+      0% { opacity: 0; transform: scale(0.1); }
+      100% { opacity: 1; transform: scale(1); }
+    }
+
+@keyframes neon-glow {
+  0% {
+    box-shadow: 0 0 20px #00ff3c, 0 0 10px #ff00ff, 0 0 15px #ff0000;
+  }
+  70% {
+    box-shadow: 0 0 30px #000000, 0 0 40px #ff0000, 0 0 30px #f200ff;
+  }
+  100% {
+    box-shadow: 0 0 30px #ff00ff, 0 0 30px #ffaa00, 0 0 40px #ff00ff;
+  }
 }
+@keyframes neon-glow-hover {
+  0% {
+    box-shadow: 0 0 40px #00e5ff, 0 0 20px #af02ff, 0 0 40px #ff00ff;
+  }
+  70% {
+    box-shadow: 0 0 30px #000000, 0 0 40px #ff0000, 0 0 15px #0051ff;
+  }
+  100% {
+    box-shadow: 0 0 50px #ff0000, 0 0 30px #ffff00, 0 0 20px #00ff3c;
+  }
 
-.channel p:active {
-  scale: 0.99;
-}
-
-.channel p:hover {
-  background: rgb(2,29,78);
-  background: linear-gradient(270deg, rgba(2, 29, 78, 0.681) 0%, rgba(31, 215, 232, 0.873) 60%);
-  color: rgb(4, 4, 38);
-}
-
-.channel img {
- height: 8em;
- width: 12em;
- border: none;
- border-radius: 1em;
- background: #016DD9;
- font-size: 1rem;
- color: #ffffff;
- font-family: inherit;
- font-weight: 500;
-}
-
-.channel img:hover {
- animation: shake3856 0.3s linear infinite both;
-}
+  }
 
 @keyframes shake3856 {
  0% {
@@ -280,1434 +177,452 @@
   -webkit-transform: translate(0);
   transform: translate(0);
  }
-}
-.close {
-  height: 55px;
-  width: 2rem;
-  background: linear-gradient(135deg, #14ffe9, #ffeb3b, #ff00e0);
-  border-radius: 20px;
-  animation: animate 1.5s linear infinite;
-  border: none;
-  cursor: pointer;
-}
-
-.close , .display, #msg {
-  transition: 0.3s;
-}
-
-.close :active .display {
-  background: rgba(255, 255, 255, 0.5);
-}
-
-.close :active .display #msg {
-  -webkit-text-fill-color: #1b1b1b;
-}
-
-.close :hover {
-  scale: 1.15;
-  animation: animate 0.7s linear infinite;
-  transform: translateY(-15px);
-}
-
-.close  .display, .close span {
-  position: absolute;
-  top: 50%;
-  left: 90%;
-  transform: translate(-50%, -50%);
-}
-
-.close  .display {
-  z-index: 1;
-  background-color: #1b1b1b;
-  height: 42.5px;
-  width: 172.5px;
-  border-radius: 1px;
-  text-align: center;
-}
-
-.close .display #msg {
-  line-height: 42.5px;
-  font-size: 1px;
-  font-weight: 800;
-  letter-spacing: 10px;
-  background: linear-gradient(135deg, #14ffe9, #ffeb3b, #ff00e0);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-@keyframes animate {
-  100% {
-    filter: hue-rotate(360deg);
-  }
-}
-
-.close  span {
-  height: 100%;
-  width: 100%;
-  background: inherit;
-  border-radius: 25px;
-}
-
-.close  span:first-child {
-  filter: blur(15px);
-}
-
-.modal-content span:last-child {
-  filter: blur(15px);
-  transition: 0.3s;
-}
-
-.close :hover span:last-child {
-  width: 110%;
-  height: 120%;
-}
-
-
-    
-
-.channel:hover {
-  animation: neon-glow-hover 1.9s infinite alternate;
-}
-
-@keyframes neon-glow {
-  0% {
-    box-shadow: 0 0 20px #00ff3c, 0 0 10px #ff00ff, 0 0 15px #ff0000;
-  }
-  70% {
-    box-shadow: 0 0 30px #000000, 0 0 40px #ff0000, 0 0 30px #ff0000;
-  }
-  100% {
-    box-shadow: 0 0 30px #ff00ff, 0 0 30px #ff00ff, 0 0 40px #ff00ff;
-  }
-}
-
-@keyframes neon-glow-hover {
-  0% {
-    box-shadow: 0 0 40px #ff00ff, 0 0 20px #af02ff, 0 0 40px #ff00ff;
-  }
-  70% {
-    box-shadow: 0 0 30px #000000, 0 0 40px #ff0000, 0 0 15px #ff0000;
-  }
-  100% {
-    box-shadow: 0 0 50px #ff0000, 0 0 30px #ffff00, 0 0 20px #00ff3c;
-  }
 
 
 }
-    
 
-    #video-player {
+    video {
       width: 100%;
       max-width: 900px;
-      background: #000;
-      border: 2px solid #ddd;
+      height: auto;
       border-radius: 20px;
-      border-spacing: 10px;
       overflow: hidden;
       border: 8px solid transparent;
       box-shadow: 0 0 30px rgb(9, 9, 9), 0 0 20px rgb(242, 4, 250), 0 0 30px rgb(192, 255, 2), 0 0 40px rgb(10, 35, 35);
       animation: neon-glow-hover 1.9s infinite alternate;
-      
-      
-      }
-      @keyframes zoomIn {
-    from { transform: scale(0); }
-    to { transform: scale(1); }
-      
     }
-
-    /* Close button for player */
-    #close-player {
-      position: absolute;
-      width: 50px;
-      top: 60px;
-      left: auto;
-      right: 80px;
-      font-size: 24px;
-      color: rgb(84, 255, 5);
-      cursor: pointer;
-      background-color: rgba(253, 0, 0, 0.5);
-      border: none;
-      border-radius: 20%;
-      padding: 8px;
-      animation: zoomIn 0.10s ease-in-out;
-      box-shadow: 0 0 10px #0ff, 0 0 20px #0ff, 0 0 30px #0ff, 0 0 40px #0ff;
-    }
- 
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
   </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/shaka-player/4.3.5/shaka-player.compiled.js"></script>
+</head>
+<body class="p-6">
+  <h1 class="text-3xl neon-text mb-4">Anonymous IPTV</h1>
 
-  
-
-  
-
-
-<!-- Channel list -->
-<div id="channel-list">
-  <!-- Channel 1 -->
-  <div class="channel" data-type="hls" data-url="https://qp-pldt-live-grp-02-prod.akamaized.net/out/u/tv5_qp.m3u8">
-    <img src="https://th.bing.com/th/id/OIP.jRgGYhaYMCan5E3Z_guesgAAAA?rs=1&pid=ImgDetMain" alt="Channel 1">
-    <p>Tv 5</p>
+  <div class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 gap-4" id="playlist">
+    <!-- Channels will be loaded here -->
   </div>
 
-  <!-- Channel 2 -->
-  <div class="channel" data-type="hls" data-url="https://qp-pldt-live-grp-02-prod.akamaized.net/out/u/tv5_5.m3u8">
-    <img src="https://th.bing.com/th/id/OIP.MLkaaLUr_EUEhcqOU880RwHaHa?w=900&h=900&rs=1&pid=ImgDetMain" alt="Channel 2">
-    <p>A2z</p>
-    
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <div class="flex justify-between items-center mb-2">
+        <h2 class="text-xl">Now Playing</h2>
+        <button onclick="closeModal()" class="text-white">✖</button>
+      </div>
+      <video id="video" class="rounded-lg" controls autoplay></video>
+    </div>
   </div>
 
-  <!-- Add up to 50 channels here following the same structure -->
-  <!-- Example for Channel 3 -->
-  <div class="channel" data-type="hls" data-url="https://cinemo-abscbn-ono.amagi.tv/playlist.m3u8">
-    <img src="https://th.bing.com/th/id/OIP.xq3aj2Ucxa1a34og60jpwAHaHa?rs=1&pid=ImgDetMain" alt="Channel 3">
-    <p>Cinemo</p>
-  </div>
-  
-   <!-- Add up to 50 channels here following the same structure -->
-  <!-- Example for Channel 4 -->
-  <div class="channel" data-type="hls" data-url="https://cinemaone-abscbn-ono.amagi.tv/index.m3u8">
-    <img src="https://img.mytfc.com/cmsroot/abscms/media/mytfctv/channels/cinemaone/cinema-one-channel-thumbnail-348x196.jpg?ext=.jpg" alt="Channel 4">
-    <p>Cinema One</p>
-  </div>
-  
-   <!-- Add up to 50 channels here following the same structure -->
-  <!-- Example for Channel 5-->
-  <div class="channel" data-type="hls" data-url="http://jmrk.xyz:3050/live/elonza_joyner@yahoo.com/gmJ2dxUykT/558780.m3u8">
-    <img src="https://th.bing.com/th/id/OIP.YRCP4uAiqS7ZEklN7jkU-wAAAA?rs=1&pid=ImgDetMain0" alt="Channel 5">
-    <p>Buko Channel</p>
-  </div>
-  
-   <!-- Add up to 50 channels here following the same structure -->
-  <!-- Example for Channel 6 -->
-  <div class="channel" data-type="hls" data-url="http://jmrk.xyz:3050/live/elonza_joyner@yahoo.com/gmJ2dxUykT/558764.m3u8">
-    <img src="https://i.pinimg.com/originals/02/8f/b2/028fb2ab4360817776fae93b9dbc7178.jpg" alt="Channel 6">
-    <p>K PLus Channel</p>
-  </div>
-  
-   <!-- Add up to 50 channels here following the same structure -->
-  <!-- Example for Channel 7 -->
-  <div class="channel" data-type="hls" data-url="https://wildearth-adsfree-ono.amagi.tv/playlist.m3u8">
-    <img src="https://th.bing.com/th/id/OIP.H6ja8x5RqWYDG3LJZJslSgAAAA?w=329&h=333&rs=1&pid=ImgDetMain" alt="Channel 7">
-    <p>Wild Earth</p>
-  </div>
-  
-   <!-- Add up to 50 channels here following the same structure -->
-  <!-- Example for Channel 8 -->
-  <div class="channel" data-type="hls" data-url="https://kbsworld-ott.akamaized.net/hls/live/2002341/kbsworld/master.m3u88">
-    <img src="https://yt3.ggpht.com/-TlpMWJAqYHc/AAAAAAAAAAI/AAAAAAAAAAA/HYhmyrnj0SQ/s900-c-k-no/photo.jpg" alt="Channel 8">
-    <p>KBS World</p>
-  </div>
-   <!-- Add up to 50 channels here following the same structure -->
-  <!-- Example for Channel 3 -->
-  <div class="channel" data-type="hls" data-url="https://1111296894.rsc.cdn77.org/LS-ATL-56868-1/index.m3u8">
-    <img src="https://th.bing.com/th/id/OIP.c2ofhw1cod_ZSGulVaskGAAAAA?rs=1&pid=ImgDetMain" alt="Channel 9">
-    <p>Hunt Channel</p>
-  </div>
-   <!-- Add up to 50 channels here following the same structure -->
-  <!-- Example for Channel 3 -->
-  <div class="channel" data-type="hls" data-url="http://jmrk.xyz:3050/live/elonza_joyner@yahoo.com/gmJ2dxUykT/558765.m3u8">
-    <img src="https://i.ytimg.com/vi/Rq_ty1IzyFg/maxresdefault.jpg" alt="Channel 10">
-    <p>Hits HD</p>
-  </div>
-   <!-- Add up to 50 channels here following the same structure -->
-  <!-- Example for Channel 3 -->
-  <div class="channel" data-type="hls" data-url="http://jmrk.xyz:3050/live/elonza_joyner@yahoo.com/gmJ2dxUykT/558758.m3u8">
-    <img src="https://www.pldthome.com/images/default-source/cignalrevamp/OneSports.png" alt="Channel 11">
-    <p>OneSports PLus</p>
-  </div>
-   <!-- Add up to 50 channels here following the same structure -->
-  <!-- Example for Channel 3 -->
-  <div class="channel" data-type="hls" data-url="http://jmrk.xyz:3050/live/elonza_joyner@yahoo.com/gmJ2dxUykT/558744.m3u8">
-    <img src="https://yt3.ggpht.com/ytc/AKedOLR6kWPThNp6gbwNxY2IsuZxbrhGn65YLWB91TE=s900-c-k-c0x00ffffff-no-rj" alt="Channel 12">
-    <p>Rush PBA</p>
-  </div>
-   <!-- Add up to 50 channels here following the same structure -->
-  <!-- Example for Channel 3 -->
-  <div class="channel" data-type="hls" data-url="http://jmrk.xyz:3050/live/elonza_joyner@yahoo.com/gmJ2dxUykT/558755.m3u8">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/8/8c/PS_Logo_STACKED_4.png" alt="Channel 13">
-    <p>Premier Sports</p>
-  </div>
-   <!-- Add up to 50 channels here following the same structure -->
-  <!-- Example for Channel 3 -->
-  <div class="channel" data-type="hls" data-url="http://jmrk.xyz:3050/live/elonza_joyner@yahoo.com/gmJ2dxUykT/558745.m3u8">
-    <img src="https://qp-pldt-image-resizer-cloud-prod.akamaized.net/image/E55A869A-C9E1-11EC-9D64-0242AC120002/0-3x1.jpg?width=1024" alt="Channel 14">
-    <p>UAAP Varsity</p>
-  </div>
-   <!-- Add up to 50 channels here following the same structure -->
-  <!-- Example for Channel 3 -->
-  <div class="channel" data-type="hls" data-url="http://jmrk.xyz:3050/live/elonza_joyner@yahoo.com/gmJ2dxUykT/558748.m3u8">
-    <img src="https://cms.cignal.tv/Upload/Thumbnails/Tap-Action-Flix-Highlight-Thumbnail-Feb-2022.jpg" alt="Channel 15">
-    <p>Action FLix HD</p>
-  </div>
-   <!-- Add up to 50 channels here following the same structure -->
-  <!-- Example for Channel 3 -->
-  <div class="channel" data-type="hls" data-url="https://magnolia-cinelife.amagi.tv/hls/amagi_hls_data_magnoliaA-cinelife-oando/CDN/playlist.m3u8">
-    <img src="https://www.christiedigital.com/globalassets/tradeshows--events/cineeurope/2024/cinelife_black.png" alt="Channel 16">
-    <p>Cine Life</p>
-  </div>
-   <!-- Add up to 50 channels here following the same structure -->
-  <!-- Example for Channel 3 -->
-  <div class="channel" data-type="hls" data-url="http://jmrk.xyz:3050/live/elonza_joyner@yahoo.com/gmJ2dxUykT/419285.m3u8">
-    <img src="https://i.ytimg.com/vi/eu-4UwG6pyU/maxresdefault.jpg" alt="Channel 17">
-    <p>Flix Channel</p>
-  </div>
-   <!-- Add up to 50 channels here following the same structure -->
-  <!-- Example for Channel 3 -->
-  <div class="channel" data-type="hls" data-url="https://fl5.moveonjoy.com/HBO_COMEDY/tracks-v1a1/mono.m3u8">
-    <img src="https://lh3.googleusercontent.com/-37InGEYoN8I/Y4R80a34skI/AAAAAAAAAHg/kz67DIzzM-g2WJq9DwjHw7cLoX0VI9zFgCNcBGAsYHQ/w1600/HBOFamily_256.a44b97a.png" alt="Channel 18">
-    <p>HBO Family</p>
-  </div>
-   <!-- Add up to 50 channels here following the same structure -->
-  <!-- Example for Channel 3 -->
-  <div class="channel" data-type="hls" data-url="http://jmrk.xyz:3050/live/elonza_joyner@yahoo.com/gmJ2dxUykT/568124.m3u8">
-    <img src="https://netrinoimages.s3.eu-west-2.amazonaws.com/2020/10/20/766606/321616/hbo_logo_3d_model_c4d_max_obj_fbx_ma_lwo_3ds_3dm_stl_3352054_o.jpg" alt="Channel 19">
-    <p>HBO</p>
-  </div>
-   <!-- Add up to 50 channels here following the same structure -->
-  <!-- Example for Channel 3 -->
-  <div class="channel" data-type="hls" data-url="http://jmrk.xyz:3050/live/elonza_joyner@yahoo.com/gmJ2dxUykT/418058.m3u8">
-    <img src="https://logodix.com/logo/1265609.png" alt="Channel 20">
-    <p>HBO 2</p>
-  </div>
-   <!-- Add up to 50 channels here following the same structure -->
-  <!-- Example for Channel 3 -->
-  <div class="channel" data-type="hls" data-url="http://jmrk.xyz:3050/live/elonza_joyner@yahoo.com/gmJ2dxUykT/418061.m3u8">
-    <img src="https://th.bing.com/th/id/R.66964b67b7df2379f5a474e84485977b?rik=rMHG5j6HqVo2%2bA&riu=http%3a%2f%2fwww.velvet.de%2fwordpress%2fwp-content%2fuploads%2f2005%2fdesign%2fhbo_signature%2fprojekt_images%2fvelvet_HBO_10-x500.jpg&ehk=5APdRnzWm0FGhhkwsN8kwYjdejvVTiOwDW3XU7gQzx8%3d&risl=&pid=ImgRaw&r=0" alt="Channel 21">
-    <p>HBO Signature</p>
-  </div>
-   <!-- Add up to 50 channels here following the same structure -->
-  <!-- Example for Channel 3 -->
-  <div class="channel" data-type="hls" data-url="https://fl5.moveonjoy.com/HBO_ZONE/tracks-v1a1/mono.m3u8">
-    <img src="https://th.bing.com/th/id/OIP.AIfYMzaEI2U9BCx5uzcQtgAAAA?rs=1&pid=ImgDetMain" alt="Channel 22">
-    <p>HBO Zone</p>
-  </div>
-   <!-- Add up to 50 channels here following the same structure -->
-  <!-- Example for Channel 3 -->
-  <div class="channel" data-type="hls" data-url="http://jmrk.xyz:3050/live/elonza_joyner@yahoo.com/gmJ2dxUykT/567009.m3u8">
-    <img src="https://th.bing.com/th/id/OIP.hSHdrZaZhTlVGaot5Z0mygHaF7?rs=1&pid=ImgDetMain" alt="Channel 23">
-    <p>HBO Max 1</p>
-  </div>
-   <!-- Add up to 50 channels here following the same structure -->
-  <!-- Example for Channel 3 -->
-  <div class="channel" data-type="hls" data-url="http://jmrk.xyz:3050/live/elonza_joyner@yahoo.com/gmJ2dxUykT/567011.m3u8">
-    <img src="https://th.bing.com/th/id/OIP.hSHdrZaZhTlVGaot5Z0mygHaF7?rs=1&pid=ImgDetMain" alt="Channel 24">
-    <p>HBO Max 2</p>
-  </div>
-   <!-- Add up to 50 channels here following the same structure -->
-  <!-- Example for Channel 3 -->
-  <div class="channel" data-type="hls" data-url="http://jmrk.xyz:3050/live/elonza_joyner@yahoo.com/gmJ2dxUykT/567012.m3u8">
-    <img src="https://th.bing.com/th/id/OIP.hSHdrZaZhTlVGaot5Z0mygHaF7?rs=1&pid=ImgDetMain" alt="Channel 25">
-    <p>HBO Max 3</p>
-  </div>
-   <!-- Add up to 50 channels here following the same structure -->
-  <!-- Example for Channel 3 -->
-  <div class="channel" data-type="hls" data-url="http://jmrk.xyz:3050/live/elonza_joyner@yahoo.com/gmJ2dxUykT/567015.m3u8">
-    <img src="https://th.bing.com/th/id/OIP.hSHdrZaZhTlVGaot5Z0mygHaF7?rs=1&pid=ImgDetMain" alt="Channel 26">
-    <p>HBO Max 4</p>
-  </div>
-   <!-- Add up to 50 channels here following the same structure -->
-  <!-- Example for Channel 3 -->
-  <div class="channel" data-type="hls" data-url="http://jmrk.xyz:3050/live/elonza_joyner@yahoo.com/gmJ2dxUykT/567015.m3u8">
-    <img src="https://th.bing.com/th/id/OIP.hSHdrZaZhTlVGaot5Z0mygHaF7?rs=1&pid=ImgDetMain" alt="Channel 27">
-    <p>HBO Max 5</p>
-  </div>
-   <!-- Add up to 50 channels here following the same structure -->
-  <!-- Example for Channel 3 -->
-  <div class="channel" data-type="hls" data-url="http://jmrk.xyz:3050/live/elonza_joyner@yahoo.com/gmJ2dxUykT/567019.m3u8">
-    <img src="https://th.bing.com/th/id/OIP.hSHdrZaZhTlVGaot5Z0mygHaF7?rs=1&pid=ImgDetMain" alt="Channel 28">
-    <p>HBO Max 6</p>
-  </div>
-   <!-- Add up to 50 channels here following the same structure -->
-  <!-- Example for Channel 3 -->
-  <div class="channel" data-type="hls" data-url="http://jmrk.xyz:3050/live/elonza_joyner@yahoo.com/gmJ2dxUykT/567020.m3u8">
-    <img src="https://th.bing.com/th/id/OIP.hSHdrZaZhTlVGaot5Z0mygHaF7?rs=1&pid=ImgDetMain" alt="Channel 29">
-    <p>HBO Max 7</p>
-  </div>
-   <!-- Add up to 50 channels here following the same structure -->
-  <!-- Example for Channel 3 -->
-  <div class="channel" data-type="hls" data-url="https://apollo.production-public.tubi.io/live/ac-moviesphere-canada2.m3u8">
-    <img src="https://images.samsung.com/is/image/samsung/assets/br/tvs/smart-tv/channel-list/MovieSphere_1x1_Circle.png?$ORIGIN_PNG$" alt="Channel 30">
-    <p>MovieSphere Canada</p>
-  </div>
-   <!-- Add up to 50 channels here following the same structure -->
-  <!-- Example for Channel 3 -->
-  <div class="channel" data-type="hls" data-url="https://moviesphereuk-samsunguk.amagi.tv/playlist.m3u8">
-    <img src="https://theplatformtv.online/upload/images/moviesphere.jpg" alt="Channel 31">
-    <p>MovieSphere UK</p>
-  </div>
-   <!-- Add up to 50 channels here following the same structure -->
-  <!-- Example for Channel 3 -->
-  <div class="channel" data-type="hls" data-url="https://livetv-fa.tubi.video/outersphere2/playlist.m3u8">
-    <img src="https://provider-static.plex.tv/epg/cms/production/21fc5cd0-21d5-496c-8ee5-43ecf6b99f81/OuterSphere_3840X2160_Horizontal_-_Chris_Connors.jpg" alt="Channel 32">
-    <p>Outer Sphere</p>
-  </div>
-   <!-- Add up to 50 channels here following the same structure -->
-  <!-- Example for Channel 3 -->
-  <div class="channel" data-type="hls" data-url="http://jmrk.xyz:3050/live/elonza_joyner@yahoo.com/gmJ2dxUykT/417990.m3u8">
-    <img src="https://th.bing.com/th/id/OIP.pkbcDEwuHm_o_GrJQKa5LQHaEB?w=920&h=500&rs=1&pid=ImgDetMain" alt="Channel 33">
-    <p>Lifetime Movies</p>
-  </div>
-   <!-- Add up to 50 channels here following the same structure -->
-  <!-- Example for Channel 3 -->
-  <div class="channel" data-type="hls" data-url="http://jmrk.xyz:3050/live/elonza_joyner@yahoo.com/gmJ2dxUykT/418082.m3u8">
-    <img src="https://i.ytimg.com/vi/OfUY-KBvVKY/maxresdefault.jpg" alt="Channel 34">
-    <p>Cinemax MovieMax</p>
-  </div>
-   <!-- Add up to 50 channels here following the same structure -->
-  <!-- Example for Channel 3 -->
-  <div class="channel" data-type="hls" data-url="http://jmrk.xyz:3050/live/elonza_joyner@yahoo.com/gmJ2dxUykT/418105.m3u8">
-    <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/990f75eb-172d-42a8-bd8f-899ab38ba394/dgi10aq-ddb1c0d7-a8a6-4b97-9ccd-a797c7c7feba.png/v1/fill/w_1280,h_390/star_channel___1998_thrillermax_combination_by_carxl2029_dgi10aq-fullview.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MzkwIiwicGF0aCI6IlwvZlwvOTkwZjc1ZWItMTcyZC00MmE4LWJkOGYtODk5YWIzOGJhMzk0XC9kZ2kxMGFxLWRkYjFjMGQ3LWE4YTYtNGI5Ny05Y2NkLWE3OTdjN2M3ZmViYS5wbmciLCJ3aWR0aCI6Ijw9MTI4MCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.jU75kldNd8Aa-BC_U-DscQF1QFA-tJF314LTzbggNWw" alt="Channel 35">
-    <p>Cinemax Thriller</p>
-  </div>
-   <!-- Add up to 50 channels here following the same structure -->
-  <!-- Example for Channel 3 -->
-  <div class="channel" data-type="hls" data-url="https://spotlight-redbox.amagi.tv/playlist.m3u8">
-    <img src="https://gonintendo.com/system/stories/promo_images/000/293/127/original/Redbox-Logo.jpg" alt="Channel 36">
-    <p>RedBox Movies</p>
-  </div>
-   <!-- Add up to 50 channels here following the same structure -->
-  <!-- Example for Channel 3 -->
-  <div class="channel" data-type="hls" data-url="https://dplus.gammacdn.workers.dev/videos/95.m3u8">
-    <img src="https://content.osn.com/bob/745x419/DSC.jpg" alt="Channel 37">
-    <p>Discovery HD</p>
-  </div>
-   <!-- Add up to 50 channels here following the same structure -->
-  <!-- Example for Channel 3 -->
-  <div class="channel" data-type="hls" data-url="https://dplus.gammacdn.workers.dev/videos/99.m3u8">
-    <img src="https://uploads.dailydot.com/2020/05/animal_planet_best_shows.jpg?auto=compress&fm=pjpg" alt="Channel 38">
-    <p>Animal Planet</p>
-  </div>
-   <!-- Add up to 50 channels here following the same structure -->
-  <!-- Example for Channel 3 -->
-  <div class="channel" data-type="hls" data-url="https://d3c7duantorcb1.cloudfront.net/v1/master/3722c60a815c199d9c0ef36c5b73da68a62b09d1/cc-jpfvel38m2ce0-prod/amgwildplanetuk/playlist.m3u8">
-    <img src="https://th.bing.com/th/id/OIP.YslzBuwKJyx_ihfxMSzGbQAAAA?rs=1&pid=ImgDetMain" alt="Channel 39">
-    <p>Wild Planet</p>
-  </div>
-   <!-- Add up to 50 channels here following the same structure -->
-  <!-- Example for Channel 3 -->
-  <div class="channel" data-type="hls" data-url="https://bloodydisgusting-tcl.amagi.tv/playlist.m3u8">
-    <img src="https://provider-static.plex.tv/epg/cms/production/0fb871ec-e5d9-4dcf-be52-b5438b91246a/ScreamboxTV_3840x2160.jpg" alt="Channel 40">
-    <p>ScreamBox Tv</p>
-  </div>
-   <!-- Add up to 50 channels here following the same structure -->
-  <!-- Example for Channel 3 -->
-  <div class="channel" data-type="hls" data-url="https://d2h3esqi6ab3e7.cloudfront.net/index.m3u8">
-    <img src="https://play-lh.googleusercontent.com/98Dz1Fe0xrswYxAvGk6mTdxBJJh8Vaqv-ssuKB2mKEkXZ1Y0ifdseMT3Xki3qeBbvMo" alt="Channel 41">
-    <p>American IDOL</p>
-  </div>
-   <!-- Add up to 50 channels here following the same structure -->
-  <!-- Example for Channel 3 -->
-  <div class="channel" data-type="hls" data-url="https://futuretoday-afv-family-2-be.samsung.wurl.tv/playlist.m3u8">
-    <img src="https://provider-static.plex.tv/epg/images/ott_channels/logos/afv-family.png" alt="Channel 42">
-    <p>AFV Family</p>
-  </div>
-   <!-- Add up to 50 channels here following the same structure -->
-  <!-- Example for Channel 3 -->
-  <div class="channel" data-type="hls" data-url="https://linear-12.frequency.stream/dist/plex/12/hls/master/playlist.m3u8">
-    <img src="https://images.squarespace-cdn.com/content/v1/530d1af6e4b05c3d5442fa92/1442942735750-HC00L944XD6E3FTRKBM3/ke17ZwdGBToddI8pDm48kNvT88LknE-K9M4pGNO0Iqd7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z5QPOohDIaIeljMHgDF5CVlOqpeNLcJ80NK65_fV7S1USOFn4xF8vTWDNAUBm5ducQhX-V3oVjSmr829Rco4W2Uo49ZdOtO_QXox0_W7i2zEA/AFV_logo_open_02_04.jpg" alt="Channel 43">
-    <p>AFV</p>
-  </div>
-   <!-- Add up to 50 channels here following the same structure -->
-  <!-- Example for Channel 3 -->
-  <div class="channel" data-type="hls" data-url="https://d1b5mlajbmvkjv.cloudfront.net/v1/master/9d062541f2ff39b5c0f48b743c6411d25f62fc25/UDU-DistroTV/145.m3u8">
-    <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/e4fd96a6-d7e6-4dd0-adab-f47131388516/dfukzut-ba4dd7cc-f0ee-48fc-a5ec-ef743ce82b39.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2U0ZmQ5NmE2LWQ3ZTYtNGRkMC1hZGFiLWY0NzEzMTM4ODUxNlwvZGZ1a3p1dC1iYTRkZDdjYy1mMGVlLTQ4ZmMtYTVlYy1lZjc0M2NlODJiMzkucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.lXD8SvCFm4VBawKplztl47-FCGGHbgLSgiiHKL0ac1g" alt="Channel 44">
-    <p>24 Hours Movies</p>
-  </div>
-   <!-- Add up to 50 channels here following the same structure -->
-  <!-- Example for Channel 3 -->
-  <div class="channel" data-type="hls" data-url="https://samuelgoldwyn-films-1-us.roku.wurl.tv/playlist.m3u8">
-    <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/1f2230f3-d395-4701-9831-457e72d51cdf/devty2h-395eec20-4320-43b6-9cc5-3d4d2694cd8f.png/v1/fill/w_1280,h_729,q_80,strp/new_dreamworks_pictures_logo_onscreen_w_comcast_by_by_appleberries22_devty2h-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NzI5IiwicGF0aCI6IlwvZlwvMWYyMjMwZjMtZDM5NS00NzAxLTk4MzEtNDU3ZTcyZDUxY2RmXC9kZXZ0eTJoLTM5NWVlYzIwLTQzMjAtNDNiNi05Y2M1LTNkNGQyNjk0Y2Q4Zi5wbmciLCJ3aWR0aCI6Ijw9MTI4MCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.xcM6CPzrno8lW2kb4FS_xuOx12UcyEaDD0oB3D0cyPM" alt="Channel 45">
-    <p>DreamWorks 2</p>
-  </div>
-   <!-- Add up to 50 channels here following the same structure -->
-  <!-- Example for Channel 3 -->
-  <div class="channel" data-type="hls" data-url="https://isntv.mmdlive.lldns.net/isntv/f79b65204e7141c6a5cc74e63cf0dae5/playlist.m3u8">
-    <img src="https://th.bing.com/th/id/OIP.ynwmjH3TrpuZwtiJIEhZQQHaF0?w=1024&h=805&rs=1&pid=ImgDetMain" alt="Channel 46">
-    <p>Impact PLus</p>
-  </div>
-   <!-- Add up to 50 channels here following the same structure -->
-  <!-- Example for Channel 3 -->
-  <div class="channel" data-type="hls" data-url="https://rakuten-family-1-eu.rakuten.wurl.tv/2000.m3u8">
-    <img src="https://images.wired.it/wp-content/uploads/2018/04/27141642/1524824201_rakuten_logo.png" alt="Channel 47">
-    <p>Rakuten TV</p>
-  </div>
-   <!-- Add up to 50 channels here following the same structure -->
-  <!-- Example for Channel 3 -->
-  <div class="channel" data-type="hls" data-url="https://streams2.sofast.tv/ptnr-stirr/genre-Education/lang-English/ctgr-Kids/title-KIDDO-ENG/sofastplayout/8258122f-b4c0-416b-a2db-8407847f0c3c_1000015692_HLS/master.m3u8">
-    <img src="https://th.bing.com/th/id/OIP.ed5ZdsAcmwZ8EKLizNPLggHaHa?rs=1&pid=ImgDetMain" alt="Channel 48">
-    <p>KIDDO</p>
-  </div>
-   <!-- Add up to 50 channels here following the same structure -->
-  <!-- Example for Channel 3 -->
-  <div class="channel" data-type="hls" data-url="https://cdn-apse1-prod.tsv2.amagi.tv/linear/amg00718-outdoorchannela-outdoortvnz-samsungnz/playlist.m3u8">
-    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/d82f9150258033.62855142ce2f5.png" alt="Channel 49">
-    <p>OutDoor Channel</p>
-  </div>
-   <!-- Add up to 50 channels here following the same structure -->
-  <!-- Example for Channel 3 -->
-  <div class="channel" data-type="hls" data-url="http://jmrk.xyz:3050/live/elonza_joyner@yahoo.com/gmJ2dxUykT/508099.m3u8">
-    <img src="https://h-o-m-e.org/wp-content/uploads/2023/03/does-disney-own-national-geographic-1.jpg" alt="Channel 50">
-    <p>National Geographic HD</p>
-  </div>
-   <!-- Add up to 50 channels here following the same structure -->
-  <!-- Example for Channel 3 -->
-  <div class="channel" data-type="hls" data-url="http://jmrk.xyz:3050/live/elonza_joyner@yahoo.com/gmJ2dxUykT/508096.m3u8">
-    <img src="https://th.bing.com/th/id/OIP.Ti9iIjyHwWowLqcinCwvHAHaE1?rs=1&pid=ImgDetMain" alt="Channel 51">
-    <p>Nat Geo Wild</p>
-  </div>
-   <!-- Add up to 50 channels here following the same structure -->
-  <!-- Example for Channel 3 -->
-  <div class="channel" data-type="hls" data-url="https://cdn-uw2-prod.tsv2.amagi.tv/linear/amg01201-cinedigmenterta-soreal-cineverse/playlist.m3u8">
-    <img src="https://th.bing.com/th/id/OIP._cMtYiYyiN8n8-14yjyXuwHaFj?rs=1&pid=ImgDetMain" alt="Channel 52">
-    <p>So Real Tv</p>
-  </div>
-   <!-- Add up to 50 channels here following the same structure -->
-  <!-- Example for Channel 3 -->
-  <div class="channel" data-type="hls" data-url="http://jmrk.xyz:3050/live/elonza_joyner@yahoo.com/gmJ2dxUykT/419270.m3u8">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Cartoon_Network_2010_logo.svg/1200px-Cartoon_Network_2010_logo.svg.png" alt="Channel 53">
-    <p>Cartoon Network</p>
-  </div>
-   <!-- Add up to 50 channels here following the same structure -->
-  <!-- Example for Channel 3 -->
-  <div class="channel" data-type="hls" data-url="http://jmrk.xyz:3050/live/elonza_joyner@yahoo.com/gmJ2dxUykT/418419.m3u8">
-    <img src="https://vignette2.wikia.nocookie.net/logopedia/images/3/32/CARTOON_NETWORK_HD_2012.png/revision/latest?cb=20150309171447" alt="Channel 54">
-    <p>Cartoon NEtwork HD</p>
-  </div>
-   <!-- Add up to 50 channels here following the same structure -->
-  <!-- Example for Channel 3 -->
-  <div class="channel" data-type="hls" data-url="http://jmrk.xyz:3050/live/elonza_joyner@yahoo.com/gmJ2dxUykT/598102.m3u8">
-    <img src="https://i.pinimg.com/originals/16/9d/dd/169dddc3fba8a4b5eadc2b6cd7b0a38c.png" alt="Channel 55">
-    <p>T N T</p>
-  </div>
-   <!-- Add up to 50 channels here following the same structure -->
-  <!-- Example for Channel 3 -->
-  <div class="channel" data-type="hls" data-url="http://jmrk.xyz:3050/live/elonza_joyner@yahoo.com/gmJ2dxUykT/418077.m3u8">
-    <img src="https://1.bp.blogspot.com/-yfdL44pR5RU/XS9ZU9UkPTI/AAAAAAAAAKU/hLzWHzf6fBkBKM9eyvagvDJ9GkWaK-nHgCLcBGAs/w1200-h630-p-k-no-nu/Cinemax.jpg" alt="Channel 56">
-    <p>Cinemax</p>
-  </div>
-   <!-- Add up to 50 channels here following the same structure -->
-  <!-- Example for Channel 3 -->
-  <div class="channel" data-type="hls" data-url="http://jmrk.xyz:3050/live/elonza_joyner@yahoo.com/gmJ2dxUykT/418081.m3u8">
-    <img src="https://vignette.wikia.nocookie.net/qm-coorpration-channel/images/e/e1/Star_Max_logo.png/revision/latest?cb=20130802154714" alt="Channel 57">
-    <p>Cinemax STARMAX</p>
-  </div>
-   <!-- Add up to 50 channels here following the same structure -->
-  <!-- Example for Channel 3 -->
-  <div class="channel" data-type="hls" data-url="http://jmrk.xyz:3050/live/elonza_joyner@yahoo.com/gmJ2dxUykT/418104.m3u8">
-    <img src="https://th.bing.com/th/id/R.1e06eb2e6da5788d3a1b962ba86fc68c?rik=1WdcmYvRKGHw0g&riu=http%3a%2f%2fimages1.wikia.nocookie.net%2f__cb20100322084953%2flogopedia%2fimages%2fthumb%2f7%2f7a%2fActionMax_logo.svg%2f500px-ActionMax_logo.svg.png&ehk=t4VPeX7sjLXN7aPhDWl%2fTF06uKAXNalwml02NRX5Q94%3d&risl=&pid=ImgRaw&r=0" alt="Channel 58">
-    <p>Cinemax ActionMax</p>
-  </div>
-   <!-- Add up to 50 channels here following the same structure -->
-  <!-- Example for Channel 3 -->
-  <div class="channel" data-type="hls" data-url="http://jmrk.xyz:3050/live/elonza_joyner@yahoo.com/gmJ2dxUykT/598100.m3u8">
-    <img src="https://th.bing.com/th/id/OIP.0deFpxidNK1SZDHHEQjkbgHaEK?rs=1&pid=ImgDetMain" alt="Channel 59">
-    <p>N B A TV</p>
-  </div>
-   <!-- Add up to 50 channels here following the same structure -->
-  <!-- Example for Channel 3 -->
-  <div class="channel" data-type="hls" data-url="http://jmrk.xyz:3050/live/elonza_joyner@yahoo.com/gmJ2dxUykT/598099.m3u8">
-    <img src="https://www.sportsvideo.org/wp-content/uploads/2022/10/NBA-ESPN-Featured.png" alt="Channel 60">
-    <p>N B A ESPN</p>
-  </div>
-   <!-- Add up to 50 channels here following the same structure -->
-  <!-- Example for Channel 3 -->
-  <div class="channel" data-type="hls" data-url="https://beanostudios-beanotv-1-gb.samsung.wurl.tv/playlist.m3u8">
-    <img src="https://www.atvtoday.co.uk/wp-content/uploads/2022/03/beano-tv.jpg" alt="Channel 61">
-    <p>Beano Tv</p>
-  </div>
-   <!-- Add up to 50 channels here following the same structure -->
-  <!-- Example for Channel 3 -->
-  <div class="channel" data-type="hls" data-url="https://7732c5436342497882363a8cd14ceff4.mediatailor.us-east-1.amazonaws.com/v1/master/04fd913bb278d8775298c26fdca9d9841f37601f/Plex_NewMovies/playlist.m3u8">
-    <img src="https://ultra-sat.com/wp-content/uploads/2023/10/photo_2023-09-30_23-43-54.jpg" alt="Channel 62">
-    <p>K Movies</p>
-  </div>
-   <!-- Add up to 50 channels here following the same structure -->
-  <!-- Example for Channel 3 -->
-  <div class="channel" data-type="hls" data-url="https://fl5.moveonjoy.com/DISNEY_XD/index.m3u8">
-    <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/990f75eb-172d-42a8-bd8f-899ab38ba394/dfzt53l-408bdb62-e504-475c-bbf7-fe211157a8cc.png/v1/fill/w_1280,h_425/disney_xd_new_logo_by_carxl2029_dfzt53l-fullview.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NDI1IiwicGF0aCI6IlwvZlwvOTkwZjc1ZWItMTcyZC00MmE4LWJkOGYtODk5YWIzOGJhMzk0XC9kZnp0NTNsLTQwOGJkYjYyLWU1MDQtNDc1Yy1iYmY3LWZlMjExMTU3YThjYy5wbmciLCJ3aWR0aCI6Ijw9MTI4MCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.pSiAKMswO4iAqgu79TnLYhKiE2qTzkQV7K8TID_oCsY" alt="Channel 63">
-    <p>Disney XD</p>
-  </div>
-   <!-- Add up to 50 channels here following the same structure -->
-  <!-- Example for Channel 3 -->
-  <div class="channel" data-type="hls" data-url="https://cdn-uw2-prod.tsv2.amagi.tv/linear/amg00090-blueantllc-hanuttvuk-lggb/playlist.m3u8">
-    <img src="https://img00.deviantart.net/69ff/i/2011/059/c/f/paranormal_101_logo_by_miyukisadako-d3al8vu.jpg" alt="Channel 64">
-    <p>Paranormal File</p>
-  </div>
-   <!-- Add up to 50 channels here following the same structure -->
-  <!-- Example for Channel 3 -->
-  <div class="channel" data-type="hls" data-url="https://amc-rushbyamc-1-us.vizio.wurl.tv/playlist.m3u8">
-    <img src="https://th.bing.com/th/id/OIP.55kUHhzAtLbeue9m6kjwSgHaE8?w=1200&h=800&rs=1&pid=ImgDetMain" alt="Channel 65">
-    <p>Movie Thriller</p>
-  </div>
-   <!-- Add up to 50 channels here following the same structure -->
-  <!-- Example for Channel 3 -->
-  <div class="channel" data-type="hls" data-url="https://bec-action-1-us.tcl.wurl.tv/playlist.m3u8">
-    <img src="https://i.vimeocdn.com/portrait/25049214_640x640" alt="Channel 66">
-    <p>Action Movies</p>
-  </div>
-   <!-- Add up to 50 channels here following the same structure -->
-  <!-- Example for Channel 3 -->
-  <div class="channel" data-type="hls" data-url="https://amg01334-beinsportsllc-beinxtra-localnow-kcy6r.amagi.tv/playlist.m3u8">
-    <img src="https://th.bing.com/th/id/OIP.1347h78sc5Wi8qFvEb1jBAHaEc?w=3985&h=2395&rs=1&pid=ImgDetMain" alt="Channel 67">
-    <p>Bein Sports</p>
-  </div>
-   <!-- Add up to 50 channels here following the same structure -->
-  <!-- Example for Channel 3 -->
-  <div class="channel" data-type="hls" data-url="https://stmv1.srvif.com/animetv/animetv/playlist.m3u8">
-    <img src="https://th.bing.com/th/id/OIP.P2_18mcGUgTbMaDuCrZFzQHaHa?rs=1&pid=ImgDetMain" alt="Channel 68">
-    <p>Anime TV</p>
-  </div>
-   <!-- Add up to 50 channels here following the same structure -->
-  <!-- Example for Channel 3 -->
-  <div class="channel" data-type="hls" data-url="https://amg01201-cinedigmenterta-crimehunters-cineverse-cnqvb.amagi.tv/playlist/amg01201-cinedigmenterta-crimehunters-cineverse/playlist.m3u8">
-    <img src="https://th.bing.com/th/id/OIP.FJlf2yEJHmib636qqFFANAHaHb?rs=1&pid=ImgDetMain" alt="Channel 69">
-    <p>Crime Hunters</p>
-  </div>
-   <!-- Add up to 50 channels here following the same structure -->
-  <!-- Example for Channel 3 -->
-  <div class="channel" data-type="hls" data-url="https://brat-samsung-us.amagi.tv/playlist.m3u8">
-    <img src="https://images.axios.com/9Z-W67_7hTQm30QvvSdIWbx1MKU=/61x0:1375x739/1366x768/2019/10/22/1571753837800.png" alt="Channel 70">
-    <p>BRAT Tv</p>
-  </div>
-   <!-- Add up to 50 channels here following the same structure -->
-  <!-- Example for Channel 3 -->
-  <div class="channel" data-type="hls" data-url="https://d1e3a0zkn06gu7.cloudfront.net/v1/master/3722c60a815c199d9c0ef36c5b73da68a62b09d1/cc-pkf1jz7l0hork/playlist.m3u8">
-    <img src="https://www.tubefilter.com/wp-content/uploads/2015/02/Shout-Factory-TV-Streaming-Platform-1920x1131.jpg" alt="Channel 71">
-    <p>Shout TV</p>
-  </div>
-   <!-- Add up to 50 channels here following the same structure -->
-  <!-- Example for Channel 3 -->
-  <div class="channel" data-type="hls" data-url="https://dovenow-tcl.amagi.tv/playlist.m3u8">
-    <img src="https://th.bing.com/th/id/OIP.eMOseAOrzfOBy2t_x8QLMQHaDs?rs=1&pid=ImgDetMain" alt="Channel 72">
-    <p>Dove Channel</p>
-  </div>
-   <!-- Add up to 50 channels here following the same structure -->
-  <!-- Example for Channel 3 -->
-  <div class="channel" data-type="hls" data-url="https://cdn09jtedge.indihometv.com/joss/133/galaxypremium/index.m3u8">
-    <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/4b1ceee5-9458-4434-80bc-fc5d83a2ea88/df715ih-e22b4985-1958-4d20-b3f0-7c4b443e8fab.png/v1/fill/w_1280,h_2077/galaxy_movies_by_unitedworldmedia_df715ih-fullview.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MjA3NyIsInBhdGgiOiJcL2ZcLzRiMWNlZWU1LTk0NTgtNDQzNC04MGJjLWZjNWQ4M2EyZWE4OFwvZGY3MTVpaC1lMjJiNDk4NS0xOTU4LTRkMjAtYjNmMC03YzRiNDQzZThmYWIucG5nIiwid2lkdGgiOiI8PTEyODAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.5CHr4Vw2qUTeRX2lMecbe6WIBPk54-N9-KMEJvFlMSE" alt="Channel 73">
-    <p>Galaxy Premium Movies</p>
-  </div>
-   <!-- Add up to 50 channels here following the same structure -->
-  <!-- Example for Channel 3 -->
-  <div class="channel" data-type="hls" data-url="https://uni01rtmp.tulix.tv/amazingdtv/amazingdtv/playlist.m3u8">
-    <img src="https://th.bing.com/th/id/R.1fb9934ae4a260e059e7a3221b2e91d0?rik=%2fIpdqgP18FFxzg&riu=http%3a%2f%2fchuanhoesda.org.sg%2fassets%2fimages%2famazingdiscoveries.png&ehk=YHP7tnUPp1%2fwBumo5qjbugeJrKi%2fBdQEw1qnYn%2br0MI%3d&risl=&pid=ImgRaw&r=0" alt="Channel 74">
-    <p>Amazing Discovery</p>
-  </div>
-   <!-- Add up to 50 channels here following the same structure -->
-  <!-- Example for Channel 3 -->
-  <div class="channel" data-type="hls" data-url="https://9769bd6405b245ea9adca1889a0b491b.mediatailor.us-east-1.amazonaws.com/v1/master/f4e8c53a8367a5b58e20ce054ea3ce25a3e904d3/Samsung-in_BilliardTV/playlist.m3u8">
-    <img src="https://i.fbcd.co/products/resized/resized-750-500/billiard-tournament-logo-converted-01-407b1e4a06593cae6504673c15ab7d29cf2bc3ca456133b0ba108d2fbd0329bc.jpg" alt="Channel 75">
-    <p>Billiard Tournament</p>
-  </div>
-   <!-- Add up to 50 channels here following the same structure -->
-  <!-- Example for Channel 3 -->
-  <div class="channel" data-type="hls" data-url="https://lte.wiseplayout.com/WiseM3U8_7/master.m3u8">
-    <img src="https://cdn.shopify.com/s/files/1/0443/7642/4615/files/escape_tv_1024x1024.jpg?v=1643502524" alt="Channel 76">
-    <p>Escape Tv</p>
-  </div>
-   <!-- Add up to 50 channels here following the same structure -->
-  <!-- Example for Channel 3 -->
-  <div class="channel" data-type="hls" data-url="https://lte.wiseplayout.com/WiseM3U8_23/master.m3u8">
-    <img src="https://th.bing.com/th/id/R.6ee316828228fc95eb0153865570b1be?rik=vi4pJYbCQ0X1wA&riu=http%3a%2f%2fimages6.fanpop.com%2fimage%2fphotos%2f40900000%2fWWE-Logo-wwe-40926797-1280-1024.png&ehk=skGIerrIzSn5FtvmxgI%2bsAaS0FlaQnUf16KlcXNEcf4%3d&risl=1&pid=ImgRaw&r=0" alt="Channel 77">
-    <p>WWW Wrestling</p>
-  </div> <!-- Add up to 50 channels here following the same structure -->
-  <!-- Example for Channel 3 -->
-  <div class="channel" data-type="hls" data-url="https://rakuten-guardian-1-ie.samsung.wurl.tv/playlist.m3u8">
-    <img src="https://d2oto3d7z6t29c.cloudfront.net/entries/transformed/f9/66/415702_6726b0fe94c94415b736b417bcdfe6d6.jpg" alt="Channel 78">
-    <p>The Guardian</p>
-  </div>
-   <!-- Add up to 50 channels here following the same structure -->
-  <!-- Example for Channel 3 -->
-  <div class="channel" data-type="hls" data-url="https://dplus.gammacdn.workers.dev/videos/110.m3u8">
-    <img src="https://yt3.ggpht.com/-EaovwwmvDE4/AAAAAAAAAAI/AAAAAAAAAAA/lQbiLMGPrUQ/s900-c-k-no/photo.jpg" alt="Channel 79">
-    <p>Travel Channel</p>
-  </div>
-   <!-- Add up to 50 channels here following the same structure -->
-  <!-- Example for Channel 3 -->
-  <div class="channel" data-type="hls" data-url="https://rakuten-family-1-eu.rakuten.wurl.tv/2000.m3u8">
-    <img src="https://img.netzwelt.de/dw1600_dh900_sw0_sh0_sx0_sy0_sr16x9_nu2/picture/original/2023/08/rakuten-tv-family-379464.png" alt="Channel 80">
-    <p>Rakuten Tv Family</p>
-  </div>
-   <!-- Add up to 50 channels here following the same structure -->
-  <!-- Example for Channel 3 -->
-  <div class="channel" data-type="hls" data-url="https://failarmy-international-se.samsung.wurl.tv/playlist.m3u8">
-    <img src="https://yt3.ggpht.com/-_8lHSPO3nNI/AAAAAAAAAAI/AAAAAAAAAAA/-THVRONaQco/s900-c-k-no/photo.jpg" alt="Channel 81">
-    <p>Fail Army</p>
-  </div>
-   <!-- Add up to 50 channels here following the same structure -->
-  <!-- Example for Channel 3 -->
-  <div class="channel" data-type="hls" data-url="https://mediaserver.abnvideos.com/streams/abnbiblemovies.m3u8">
-    <img src="https://static.wixstatic.com/media/175e85_c7b57f6a4eb14c72a75a540b5ec90b14~mv2.png/v1/fill/w_91,h_69,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/ABN%20BIBLE%20MOVIES%20(2).png" alt="Channel 82">
-    <p>ABN Bible Movie</p>
-  </div>
-   <!-- Add up to 50 channels here following the same structure -->
-  <!-- Example for Channel 3 -->
-  <div class="channel" data-type="hls" data-url="https://linear-12.frequency.stream/dist/plex/12/hls/master/playlist.m3u8">
-    <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/1032b378-9e4c-4e5b-9344-03d0fafe3154/dezezee-719b1569-2438-4b88-9a66-a88a7f3962ac.png/v1/fill/w_720,h_540,q_80,strp/america_s_funniest_home_videos_logo__season_8_14__by_jack1set2_dezezee-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NTQwIiwicGF0aCI6IlwvZlwvMTAzMmIzNzgtOWU0Yy00ZTViLTkzNDQtMDNkMGZhZmUzMTU0XC9kZXplemVlLTcxOWIxNTY5LTI0MzgtNGI4OC05YTY2LWE4OGE3ZjM5NjJhYy5wbmciLCJ3aWR0aCI6Ijw9NzIwIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.rFIgE7d-ipepg3_YKprHLJeqpfsqeSR0_4ZbLMpOB00" alt="Channel 83">
-    <p>America Funniest Video</p>
-  </div>
-   <!-- Add up to 50 channels here following the same structure -->
-  <!-- Example for Channel 3 -->
-  <div class="channel" data-type="hls" data-url="https://livetv-fa.tubi.video/caught-in-providence2/playlist.m3u8">
-    <img src="https://th.bing.com/th/id/OIP.5AqSx1RbvJuWLxeW8gn-VgAAAA?rs=1&pid=ImgDetMain" alt="Channel 84">
-    <p>Caught in Providence</p>
-  </div>
-   <!-- Add up to 50 channels here following the same structure -->
-  <!-- Example for Channel 3 -->
-  <div class="channel" data-type="hls" data-url="https://apollo.production-public.tubi.io/live/ac-court-tv.m3u8">
-    <img src="https://storage.googleapis.com/www-courttv-uploads/2019/05/29b45f61-courttvlogo16x9.png" alt="Channel 85">
-    <p>Court Tv</p>
-  </div>
-   <!-- Add up to 50 channels here following the same structure -->
-  <!-- Example for Channel 3 -->
-  <div class="channel" data-type="hls" data-url="https://amg00514-noseybaxterllc-nosey-cineverse-hvu5a.amagi.tv/playlist/amg00514-noseybaxterllc-nosey-cineverse/playlist.m3u8">
-    <img src="https://th.bing.com/th/id/OIP.6EPStjrbjXDtGMN7ORvO1QHaFq?rs=1&pid=ImgDetMain" alt="Channel 86">
-    <p>Nosey Us</p>
-  </div>
-   <!-- Add up to 50 channels here following the same structure -->
-  <!-- Example for Channel 3 -->
-  <div class="channel" data-type="hls" data-url="https://apollo.production-public.tubi.io/live/ac-tv-one.m3u8">
-    <img src="https://tvseriesfinale.com/wp-content/uploads/2017/12/tvone-logo-011017-colorbg-590x275.png" alt="Channel 87">
-    <p>One Tv</p>
-  </div>
-   <!-- Add up to 50 channels here following the same structure -->
-  <!-- Example for Channel 3 -->
-  <div class="channel" data-type="hls" data-url="https://apollo.production-public.tubi.io/live/ac-deal-or-no-deal.m3u8">
-    <img src="https://media.licdn.com/dms/image/C4D12AQEFNIo1Bz2pkQ/article-cover_image-shrink_720_1280/0/1624284949165?e=2147483647&v=beta&t=6lDJfWEQjXecfyGIgzXw2NnGiV_cCaOGj8ogHZdwWmw" alt="Channel 88">
-    <p>Deal or No Deal</p>
-  </div>
-   <!-- Add up to 50 channels here following the same structure -->
-  <!-- Example for Channel 3 -->
-  <div class="channel" data-type="hls" data-url="https://apollo.production-public.tubi.io/live/ac-gordon-ramsey.m3u8">
-    <img src="https://th.bing.com/th/id/OIP.bTOZpQXFEGFRkFXPGpQOGQHaEK?w=1560&h=878&rs=1&pid=ImgDetMain" alt="Channel 89">
-    <p>Gordon Ramsay Hellkitchen</p>
-  </div>
-   <!-- Add up to 50 channels here following the same structure -->
-  <!-- Example for Channel 3 -->
-  <div class="channel" data-type="hls" data-url="https://bonappetit-samsung.amagi.tv/playlist.m3u8">
-    <img src="https://img1.bonnesimages.com/bi/bon-appetit/bon-appetit_026.jpg" alt="Channel 90">
-    <p>Bon Apetit</p>
-  </div>
-   <!-- Add up to 50 channels here following the same structure -->
-  <!-- Example for Channel 3 -->
-  <div class="channel" data-type="hls" data-url="https://apollo.production-public.tubi.io/live/ac-anger-management2.m3u8">
-    <img src="https://th.bing.com/th/id/OIP.udbPvar0bwetbAp6SMfzkAHaFO?rs=1&pid=ImgDetMain" alt="Channel 91">
-    <p>Anger Management</p>
-  </div>
-   <!-- Add up to 50 channels here following the same structure -->
-  <!-- Example for Channel 3 -->
-  <div class="channel" data-type="hls" data-url="https://aegis-cloudfront-1.tubi.video/35b865e3-cb8d-4d5b-9202-5490fce4477c/playlist.m3u8">
-    <img src="https://th.bing.com/th/id/R.5c1bd4f20e29f1f39c47e282174c413e?rik=ReJgVpaRaBCp3A&riu=http%3a%2f%2f3.bp.blogspot.com%2f-MHdxCCrJd70%2fT5SKRjJGMiI%2fAAAAAAAACJw%2f1rOJtbAItOg%2fs1600%2fantiques%2broadshow%2bUK.jpg&ehk=GhDYMV8SWjdTdgHN0Iv%2bcDg5Ncu%2b7EyT9b0rGLCiCso%3d&risl=&pid=ImgRaw&r=0" alt="Channel 92">
-    <p>Antiques RoadShow</p>
-  </div>
-   <!-- Add up to 50 channels here following the same structure -->
-  <!-- Example for Channel 3 -->
-  <div class="channel" data-type="hls" data-url="https://aegis-cloudfront-1.tubi.video/8d2bf7b1-0e93-405f-8c15-ac0756d05f66/playlist.m3u8">
-    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/fs/cd9198139846289.62c7c3ee9c298.jpg" alt="Channel 93">
-    <p>Explore Tv</p>
-  </div>
-   <!-- Add up to 50 channels here following the same structure -->
-  <!-- Example for Channel 3 -->
-  <div class="channel" data-type="hls" data-url="https://streams2.sofast.tv/ptnr-stirr/genre-Travel/lang-English/ctgr-Travel/title-4K-TRAVEL-TV-ENG/sofastplayout/33c31ac4-51fa-46ae-afd0-0d1fe5e60a80_0_HLS/master.m3u8">
-    <img src="https://th.bing.com/th/id/R.dc315c83258a85be293ab74dbdffe5ca?rik=6KBFHW6GpI%2bxtg&riu=http%3a%2f%2fwww.logotypes101.com%2flogos%2f882%2fB1CBAFD1C6B9114C49910A725FB0F6E6%2fTravel_Channel.png&ehk=JOWEP9yd5Ho6D4GezZuHa1w%2b9WY6PRT04Nv1R08E5kI%3d&risl=&pid=ImgRaw&r=0" alt="Channel 94">
-    <p>4K Travel</p>
-  </div>
-   <!-- Add up to 50 channels here following the same structure -->
-  <!-- Example for Channel 3 -->
-  <div class="channel" data-type="hls" data-url="https://apollo.production-public.tubi.io/live/ac-american-pickers.m3u8">
-    <img src="https://www.logolynx.com/images/logolynx/s_e8/e8c30e3a36879abdef1c4f259c7286fa.jpeg" alt="Channel 95">
-    <p>American Picker</p>
-  </div>
-   <!-- Add up to 50 channels here following the same structure -->
-  <!-- Example for Channel 3 -->
-  <div class="channel" data-type="hls" data-url="https://pac12-samsungus.amagi.tv/playlist.m3u8">
-    <img src="https://th.bing.com/th/id/OIP.t78uUDDMdmSTpOmPE_jOWgAAAA?w=310&h=308&rs=1&pid=ImgDetMain" alt="Channel 96">
-    <p>Rugby Game Channel</p>
-  </div>
-   <!-- Add up to 50 channels here following the same structure -->
-  <!-- Example for Channel 3 -->
-  <div class="channel" data-type="hls" data-url="https://apollo.production-public.tubi.io/live/ac-top-rank.m3u8">
-    <img src="https://img.freepik.com/premium-vector/boxing-logo_527939-410.jpg" alt="Channel 97">
-    <p>Boxing Arena</p>
-  </div>
-   <!-- Add up to 50 channels here following the same structure -->
-  <!-- Example for Channel 3 -->
-  <div class="channel" data-type="hls" data-url="https://d3mwqwqfak7y2q.cloudfront.net/v1/master/3722c60a815c199d9c0ef36c5b73da68a62b09d1/ImpactWrestling-prod/hls/main.m3u8">
-    <img src="https://cdn3.whatculture.com/images/2020/04/65cebbd6f89a7dde-1200x675.jpg" alt="Channel 98">
-    <p>Wrestling Impact</p>
-  </div>
-   <!-- Add up to 50 channels here following the same structure -->
-  <!-- Example for Channel 3 -->
-  <div class="channel" data-type="hls" data-url="https://apollo.production-public.tubi.io/live/ac-fear-factor.m3u8">
-    <img src="https://th.bing.com/th/id/R.435e97d205141a1a7ba605a334e3dd5a?rik=d6MhwIDepWMKqQ&riu=http%3a%2f%2fimages5.fanpop.com%2fimage%2fphotos%2f29400000%2fFear-Factor-from-show-fear-factor-29441518-600-400.jpg&ehk=JMlb2D%2b3ySpusxUo11jbw5f4arhEtYGKT%2f8mduWqAC4%3d&risl=&pid=ImgRaw&r=0" alt="Channel 99">
-    <p>Fear Factor</p>
-  </div>
-   <!-- Add up to 50 channels here following the same structure -->
-  <!-- Example for Channel 3 -->
-  <div class="channel" data-type="hls" data-url="https://bozztv.com/gusa/gusa-tvsclassicmovies/index.m3u8">
-    <img src="https://play-lh.googleusercontent.com/kX5EOqCjlO0kHfQxelaTEgRlCpIXSEjop0M-VDDTsTqSm5VZvEEJ0gEXNeLqDid_2g" alt="Channel 100">
-    <p>Classic Movies</p>
-  </div>
-   <!-- Add up to 50 channels here following the same structure -->
-  <!-- Example for Channel 3 -->
-  <div class="channel" data-type="hls" data-url="https://stream-us-east-1.getpublica.com/playlist.m3u8?network_id=73">
-    <img src="https://wallpapers.com/images/hd/wu-tang-clan-logo-4r07z75l67j0x3nk.jpg" alt="Channel 101">
-    <p>Wu Tang Movie</p>
-  </div>
-   <!-- Add up to 50 channels here following the same structure -->
-  <!-- Example for Channel 3 -->
-  <div class="channel" data-type="hls" data-url="https://apollo.production-public.tubi.io/live/ac-hi-yah.m3u8">
-    <img src="https://i.ytimg.com/vi/JyQ0SiITjtE/maxresdefault.jpg" alt="Channel 102">
-    <p>Hi Yah!</p>
-  </div>
-   <!-- Add up to 50 channels here following the same structure -->
-  <!-- Example for Channel 3 -->
-  <div class="channel" data-type="hls" data-url="https://amg01201-cinedigmenterta-asiancrush-cineverse-x701o.amagi.tv/playlist/amg01201-cinedigmenterta-asiancrush-cineverse/playlist.m3u8">
-    <img src="https://play-lh.googleusercontent.com/RcNIDHvYSVdMzj4YQR8cxWiqXd28WNFoxe7TAJnSwFvQtXZ9Vz_8y99aHueoxh75VZ4" alt="Channel 103">
-    <p>Asian Crush</p>
-  </div>
-   <!-- Add up to 50 channels here following the same structure -->
-  <!-- Example for Channel 3 -->
-  <div class="channel" data-type="hls" data-url="https://aegis-cloudfront-1.tubi.video/dc8bda97-ce9e-4091-b4e8-11254dea4da6/playlist.m3u8">
-    <img src="https://th.bing.com/th/id/OIP.BiVXBOZq34pFdCYskIswdgHaE8?w=768&h=512&rs=1&pid=ImgDetMain" alt="Channel 104">
-    <p>Love Nature</p>
-  </div>
-   <!-- Add up to 50 channels here following the same structure -->
-  <!-- Example for Channel 3 -->
-  <div class="channel" data-type="hls" data-url="https://livetv-fa.tubi.video/alien-nation-canada/playlist.m3u8">
-    <img src="https://www.pngkey.com/png/full/57-572612_alien-logo-png.png" alt="Channel 105">
-    <p>Alien Nation</p>
-  </div>
-   <!-- Add up to 50 channels here following the same structure -->
-  <!-- Example for Channel 3 -->
-  <div class="channel" data-type="hls" data-url="https://apollo.production-public.tubi.io/live/ac-cold-case-files.m3u8">
-    <img src="https://th.bing.com/th/id/OIP.b18smNUNltLE6KriTtKUBgAAAA?rs=1&pid=ImgDetMain" alt="Channel 106">
-    <p>Old Case Files</p>
-  </div>
-   <!-- Add up to 50 channels here following the same structure -->
-  <!-- Example for Channel 3 -->
-  <div class="channel" data-type="hls" data-url="https://dhkq1p9audihq.cloudfront.net/index.m3u8">
-    <img src="https://th.bing.com/th/id/OIP.Hgfg8GGK3djtdx0iRX5hFwHaDi?w=702&h=336&rs=1&pid=ImgDetMain" alt="Channel 107">
-    <p>Americas Got Talent</p>
-  </div>
-   <!-- Add up to 50 channels here following the same structure -->
-  <!-- Example for Channel 3 -->
-  <div class="channel" data-type="hls" data-url="https://ancglobal-abscbn-ono.amagi.tv/playlist720_p.m3u8">
-    <img src="https://vignette.wikia.nocookie.net/russel/images/5/52/ANC_HD_Logo_2016.png/revision/latest?cb=20180404015018" alt="Channel 108">
-    <p>A N C HD</p>
-  </div>
-   <!-- Add up to 50 channels here following the same structure -->
-  <!-- Example for Channel 3 -->
-  <div class="channel" data-type="hls" data-url="https://news.cgtn.com/resource/live/document/cgtn-doc.m3u8">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/d/d6/CGTN_Documentary_logo.png" alt="Channel 109">
-    <p>C T G N Documentaries</p>
-  </div>
-   <!-- Add up to 50 channels here following the same structure -->
-  <!-- Example for Channel 3 -->
-  <div class="channel" data-type="hls" data-url="https://30a-tv.com/feeds/720p/63.m3u8">
-    <img src="https://yt3.ggpht.com/a/AATXAJyQ4-BkGsVTXLJaP9DSqSAt4mUxktsWCvczzQ=s900-c-k-c0xffffffff-no-rj-mo" alt="Channel 110">
-    <p>Ridiculous Tv</p>
-  </div>
-   <!-- Add up to 50 channels here following the same structure -->
-  <!-- Example for Channel 3 -->
-  <div class="channel" data-type="hls" data-url="https://bozztv.com/gusa/gusa-camerasmile/index.m3u8">
-    <img src="https://th.bing.com/th/id/OIP.kRIksn5CUA42GhutKSJo4gHaFO?w=1200&h=848&rs=1&pid=ImgDetMain" alt="Channel 111">
-    <p>Camera Smile</p>
-  </div>
-   <!-- Add up to 50 channels here following the same structure -->
-  <!-- Example for Channel 3 -->
-  <div class="channel" data-type="hls" data-url="https://catholictvhd-lh.akamaized.net/hls/live/2043390/CTVLiveHD/master.m3u8">
-    <img src="https://i1.sndcdn.com/avatars-000007641838-272w7q-t500x500.jpg" alt="Channel 112">
-    <p>Catholic Mass</p>
-  </div>
-   <!-- Add up to 50 channels here following the same structure -->
-  <!-- Example for Channel 3 -->
-  <div class="channel" data-type="hls" data-url="https://amg00514-noseybaxterllc-realnosey-cineverse-tqbpv.amagi.tv/playlist/amg00514-noseybaxterllc-realnosey-cineverse/playlist.m3u8">
-    <img src="https://m.media-amazon.com/images/M/MV5BNWQyN2VhYTQtMGVhMi00Y2Q3LTg2ZmMtMmZmMTI2ZGRiZjMyXkEyXkFqcGdeQXVyOTQ1MjE4OTE@._V1_FMjpg_UX1000_.jpg" alt="Channel 113">
-    <p>Judge Divorce Court</p>
-  </div>
-   <!-- Add up to 50 channels here following the same structure -->
-  <!-- Example for Channel 3 -->
-  <div class="channel" data-type="hls" data-url="https://amg00514-noseybaxterllc-nosey-cineverse-hvu5a.amagi.tv/playlist/amg00514-noseybaxterllc-nosey-cineverse/playlist.m3u8">
-    <img src="https://th.bing.com/th/id/OIP.oxCzxVExch7pIw2Pm2FvWAHaEK?rs=1&pid=ImgDetMain" alt="Channel 114">
-    <p>Steve Wilkos</p>
-  </div>
-   <!-- Add up to 50 channels here following the same structure -->
-  <!-- Example for Channel 3 -->
-  <div class="channel" data-type="hls" data-url="https://linear-291.frequency.stream/mt/ovationtv/291/hls/master/playlist.m3u8">
-    <img src="https://th.bing.com/th/id/OIP.6G-lml3Uy3TuvO_TjvIA_QHaB0?rs=1&pid=ImgDetMain" alt="Channel 115">
-    <p>Journey</p>
-  </div>
-   <!-- Add up to 50 channels here following the same structure -->
-  <!-- Example for Channel 3 -->
-  <div class="channel" data-type="hls" data-url="https://cdn.klowdtv.net/803B48A/n1.klowdtv.net/live2/tna_720p/playlist.m3u8">
-    <img src="https://cdn.wallpapersafari.com/57/38/9vpcYP.jpg" alt="Channel 116">
-    <p>Wrestling</p>
-  </div>
-   <!-- Add up to 50 channels here following the same structure -->
-  <!-- Example for Channel 3 -->
-  <div class="channel" data-type="hls" data-url="https://amg00218-wptenterprisesi-worldpokertour-klowdtv-5619e.amagi.tv/playlist/amg00218-wptenterprisesi-worldpokertour-klowdtv/playlist.m3u8">
-    <img src="https://th.bing.com/th/id/OIP.kMM9QYXqNwWzP8LXU1CnlgAAAA?rs=1&pid=ImgDetMain" alt="Channel 117">
-    <p>World Poker Games</p>
-  </div>
-   <!-- Add up to 50 channels here following the same structure -->
-  <!-- Example for Channel 3 -->
-  <div class="channel" data-type="hls" data-url="https://livetv-fa.tubi.video/alien-nation/playlist.m3u8">
-    <img src="https://wallpapers.gg/wp-content/uploads/2017/08/Aliens-Logo.jpg" alt="Channel 118">
-    <p>Alien Nation 2</p>
-  </div>
-   <!-- Add up to 50 channels here following the same structure -->
-  <!-- Example for Channel 3 -->
-  <div class="channel" data-type="hls" data-url="https://livetv-fa.tubi.video/alter/playlist.m3u8">
-    <img src="https://th.bing.com/th/id/OIP.DEcOexrFhAPQjqDq3wT-BAHaEK?rs=1&pid=ImgDetMain" alt="Channel 119">
-    <p>Alter Horror Movie</p>
-  </div>
-   <!-- Add up to 50 channels here following the same structure -->
-  <!-- Example for Channel 3 -->
-  <div class="channel" data-type="hls" data-url="https://apollo.production-public.tubi.io/live/ac-cheaters.m3u8">
-    <img src="https://vignette.wikia.nocookie.net/logopedia/images/3/3e/Cheaters_logo_2002.png/revision/latest?cb=20181105160747" alt="Channel 120">
-    <p>Cheaters Tv</p>
-  </div>
-   <!-- Add up to 50 channels here following the same structure -->
-  <!-- Example for Channel 3 -->
-  <div class="channel" data-type="hls" data-url="https://apollo.production-public.tubi.io/live/ac-the-fbi-files.m3u8">
-    <img src="https://yt3.ggpht.com/98bGh5pnBF5Vf4Puv8gRJBgpZkuVVU_eXag7A9eVwWPsZpSAA6CnQf-CSuRGGjfBM7SQGM5_js6Vrg=w640-h360-p-ns-nd-rp" alt="Channel 121">
-    <p>F B I Files</p>
-  </div>
-   <!-- Add up to 50 channels here following the same structure -->
-  <!-- Example for Channel 3 -->
-  <div class="channel" data-type="hls" data-url="https://apollo.production-public.tubi.io/live/ac-filmrise-horror-canada.m3u8">
-    <img src="https://th.bing.com/th/id/OIP.jo4j3DHrs47ipKsGkw7_pwHaFR?rs=1&pid=ImgDetMain" alt="Channel 122">
-    <p>Horror Movie</p>
-  </div>
-   <!-- Add up to 50 channels here following the same structure -->
-  <!-- Example for Channel 3 -->
-  <div class="channel" data-type="hls" data-url="https://apollo.production-public.tubi.io/live/ac-filmrise-true-crime.m3u8">
-    <img src="https://yt3.ggpht.com/-HE_576ROmGc/AAAAAAAAAAI/AAAAAAAAAAA/LpK4lKvntfQ/s900-c-k-no/photo.jpg" alt="Channel 123">
-    <p>FilmRise True Crime</p>
-  </div>
-   <!-- Add up to 50 channels here following the same structure -->
-  <!-- Example for Channel 3 -->
-  <div class="channel" data-type="hls" data-url="https://apollo.production-public.tubi.io/live/ac-worlds-most-evil-killers.m3u8">
-    <img src="https://th.bing.com/th/id/OIP.vBnvAxvEAqzHKnItYMq4oQHaJ4?rs=1&pid=ImgDetMain" alt="Channel 124">
-    <p>FilmRise Most Evil</p>
-  </div>
-   <!-- Add up to 50 channels here following the same structure -->
-  <!-- Example for Channel 3 -->
-  <div class="channel" data-type="hls" data-url="https://apollo.production-public.tubi.io/live/ac-great-british-menu.m3u8">
-    <img src="https://th.bing.com/th/id/OIP.SR6xUhKwn2QjcaTzuy4NAwAAAA?rs=1&pid=ImgDetMain" alt="Channel 125">
-    <p>Great British Menu</p>
-  </div>
-  <!-- Add up to 50 channels here following the same structure -->
-  <!-- Example for Channel 3 -->
-  <div class="channel" data-type="hls" data-url="https://apollo.production-public.tubi.io/live/lol-network3.m3u8">
-    <img src="https://th.bing.com/th/id/OIP.pVaYTWorlbz7sucr9sfhOQHaEK?w=1920&h=1080&rs=1&pid=ImgDetMain" alt="Channel 126">
-    <p>Kartoon Channel</p>
-  </div>
-  <!-- Add up to 50 channels here following the same structure -->
-  <!-- Example for Channel 3 -->
-  <div class="channel" data-type="hls" data-url="https://apollo.production-public.tubi.io/live/ac-super-channel-uncovered-canada.m3u8">
-    <img src="https://th.bing.com/th/id/OIP.Na5obTx-0bhdD3tZNMi9rQHaFQ?rs=1&pid=ImgDetMain" alt="Channel 127">
-    <p>Super Channel Unsolved</p>
-  </div>
-  <!-- Add up to 50 channels here following the same structure -->
-  <!-- Example for Channel 3 -->
-  <div class="channel" data-type="hls" data-url="https://apollo.production-public.tubi.io/live/ac-masked-singer.m3u8">
-    <img src="https://th.bing.com/th/id/OIP.gYgUujpI9W6cx6qITu4negHaEK?rs=1&pid=ImgDetMain" alt="Channel 128">
-    <p>The Mask Singer</p>
-  </div>
-  <!-- Add up to 50 channels here following the same structure -->
-  <!-- Example for Channel 3 -->
-  <div class="channel" data-type="hls" data-url="https://apollo.production-public.tubi.io/live/ac-top-rank.m3u8">
-    <img src="https://th.bing.com/th/id/R.2080502bb9808eceb7ee8da963f54688?rik=t%2bK%2baLA7GlYLdA&riu=http%3a%2f%2fa5.mzstatic.com%2fus%2fr1000%2f050%2fPurple%2f20%2f80%2f50%2fmzl.tmfsjbsy.png&ehk=C1lSvGc%2b8KhZx6pEZZ%2fAV%2bUFR32BZLKEYNKpBKSiUwI%3d&risl=&pid=ImgRaw&r=0" alt="Channel 129">
-    <p>Top Rank Boxing</p>
-  </div>
-  <!-- Add up to 50 channels here following the same structure -->
-  <!-- Example for Channel 3 -->
-  <div class="channel" data-type="hls" data-url="https://elec-en-stirr.otteravision.com/elec/en/elec_en.m3u8">
-    <img src="https://tv.sarcheshmeh.us/thumb.php?w=900&h=506&src=https://tv.sarcheshmeh.us/index_files/channels/electricnow.png" alt="Channel 130">
-    <p>Electric Now Movie</p>
-  </div>
-  <!-- Add up to 50 channels here following the same structure -->
-  <!-- Example for Channel 3 -->
-  <div class="channel" data-type="hls" data-url="https://kidoodletv-kdtv-1-us.samsung.wurl.tv/playlist.m3u8">
-    <img src="https://th.bing.com/th/id/OIP.A1Tmxe0YFYMvQBZOCnHqqAHaEK?rs=1&pid=ImgDetMain" alt="Channel 131">
-    <p>KIDDOLE TV</p>
-  </div>
-  <div class="channel" data-type="hls" data-url="https://stream-us-east-1.getpublica.com/playlist.m3u8?network_id=50">
-    <img src="https://th.bing.com/th/id/OIP.VFy2WvUv1UfJ6moM_UcSkwHaHa?w=2000&h=2000&rs=1&pid=ImgDetMain" alt="Channel 132">
-    <p>KidsFlix</p>
-  </div>
-  <div class="channel" data-type="hls" data-url="https://d35j504z0x2vu2.cloudfront.net/v1/master/0bc8e8376bd8417a1b6761138aa41c26c7309312/toonzkids/master.m3u8">
-    <img src="https://i.ytimg.com/vi/0JXefhgDAho/maxresdefault.jpg?sqp=-oaymwEmCIAKENAF8quKqQMa8AEB-AH8CYAC0AWKAgwIABABGBMgIih_MA8=&rs=AOn4CLAsK-iU7KJf4KCCIU5Vzz9lGH1tgA" alt="Channel 133">
-    <p>Toonz Kids</p>
-  </div>
-  <div class="channel" data-type="hls" data-url="https://streams2.sofast.tv/ptnr-yupptv/title-SCIFI-WORLD-ENG_yupptv/v1/master/611d79b11b77e2f571934fd80ca1413453772ac7/a985e052-6868-4365-ac45-52afe9008b25/manifest.m3u8">
-    <img src="https://d229kpbsb5jevy.cloudfront.net/tv/480/270/languages/scifi_world_960X540.jpg" alt="Channel 134">
-    <p>Scifi World</p>
-  </div>
-  <div class="channel" data-type="hls" data-url="https://7732c5436342497882363a8cd14ceff4.mediatailor.us-east-1.amazonaws.com/v1/master/04fd913bb278d8775298c26fdca9d9841f37601f/Plex_NewMovies/playlist.m3u8">
-    <img src="https://www.thefilmcatalogue.com/assets/company-logos/248784/CI_K-MOVIE-ENTERTAINMENT_190927_135259.png" alt="Channel 135">
-    <p>K Movies 2</p>
-  </div>
-  <div class="channel" data-type="hls" data-url="https://d3is52sgpnlx4c.cloudfront.net/10901/88885512/hls/master.m3u8?withResolution=true&ads.xumo_channelId=88885512">
-    <img src="https://th.bing.com/th/id/OIP.JPAbAtNIcKDPNqcmIT2vhQHaEK?w=1000&h=563&rs=1&pid=ImgDetMain" alt="Channel 136">
-    <p>Filmrise Movie</p>
-  </div>
-  <div class="channel" data-type="hls" data-url="https://d3is52sgpnlx4c.cloudfront.net/10901/88885514/hls/master.m3u8?withResolution=true&ads.xumo_channelId=88885514">
-    <img src="https://canvas-bridge.tubitv.com/S3QgIt9u-m79L_pXxvK_Z4ea8RI=/400x574/smart/img.adrise.tv/2dd30253-a5c5-4f2b-a7de-4cd2f211116e.jpg" alt="Channel 137">
-    <p>Filmrise Horror</p>
-  </div>
-  <div class="channel" data-type="hls" data-url="https://cdn-ue1-prod.tsv2.amagi.tv/linear/amg00426-littledotstudio-realwild-tcl/playlist.m3u8">
-    <img src="https://provider-static.plex.tv/epg/cms/production/f5340b9d-394b-4503-a723-8fde0687cafd/Hero_Real_Wild_-_Simon_Tuquabo.jpg" alt="Channel 138">
-    <p>Real Wild</p>
-  </div>
-  <div class="channel" data-type="hls" data-url="https://autentic-adventure-earth-1-au.lg.wurl.tv/playlist.m3u8">
-    <img src="https://cdn.broadbandtvnews.com/wp-content/uploads/2023/06/19090059/AdventureEarth.jpeg" alt="Channel 139">
-    <p>Adventure Earth</p>
-  </div>
-  <div class="channel" data-type="hls" data-url="https://cdn-uw2-prod.tsv2.amagi.tv/linear/amg01597-wnetnewyorkpubl-pbsnature-lgus/playlist.m3u8">
-    <img src="https://yt3.ggpht.com/a/AATXAJzfDNuGyDiZq7D19sx0k48BvvNEV2QJ1JpSGQ=s900-c-k-c0xffffffff-no-rj-mo" alt="Channel 140">
-    <p>PBS Nature</p>
-  </div>
-  <div class="channel" data-type="hls" data-url="https://distributionsjustepourrire-justforlaughsgags-1-eu.zeasn.wurl.tv/4300.m3u8">
-    <img src="https://m.media-amazon.com/images/M/MV5BMDEwYzc1NGQtYjhhNi00MzMzLThlMTktNmFlMTNiZmY5ZjU4XkEyXkFqcGdeQXVyMDYxMTUwNg@@._V1_FMjpg_UX1000_.jpg" alt="Channel 141">
-    <p>Just FOr Laugh</p>
-  </div>
-  <div class="channel" data-type="hls" data-url="https://fl5.moveonjoy.com/HBO_2/tracks-v1a1/mono.m3u8">
-    <img src="https://focalizando.com.br/sites/default/files/inline-images/hbo-2-ao-vivo-24-horas.webp" alt="Channel 142">
-    <p>HBO 2 HD</p>
-  </div>
-  <div class="channel" data-type="hls" data-url="https://fl5.moveonjoy.com/HBO_COMEDY/tracks-v1a1/mono.m3u8">
-    <img src="https://www.tvinsider.com/wp-content/uploads/2022/03/hbo-comedy.png" alt="Channel 143">
-    <p>HBO Comedy</p>
-  </div>
-  <div class="channel" data-type="hls" data-url="https://v9.thetvapp.to/hls/CartoonNetworkEast/tracks-v1a1/mono.m3u8?token=
-https://v7.thetvapp.to/hls/TBSEast/tracks-v1a1/mono.m3u8?token=ZTExN3JTVlN2MEdxcWl6WVhzN1dPam1ueHp1TXlZM3hZRTEyS05ZaA%3D%3D">
-    <img src="https://logodix.com/logo/1197841.jpg" alt="Channel 144">
-    <p>Cartoon Network HD</p>
-  </div>
-  <div class="channel" data-type="hls" data-url="https://v14.thetvapp.to/hls/CinemaxEast/tracks-v1a1/mono.m3u8?token=
-https://v7.thetvapp.to/hls/TBSEast/tracks-v1a1/mono.m3u8?token=ZTExN3JTVlN2MEdxcWl6WVhzN1dPam1ueHp1TXlZM3hZRTEyS05ZaA%3D%3D">
-    <img src="https://1.bp.blogspot.com/-u8M9A83toOU/UCBMVMh-IJI/AAAAAAAAAk4/1YvelbNXG3k/s1600/cinemax-hd-logo-478x170.png" alt="Channel 145">
-    <p>Cinemax HD</p>
-  </div>
-  <div class="channel" data-type="hls" data-url="https://v2.thetvapp.to/hls/CrimePlusInvestigation/tracks-v1a1/mono.m3u8?token=
-https://v7.thetvapp.to/hls/TBSEast/tracks-v1a1/mono.m3u8?token=ZTExN3JTVlN2MEdxcWl6WVhzN1dPam1ueHp1TXlZM3hZRTEyS05ZaA%3D%3D">
-    <img src="https://www.crimeandinvestigation.co.uk/themes/custom/crimeandinvestigation/images/social-cards/ci-homepage.jpg" alt="Channel 146">
-    <p>Crime And Investigation HD</p>
-  </div>
-  <div class="channel" data-type="hls" data-url="https://v8.thetvapp.to/hls/ESPN2/tracks-v1a1/mono.m3u8?token=
-https://v7.thetvapp.to/hls/TBSEast/tracks-v1a1/mono.m3u8?token=ZTExN3JTVlN2MEdxcWl6WVhzN1dPam1ueHp1TXlZM3hZRTEyS05ZaA%3D%3D">
-    <img src="https://www.logolynx.com/images/logolynx/3c/3c287305599f6b82c6313e33f2a2fe23.png" alt="Channel 147">
-    <p>ESPN 2 HD</p>
-  </div>
-  <div class="channel" data-type="hls" data-url="https://v9.thetvapp.to/hls/FreeformEast/tracks-v1a1/mono.m3u8?token=
-https://v7.thetvapp.to/hls/TBSEast/tracks-v1a1/mono.m3u8?token=ZTExN3JTVlN2MEdxcWl6WVhzN1dPam1ueHp1TXlZM3hZRTEyS05ZaA%3D%3D">
-    <img src="https://tse1.mm.bing.net/th?id=OIP.zh1eD7EYr__EtJPDiLeIjgHaIH&pid=Api&P=0&h=180" alt="Channel 148">
-    <p>Freeform Movie HD</p>
-  </div>
-  <div class="channel" data-type="hls" data-url=" https://v6.thetvapp.to/hls/FXEast/tracks-v1a1/mono.m3u8?token=
-https://v7.thetvapp.to/hls/TBSEast/tracks-v1a1/mono.m3u8?token=ZTExN3JTVlN2MEdxcWl6WVhzN1dPam1ueHp1TXlZM3hZRTEyS05ZaA%3D%3D">
-    <img src="https://tse1.mm.bing.net/th?id=OIP.Q_AHZq5MpitvXredrT4RtAHaEK&pid=Api&P=0&h=180" alt="Channel 149">
-    <p>FX Movie HD</p>
-  </div>
-  <div class="channel" data-type="hls" data-url="https://v11.thetvapp.to/hls/FXXEast/tracks-v1a1/mono.m3u8?token=
-https://v7.thetvapp.to/hls/TBSEast/tracks-v1a1/mono.m3u8?token=ZTExN3JTVlN2MEdxcWl6WVhzN1dPam1ueHp1TXlZM3hZRTEyS05ZaA%3D%3D">
-    <img src="https://tse4.mm.bing.net/th?id=OIP.kxXe6E2DGfaa2Dlof2A5RwHaEK&pid=Api&P=0&h=180" alt="Channel 150">
-    <p>FXX Cartoon</p>
-  </div>
-  <div class="channel" data-type="hls" data-url="https://v14.thetvapp.to/hls/HBO2East/tracks-v1a1/mono.m3u8?token=
-https://v7.thetvapp.to/hls/TBSEast/tracks-v1a1/mono.m3u8?token=ZTExN3JTVlN2MEdxcWl6WVhzN1dPam1ueHp1TXlZM3hZRTEyS05ZaA%3D%3D">
-    <img src="https://tse2.mm.bing.net/th?id=OIP.FVGhK_sT007WnKvlllaUKgAAAA&pid=Api&P=0&h=180" alt="Channel 151">
-    <p>HBO 2 East HD</p>
-  </div>
-  <div class="channel" data-type="hls" data-url="https://v10.thetvapp.to/hls/HBOComedyEast/tracks-v1a1/mono.m3u8?token=
-https://v7.thetvapp.to/hls/TBSEast/tracks-v1a1/mono.m3u8?token=ZTExN3JTVlN2MEdxcWl6WVhzN1dPam1ueHp1TXlZM3hZRTEyS05ZaA%3D%3D">
-    <img src="https://tse3.mm.bing.net/th?id=OIP.FE0G5rapNE2KaWuulJSdDQHaCv&pid=Api&P=0&h=180" alt="Channel 152">
-    <p>HBO Comedy HD</p>
-  </div>
-  <div class="channel" data-type="hls" data-url="https://v8.thetvapp.to/hls/HBOEast/tracks-v1a1/mono.m3u8?token=
-https://v7.thetvapp.to/hls/TBSEast/tracks-v1a1/mono.m3u8?token=ZTExN3JTVlN2MEdxcWl6WVhzN1dPam1ueHp1TXlZM3hZRTEyS05ZaA%3D%3D">
-    <img src="https://tse4.mm.bing.net/th?id=OIP.9WxLuQPhH2Qm-gCaRckdHgAAAA&pid=Api&P=0&h=180" alt="Channel 153">
-    <p>HBO East HD</p>
-  </div>
-  <div class="channel" data-type="hls" data-url="https://v7.thetvapp.to/hls/HBOFamilyEast/tracks-v1a1/mono.m3u8?token=
-https://v7.thetvapp.to/hls/TBSEast/tracks-v1a1/mono.m3u8?token=ZTExN3JTVlN2MEdxcWl6WVhzN1dPam1ueHp1TXlZM3hZRTEyS05ZaA%3D%3D">
-    <img src="https://tse2.mm.bing.net/th?id=OIP.UxJaKGDZAOiOCLrfqRk-8gHaHa&pid=Api&P=0&h=180" alt="Channel 154">
-    <p>HBO Family East HD</p>
-  </div>
-  <div class="channel" data-type="hls" data-url="https://v16.thetvapp.to/hls/HBOSignatureEast/tracks-v1a1/mono.m3u8?token=
-https://v4.thetvapp.to/hls/TBSEast/tracks-v1a1/mono.m3u8?token=ZTExN3JTVlN2MEdxcWl6WVhzN1dPam1ueHp1TXlZM3hZRTEyS05ZaA%3D%3D">
-    <img src="https://tse2.mm.bing.net/th?id=OIP.AZNcjC7wAn2nM5arKov_TQAAAA&pid=Api&P=0&h=180" alt="Channel 155">
-    <p>HBO Signature HD</p>
-  </div>
-  <div class="channel" data-type="hls" data-url="https://v4.thetvapp.to/hls/HBOZoneEast/tracks-v1a1/mono.m3u8?token=ZTExN3JTVlN2MEdxcWl6WVhzN1dPam1ueHp1TXlZM3hZRTEyS05ZaA%3D%3D">
-    <img src="https://tse4.mm.bing.net/th?id=OIP.TE8wklvL9UOJR5l8VdGowAAAAA&pid=Api&P=0&h=180" alt="Channel 156">
-    <p>HBO Zone HD</p>
-  </div>
-  <div class="channel" data-type="hls" data-url="https://v5.thetvapp.to/hls/metv-toons/tracks-v1a1/mono.m3u8?token=
-https://v7.thetvapp.to/hls/TBSEast/tracks-v1a1/mono.m3u8?token=ZTExN3JTVlN2MEdxcWl6WVhzN1dPam1ueHp1TXlZM3hZRTEyS05ZaA%3D%3D">
-    <img src="https://tse3.mm.bing.net/th?id=OIP.JgkCKN9t6vamNU6JNheLKAHaEK&pid=Api&P=0&h=180" alt="Channel 157">
-    <p>Me Tv Toons HD</p>
-  </div>
-  <div class="channel" data-type="hls" data-url="https://v13.thetvapp.to/hls/MoreMaxEast/tracks-v1a1/mono.m3u8?token=
-https://v7.thetvapp.to/hls/TBSEast/tracks-v1a1/mono.m3u8?token=ZTExN3JTVlN2MEdxcWl6WVhzN1dPam1ueHp1TXlZM3hZRTEyS05ZaA%3D%3D">
-    <img src="https://logodix.com/logo/1987663.png" alt="Channel 158">
-    <p>More Max Movie HD</p>
-  </div>
-  <div class="channel" data-type="hls" data-url="https://v7.thetvapp.to/hls/NationalGeographicWildEast/tracks-v1a1/mono.m3u8?token=
-https://v7.thetvapp.to/hls/TBSEast/tracks-v1a1/mono.m3u8?token=ZTExN3JTVlN2MEdxcWl6WVhzN1dPam1ueHp1TXlZM3hZRTEyS05ZaA%3D%3D">
-    <img src="http://www.ranklogos.com/wp-content/uploads/2014/12/Nat-Geo-Wild-HD.png" alt="Channel 159">
-    <p>NAT GEO Wild HD</p>
-  </div>
-  <div class="channel" data-type="hls" data-url="https://v16.thetvapp.to/hls/NationalGeographicEast/tracks-v1a1/mono.m3u8?token=
-https://v7.thetvapp.to/hls/TBSEast/tracks-v1a1/mono.m3u8?token=ZTExN3JTVlN2MEdxcWl6WVhzN1dPam1ueHp1TXlZM3hZRTEyS05ZaA%3D%3D">
-    <img src="https://wallpapercave.com/wp/wp8223158.jpg" alt="Channel 160">
-    <p>National Geographic HD</p>
-  </div>
-  <div class="channel" data-type="hls" data-url="https://v7.thetvapp.to/hls/NBATV/tracks-v1a1/mono.m3u8?token=
-https://v7.thetvapp.to/hls/TBSEast/tracks-v1a1/mono.m3u8?token=ZTExN3JTVlN2MEdxcWl6WVhzN1dPam1ueHp1TXlZM3hZRTEyS05ZaA%3D%3D">
-    <img src="https://tse3.mm.bing.net/th?id=OIP.Sl8BjoR3a6kUYloXkeqZVwHaE4&pid=Api&P=0&h=180" alt="Channel 161">
-    <p>N B A TV HD</p>
-  </div>
-  <div class="channel" data-type="hls" data-url="https://v9.thetvapp.to/hls/NickelodeonEast/tracks-v1a1/mono.m3u8?token=
-https://v7.thetvapp.to/hls/TBSEast/tracks-v1a1/mono.m3u8?token=ZTExN3JTVlN2MEdxcWl6WVhzN1dPam1ueHp1TXlZM3hZRTEyS05ZaA%3D%3D">
-    <img src="https://tse4.mm.bing.net/th?id=OIP.A9fverYL4zs7P7u2pLNyRAHaFj&pid=Api&P=0&h=180" alt="Channel 162">
-    <p>Nickelodeon East HD</p>
-  </div>
-  <div class="channel" data-type="hls" data-url="https://v14.thetvapp.to/hls/NicktoonsEast/tracks-v1a1/mono.m3u8?token=
-https://v7.thetvapp.to/hls/TBSEast/tracks-v1a1/mono.m3u8?token=ZTExN3JTVlN2MEdxcWl6WVhzN1dPam1ueHp1TXlZM3hZRTEyS05ZaA%3D%3D">
-    <img src="https://tse2.mm.bing.net/th?id=OIP.R0KORUrfm0OEB6Pk7wYhmAHaFj&pid=Api&P=0&h=180" alt="Channel 163">
-    <p>NICKTOONS HD</p>
-  </div>
-  <div class="channel" data-type="hls" data-url="https://v10.thetvapp.to/hls/Science/tracks-v1a1/mono.m3u8?token=
-https://v7.thetvapp.to/hls/TBSEast/tracks-v1a1/mono.m3u8?token=ZTExN3JTVlN2MEdxcWl6WVhzN1dPam1ueHp1TXlZM3hZRTEyS05ZaA%3D%3D">
-    <img src="https://i.ytimg.com/vi/joGXG5IGnXg/maxresdefault.jpg" alt="Channel 164">
-    <p>Discovery Science</p>
-  </div>
-  <div class="channel" data-type="hls" data-url="https://v3.thetvapp.to/hls/ShowtimeEast/tracks-v1a1/mono.m3u8?token=
-https://v7.thetvapp.to/hls/TBSEast/tracks-v1a1/mono.m3u8?token=ZTExN3JTVlN2MEdxcWl6WVhzN1dPam1ueHp1TXlZM3hZRTEyS05ZaA%3D%3D">
-    <img src="https://vignette4.wikia.nocookie.net/logopedia/images/1/1e/Showtime_HD.svg/revision/latest?cb=20141031203917" alt="Channel 165">
-    <p>ShowTime Movie HD</p>
-  </div>
-  <div class="channel" data-type="hls" data-url="https://v9.thetvapp.to/hls/Showtime2East/tracks-v1a1/mono.m3u8?token=
-https://v7.thetvapp.to/hls/TBSEast/tracks-v1a1/mono.m3u8?token=ZTExN3JTVlN2MEdxcWl6WVhzN1dPam1ueHp1TXlZM3hZRTEyS05ZaA%3D%3D">
-    <img src="https://tse3.mm.bing.net/th?id=OIP.m-PWSv3ygblxtn3LkdE4rAHaCU&pid=Api&P=0&h=180" alt="Channel 166">
-    <p>ShowTime Movie 2 HD</p>
-  </div>
-  <div class="channel" data-type="hls" data-url="https://v3.thetvapp.to/hls/StarzEast/tracks-v1a1/mono.m3u8?token=
-https://v7.thetvapp.to/hls/TBSEast/tracks-v1a1/mono.m3u8?token=ZTExN3JTVlN2MEdxcWl6WVhzN1dPam1ueHp1TXlZM3hZRTEyS05ZaA%3D%3D">
-    <img src="https://tse2.mm.bing.net/th?id=OIP.DgHNFuZjZxB0o6lcMPaPBgHaFu&pid=Api&P=0&h=180" alt="Channel 167">
-    <p>Starz East Movie HD</p>
-  </div>
-  <div class="channel" data-type="hls" data-url="https://v9.thetvapp.to/hls/SyfyEast/tracks-v1a1/mono.m3u8?token=
-https://v7.thetvapp.to/hls/TBSEast/tracks-v1a1/mono.m3u8?token=ZTExN3JTVlN2MEdxcWl6WVhzN1dPam1ueHp1TXlZM3hZRTEyS05ZaA%3D%3D">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Syfy-HD-Logo.svg/1280px-Syfy-HD-Logo.svg.png" alt="Channel 168">
-    <p>SYFY Movies HD</p>
-  </div>
-  <div class="channel" data-type="hls" data-url="https://v13.thetvapp.to/hls/TBSEast/tracks-v1a1/mono.m3u8?token=
-https://v7.thetvapp.to/hls/TBSEast/tracks-v1a1/mono.m3u8?token=ZTExN3JTVlN2MEdxcWl6WVhzN1dPam1ueHp1TXlZM3hZRTEyS05ZaA%3D%3D">
-    <img src="https://tse3.mm.bing.net/th?id=OIP.Vl49Irxfvf8GKuYprY0c5QHaHa&pid=Api&P=0&h=180" alt="Channel 169">
-    <p>TBS Comedy TV</p>
-  </div>
-  <div class="channel" data-type="hls" data-url="https://v11.thetvapp.to/hls/TNTEast/tracks-v1a1/mono.m3u8?token=
-https://v7.thetvapp.to/hls/TBSEast/tracks-v1a1/mono.m3u8?token=ZTExN3JTVlN2MEdxcWl6WVhzN1dPam1ueHp1TXlZM3hZRTEyS05ZaA%3D%3D">
-    <img src="http://vignette2.wikia.nocookie.net/logosfake/images/3/3b/TNT_HD.png/revision/latest?cb=20140407183245" alt="Channel 170">
-    <p>T N T HD</p>
-  </div>
-  <div class="channel" data-type="hls" data-url="https://v9.thetvapp.to/hls/truTVEast/tracks-v1a1/mono.m3u8?token=
-https://v7.thetvapp.to/hls/TBSEast/tracks-v1a1/mono.m3u8?token=ZTExN3JTVlN2MEdxcWl6WVhzN1dPam1ueHp1TXlZM3hZRTEyS05ZaA%3D%3D">
-    <img src="https://tse4.mm.bing.net/th?id=OIP.uy26dq24bzY1Y65cpW5KJQHaFj&pid=Api&P=0&h=180" alt="Channel 171">
-    <p>Tru TV HD</p>
-  </div>
-  <div class="channel" data-type="hls" data-url="https://v9.thetvapp.to/hls/USANetworkEast/tracks-v1a1/mono.m3u8?token=
-https://v7.thetvapp.to/hls/TBSEast/tracks-v1a1/mono.m3u8?token=ZTExN3JTVlN2MEdxcWl6WVhzN1dPam1ueHp1TXlZM3hZRTEyS05ZaA%3D%3D">
-    <img src="https://tse2.mm.bing.net/th?id=OIP.eWhwGYZ4OwFGbeAurY6PCwHaEK&pid=Api&P=0&h=180" alt="Channel 172">
-    <p>USA Network</p>
-  </div>
-  <div class="channel" data-type="hls" data-url="https://v12.thetvapp.to/hls/UniversalKidsEast/tracks-v1a1/mono.m3u8?token=
-https://v7.thetvapp.to/hls/TBSEast/tracks-v1a1/mono.m3u8?token=ZTExN3JTVlN2MEdxcWl6WVhzN1dPam1ueHp1TXlZM3hZRTEyS05ZaA%3D%3D">
-    <img src="https://tse4.mm.bing.net/th?id=OIP.ER9AxkIygHWbg97roMZinAHaE8&pid=Api&P=0&h=180" alt="Channel 173">
-    <p>Universal Kids</p>
-  </div>
-  <div class="channel" data-type="hls" data-url="https://v9.thetvapp.to/hls/WeTVEast/tracks-v1a1/mono.m3u8?token=
-https://v7.thetvapp.to/hls/TBSEast/tracks-v1a1/mono.m3u8?token=ZTExN3JTVlN2MEdxcWl6WVhzN1dPam1ueHp1TXlZM3hZRTEyS05ZaA%3D%3D">
-    <img src="https://tse2.mm.bing.net/th?id=OIP.W10e3PtuJ0jjaPOx8QjDcAHaD4&pid=Api&P=0&h=180" alt="Channel 174">
-    <p>We TV</p>
-  </div>
-  <div class="channel" data-type="hls" data-url="https://v2.thetvapp.to/hls/AEEast/tracks-v2a1/mono.m3u8?token=
-https://v7.thetvapp.to/hls/TBSEast/tracks-v1a1/mono.m3u8?token=ZTExN3JTVlN2MEdxcWl6WVhzN1dPam1ueHp1TXlZM3hZRTEyS05ZaA%3D%3D">
-    <img src="https://tse3.mm.bing.net/th?id=OIP.xVBWkTLwXLd9Q7cOSy5xXwHaHa&pid=Api&P=0&h=180" alt="Channel 175">
-    <p>A and E TV</p>
-  </div>
-  <div class="channel" data-type="hls" data-url="https://v11.thetvapp.to/hls/AMCEast/tracks-v1a1/mono.m3u8?token=
-https://v7.thetvapp.to/hls/TBSEast/tracks-v1a1/mono.m3u8?token=ZTExN3JTVlN2MEdxcWl6WVhzN1dPam1ueHp1TXlZM3hZRTEyS05ZaA%3D%3D">
-    <img src="https://tse4.mm.bing.net/th?id=OIP.Tj5PLl89W87h565p5YalKwHaEJ&pid=Api&P=0&h=180" alt="Channel 176">
-    <p>AMC Movies</p>
-  </div>
-  <div class="channel" data-type="hls" data-url="https://v15.thetvapp.to/hls/ComedyCentralEast/tracks-v1a1/mono.m3u8?token=
-https://v7.thetvapp.to/hls/TBSEast/tracks-v1a1/mono.m3u8?token=ZTExN3JTVlN2MEdxcWl6WVhzN1dPam1ueHp1TXlZM3hZRTEyS05ZaA%3D%3D">
-    <img src="https://tse4.mm.bing.net/th?id=OIP.zo8EPrw6NQ7YREQ_118oQAHaEK&pid=Api&P=0&h=180" alt="Channel 177">
-    <p>Comedy Central</p>
-  </div>
-  <div class="channel" data-type="hls" data-url="https://v13.thetvapp.to/hls/MovieMaxEast/tracks-v1a1/mono.m3u8?token=
-https://v7.thetvapp.to/hls/TBSEast/tracks-v1a1/mono.m3u8?token=ZTExN3JTVlN2MEdxcWl6WVhzN1dPam1ueHp1TXlZM3hZRTEyS05ZaA%3D%3D">
-    <img src="https://yt3.ggpht.com/a/AATXAJxccedx17IvNabqa3lM0g6yb9JTYHTlOj92=s900-c-k-c0xffffffff-no-rj-mo" alt="Channel 178">
-    <p>MovieMax</p>
-  </div>
-  <div class="channel" data-type="hls" data-url="https://v3.thetvapp.to/hls/CookingChannel/tracks-v1a1/mono.m3u8?token=
-https://v7.thetvapp.to/hls/TBSEast/tracks-v1a1/mono.m3u8?token=ZTExN3JTVlN2MEdxcWl6WVhzN1dPam1ueHp1TXlZM3hZRTEyS05ZaA%3D%3D">
-    <img src="https://tse3.mm.bing.net/th?id=OIP.tH14T6BJi7q2Cj2L-bKhUQHaEK&pid=Api&P=0&h=180" alt="Channel 179">
-    <p>A and E TV</p>
-  </div>
-  <div class="channel" data-type="hls" data-url="https://v15.thetvapp.to/hls/InvestigationDiscoveryEast/tracks-v1a1/mono.m3u8?token=
-https://v7.thetvapp.to/hls/TBSEast/tracks-v1a1/mono.m3u8?token=ZTExN3JTVlN2MEdxcWl6WVhzN1dPam1ueHp1TXlZM3hZRTEyS05ZaA%3D%3D">
-    <img src="https://tse1.mm.bing.net/th?id=OIP.USO7dcIro7XgAMZVXBpuigHaEJ&pid=Api&P=0&h=180" alt="Channel 180">
-    <p>Investigation Discovery</p>
-  </div>
+  <script>
+    const channels = [
+      {
+        name: '',
+        logo: 'https://logowik.com/content/uploads/images/tv5-philippines1731625551.logowik.com.webp',
+        manifestUri: 'https://qp-pldt-live-grp-02-prod.akamaized.net/out/u/tv5_hd.mpd',
+        clearKey: { '2615129ef2c846a9bbd43a641c7303ef': '07c7f996b1734ea288641a68e1cfdc4d' }
+      },
+      {
+        name: '',
+        logo: 'https://i.ebayimg.com/images/g/3EoAAOSwuLxjH4JN/s-l300.png',
+        manifestUri: 'https://qp-pldt-live-grp-02-prod.akamaized.net/out/u/cg_a2z.mpd',
+        clearKey: { 'f703e4c8ec9041eeb5028ab4248fa094': 'c22f2162e176eee6273a5d0b68d19530' }
+      },
+      {
+        name: '',
+        logo: 'https://th.bing.com/th/id/R.22b78ea84befc827d0d7831ce0923a06?rik=C%2fraO%2fObTVq6cg&riu=http%3a%2f%2fassets.rappler.com%2f3E8CFD536445453C9575551922F68F49%2fimg%2fFAB93EF5D0DF4FD6BE017B76302A75BD%2fKapamilya_Channel_logo.jpg&ehk=faTwUjjPyPoe7VzXcQA%2f5u4f%2f3L5FO%2f2Wl78M7LybFE%3d&risl=&pid=ImgRaw&r=0',
+        manifestUri: 'https://cdn-ue1-prod.tsv2.amagi.tv/linear/amg01006-abs-cbn-kapcha-dash-abscbnono/index.mpd',
+        clearKey: { 'bd17afb5dc9648a39be79ee3634dd4b8': '3ecf305d54a7729299b93a3d69c02ea5' }
+      },
+      {
+        name: '',
+        logo: 'https://tse4.mm.bing.net/th?id=OIP.4Eq7oR3Nbo7IQL0ZHckSTAHaH7&pid=Api&P=0&h=180',
+        manifestUri: 'https://qp-pldt-live-grp-06-prod.akamaized.net/out/u/cg_buko_sd.mpd',
+        clearKey: { 'd273c085f2ab4a248e7bfc375229007d': '7932354c3a84f7fc1b80efa6bcea0615' }
+      },
+      {
+        name: '',
+        logo: 'https://tse4.mm.bing.net/th?id=OIP.0Rw8bhz8AeYYd_yd_cOV6gAAAA&pid=Api&P=0&h=180',
+        manifestUri: 'https://qp-pldt-live-grp-04-prod.akamaized.net/out/u/pbo_sd.mpd',
+        clearKey: { 'dcbdaaa6662d4188bdf97f9f0ca5e830': '31e752b441bd2972f2b98a4b1bc1c7a1' }
+      },
+       {
+        name: '',
+        logo: 'https://vignette1.wikia.nocookie.net/logopedia/images/3/3e/Sari-Sari_alternate_Logo.PNG/revision/latest?cb=20160619031101',
+        manifestUri: 'https://qp-pldt-live-grp-06-prod.akamaized.net/out/u/cg_sari_sari_sd.mpd',
+        clearKey: { '0a7ab3612f434335aa6e895016d8cd2d': 'b21654621230ae21714a5cab52daeb9d' }
+      },
+       {
+        name: '',
+        logo: 'https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/4b1ceee5-9458-4434-80bc-fc5d83a2ea88/ddxoqt2-0499f070-69c0-4af5-b3a6-ba8532fd6ccd.png/v1/fill/w_847,h_944,strp/viva_cinema__1996__logo_remake__wip_3__by_unitedworldmedia_ddxoqt2-pre.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTQyNyIsInBhdGgiOiJcL2ZcLzRiMWNlZWU1LTk0NTgtNDQzNC04MGJjLWZjNWQ4M2EyZWE4OFwvZGR4b3F0Mi0wNDk5ZjA3MC02OWMwLTRhZjUtYjNhNi1iYTg1MzJmZDZjY2QucG5nIiwid2lkdGgiOiI8PTEyODAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.kXZFXI_Yf2LBUA7M-n1aFVbnCVYTzXTGXA3uyS-zdnw',
+        manifestUri: 'https://qp-pldt-live-grp-06-prod.akamaized.net/out/u/viva_sd.mpd',
+        clearKey: { '07aa813bf2c147748046edd930f7736e': '3bd6688b8b44e96201e753224adfc8fb' }
+      },
+      {
+        name: '',
+        logo: 'https://lh3.googleusercontent.com/LplckMskM-6P6KvdP9yL_WT28nJIAw10gE3D7rkee5ZCmbe7wIKuv_CYOMi2guHRaPI=h1024-no-tmp_latest_tagalog_movies_apk.jpg',
+        manifestUri: 'https://qp-pldt-live-grp-07-prod.akamaized.net/out/u/cg_tagalogmovie.mpd',
+        clearKey: { 'f703e4c8ec9041eeb5028ab4248fa094': 'c22f2162e176eee6273a5d0b68d19530' }
+      },
+      {
+        name: '',
+        logo: 'https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/2077a187-7b99-4db1-b092-ca4f7f1fc316/dh19scr-dcc2ff28-42f7-4ce4-be80-9646c5df9fef.jpg/v1/fill/w_894,h_894,q_70,strp/animax_logo_tvokids_letters_by_danieltubeisback_dh19scr-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTAwMCIsInBhdGgiOiJcL2ZcLzIwNzdhMTg3LTdiOTktNGRiMS1iMDkyLWNhNGY3ZjFmYzMxNlwvZGgxOXNjci1kY2MyZmYyOC00MmY3LTRjZTQtYmU4MC05NjQ2YzVkZjlmZWYuanBnIiwid2lkdGgiOiI8PTEwMDAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.M_Mnwk9ah6X2FrrRTeOY4_Apek2m32Vss6DrL9Bl9RY',
+        manifestUri: 'https://tglmp01.akamaized.net/out/v1/de55fad9216e4fe7ad8d2eed456ba1ec/manifest.mpd',
+        clearKey: { 'edf1a715de9748638dd2fad75a419af2': '2f5a3199b26e9b693ae881af7ff864cf' }
+      },
+      {
+        name: '',
+        logo: 'https://tse2.mm.bing.net/th?id=OIP.RjFzlLGcI2goN6SD7WemUQHaEK&pid=Api&P=0&h=180',
+        manifestUri: 'https://qp-pldt-live-grp-12-prod.akamaized.net/out/u/dr_cartoonnetworkhd.mpd',
+        clearKey: { 'a2d1f552ff9541558b3296b5a932136b': 'cdd48fa884dc0c3a3f85aeebca13d444' }
+      },
+      {
+        name: '',
+        logo: 'https://th.bing.com/th/id/OIP.ALWJ2WbVHYo_264G5VnzUAHaED?rs=1&pid=ImgDetMain',
+        manifestUri: 'https://atemecdnbalancer-voe.sysln.id/live/eds/CartoonitoHD/mpd/CartoonitoHD.mpd',
+        clearKey: { '955574ee2b674f0fbbad818fb384c233': '51d2893619bdd062fb4c0cdaafefbf27' }
+      },
+      {
+        name: '',
+        logo: 'https://tse3.mm.bing.net/th?id=OIP.OPHawTf7eMI8cgvHJJ9FtgHaEK&pid=Api&P=0&h=180',
+        manifestUri: 'https://qp-pldt-live-grp-07-prod.akamaized.net/out/u/cg_dreamworktag.mpd',
+        clearKey: { '564b3b1c781043c19242c66e348699c5': 'd3ad27d7fe1f14fb1a2cd5688549fbab' }
+      },
+      {
+        name: '',
+        logo: 'https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/2a46d7d8-d8e1-497a-9b13-3e452d07e286/dfw3orh-67f82fec-c5e2-420f-a598-1193a9c35e3c.png/v1/fill/w_1022,h_782/nickelodeon___summer_2023_logo_concept_by_jpreckless2444_dfw3orh-pre.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NzgzIiwicGF0aCI6IlwvZlwvMmE0NmQ3ZDgtZDhlMS00OTdhLTliMTMtM2U0NTJkMDdlMjg2XC9kZnczb3JoLTY3ZjgyZmVjLWM1ZTItNDIwZi1hNTk4LTExOTNhOWMzNWUzYy5wbmciLCJ3aWR0aCI6Ijw9MTAyNCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.JrOvVlsk9GLGKsd-4ffetCe4Kn6AmLKtDGVSamvR7eo',
+        manifestUri: 'https://qp-pldt-live-grp-11-prod.akamaized.net/out/u/dr_nickelodeon.mpd',
+        clearKey: { '9ce58f37576b416381b6514a809bfd8b': 'f0fbb758cdeeaddfa3eae538856b4d72' }
+      },
+      {
+        name: '',
+        logo: 'https://2.bp.blogspot.com/-sZZITfpQ9_M/WwM9awajXQI/AAAAAAAA6No/t8wEGZzsxKEs4-Gn8i1b5vZoNjKhnh66ACLcBGAs/s1600/nick-jr-logo-2018-rebrand-brand-refresh-nickelodeon-preschool-usa.png',
+        manifestUri: 'https://qp-pldt-live-grp-12-prod.akamaized.net/out/u/dr_nickjr.mpd',
+        clearKey: { 'bab5c11178b646749fbae87962bf5113': '0ac679aad3b9d619ac39ad634ec76bc8' }
+      },
+      {
+        name: '',
+        logo: 'https://wallpapers.com/images/hd/hbo-background-02ivg2v0l3ilbkmr.jpg',
+        manifestUri: 'https://qp-pldt-live-grp-03-prod.akamaized.net/out/u/cg_hbohd.mpd',
+        clearKey: { 'd47ebabf7a21430b83a8c4b82d9ef6b1': '54c213b2b5f885f1e0290ee4131d425b' }
+      },
+      {
+        name: '',
+        logo: 'https://tse1.mm.bing.net/th?id=OIF.ogUl9AM%2b119MzIBeaoJwcQ&pid=Api&P=0&h=180',
+        manifestUri: 'https://qp-pldt-live-grp-03-prod.akamaized.net/out/u/cg_hbofam.mpd',
+        clearKey: { '872910c843294319800d85f9a0940607': 'f79fd895b79c590708cf5e8b5c6263be' }
+      },
+      {
+        name: '',
+        logo: 'https://tse3.mm.bing.net/th?id=OIP.PNcaEsDsK8CX97tCTst7_gHaDw&pid=Api&P=0&h=180',
+        manifestUri: 'https://qp-pldt-live-grp-01-prod.akamaized.net/out/u/cg_hbosign.mpd',
+        clearKey: { 'a06ca6c275744151895762e0346380f5': '559da1b63eec77b5a942018f14d3f56f' }
+      },
+      {
+        name: '',
+        logo: 'https://tse4.mm.bing.net/th?id=OIP.7cKIi6OvC66lmK484NdbUQAAAA&pid=Api&P=0&h=180',
+        manifestUri: 'https://qp-pldt-live-grp-09-prod.akamaized.net/out/u/cg_hbohits.mpd',
+        clearKey: { 'b04ae8017b5b4601a5a0c9060f6d5b7d': 'a8795f3bdb8a4778b7e888ee484cc7a1' }
+      },
+      {
+        name: '',
+        logo: 'https://yt3.ggpht.com/-vrDJV05mY6o/AAAAAAAAAAI/AAAAAAAAAAA/wFLZ0bLe0Ls/s900-c-k-no-mo-rj-c0xffffff/photo.jpg',
+        manifestUri: 'https://qp-pldt-live-grp-01-prod.akamaized.net/out/u/cg_cinemax.mpd',
+        clearKey: { 'b207c44332844523a3a3b0469e5652d7': 'fe71aea346db08f8c6fbf0592209f955' }
+      },
+      {
+        name: '',
+        logo: 'https://cms.cignal.tv/Upload/Images/Hits%20Now.png',
+        manifestUri: 'https://qp-pldt-live-grp-09-prod.akamaized.net/out/u/cg_hitsnow.mpd',
+        clearKey: { '14439a1b7afc4527bb0ebc51cf11cbc1': '92b0287c7042f271b266cc11ab7541f1' }
+      },
+      {
+        name: '',
+        logo: 'https://th.bing.com/th/id/R.9ddd59b9cd389b3d2a9373f79b4e0d78?rik=7UeU1padPIBeFA&riu=http%3a%2f%2fwww.royalcable.com.ph%2fwp-content%2fuploads%2f2021%2f10%2fSMALLER-LOGO-13.png&ehk=w%2fuQXurgblaiPCEj3uGlmCk7VcOwfbEpQs2qhzOxwrU%3d&risl=&pid=ImgRaw&r=0',
+        manifestUri: 'https://qp-pldt-live-grp-04-prod.akamaized.net/out/u/hits_hd1.mpd',
+        clearKey: { 'dac605bc197e442c93f4f08595a95100': '975e27ffc1b7949721ee3ccb4b7fd3e5' }
+      },
+      {
+        name: '',
+        logo: 'https://tse2.mm.bing.net/th?id=OIP.UjQ-RKl2UFieNoyS0tD64wHaEf&pid=Api&P=0&h=180',
+        manifestUri: 'https://qp-pldt-live-grp-12-prod.akamaized.net/out/u/dr_hitsmovies.mpd',
+        clearKey: { 'f56b57b32d7e4b2cb21748c0b56761a7': '3df06a89aa01b32655a77d93e09e266f' }
+      },
+      {
+        name: '',
+        logo: 'https://tse2.mm.bing.net/th?id=OIP.DfPPVftOsA6O2k_CVUj7WQHaEn&pid=Api&P=0&h=180',
+        manifestUri: 'https://qp-pldt-live-grp-06-prod.akamaized.net/out/u/cg_axn_sd.mpd',
+        clearKey: { 'fd5d928f5d974ca4983f6e9295dfe410': '3aaa001ddc142fedbb9d5557be43792f' }
+      },
+      {
+        name: '',
+        logo: 'https://tse1.mm.bing.net/th?id=OIP.n09V2ebeV_kzhdJuXLUbKgHaEK&pid=Api&P=0&h=180',
+        manifestUri: 'https://qp-pldt-live-grp-11-prod.akamaized.net/out/u/dr_warnertvhd.mpd',
+        clearKey: { '4503cf86bca3494ab95a77ed913619a0': 'afc9c8f627fb3fb255dee8e3b0fe1d71' }
+      },
+      {
+        name: '',
+        logo: 'https://dcassetcdn.com/design_img/1784938/517402/517402_9622699_1784938_89e62af3_image.jpg',
+        manifestUri: 'https://qp-pldt-live-grp-06-prod.akamaized.net/out/u/cg_thrill_sd.mpd',
+        clearKey: { '928114ffb2394d14b5585258f70ed183': 'a82edc340bc73447bac16cdfed0a4c62' }
+      },
+      {
+        name: '',
+        logo: 'https://tse2.mm.bing.net/th?id=OIP.xIHfygKCBQEUg3td_O8McAHaDw&pid=Api&P=0&h=180',
+        manifestUri: 'https://qp-pldt-live-grp-13-prod.akamaized.net/out/u/dr_knowledgechannel.mpd',
+        clearKey: { '0f856fa0412b11edb8780242ac120002': '783374273ef97ad3bc992c1d63e091e7' }
+      },
+      {
+        name: '',
+        logo: 'https://bilyonaryo.com/wp-content/uploads/2022/08/bilyonaryo-logo-fb.png',
+        manifestUri: 'https://qp-pldt-live-grp-05-prod.akamaized.net/out/u/bilyonaryoch.mpd',
+        clearKey: { '227ffaf09bec4a889e0e0988704d52a2': 'b2d0dce5c486891997c1c92ddaca2cd2' }
+      },
+      {
+        name: '',
+        logo: 'https://th.bing.com/th/id/OIP.G8YBbUw6uv-8dyC-d7s3-gHaHa?rs=1&pid=ImgDetMain',
+        manifestUri: 'https://qp-pldt-live-grp-09-prod.akamaized.net/out/u/cg_tvnpre.mpd',
+        clearKey: { 'e1bde543e8a140b38d3f84ace746553e': 'b712c4ec307300043333a6899a402c10' }
+      },
+      {
+        name: '',
+        logo: 'https://th.bing.com/th/id/OIP.y25wVML21jm7uL92XwV3DwHaF1?rs=1&pid=ImgDetMain',
+        manifestUri: 'https://qp-pldt-live-grp-04-prod.akamaized.net/out/u/cg_uaap_cplay_sd.mpd',
+        clearKey: { '95588338ee37423e99358a6d431324b9': '6e0f50a12f36599a55073868f814e81e' }
+      },
+      {
+        name: '',
+        logo: 'https://cms.dmpcdn.com/livetv/2020/11/20/92242c30-2b34-11eb-8c49-6ff1aae212a5_original.png',
+        manifestUri: 'https://qp-pldt-live-grp-01-prod.akamaized.net/out/u/cg_pbarush_hd1.mpd',
+        clearKey: { '76dc29dd87a244aeab9e8b7c5da1e5f3': '95b2f2ffd4e14073620506213b62ac82' }
+      },
+      {
+        name: '',
+        logo: 'https://upload.wikimedia.org/wikipedia/en/thumb/d/d2/NBA_TV.svg/1200px-NBA_TV.svg.png',
+        manifestUri: 'https://qp-pldt-live-grp-02-prod.akamaized.net/out/u/pl_nba.mpd',
+        clearKey: { 'f36eed9e95f140fabbc88a08abbeafff': '0125600d0eb13359c28bdab4a2ebe75a' }
+      },
+      {
+        name: '',
+        logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/OneSportsPlus_logo.svg/300px-OneSportsPlus_logo.svg.png',
+        manifestUri: 'https://qp-pldt-live-grp-03-prod.akamaized.net/out/u/cg_onesportsplus_hd1.mpd',
+        clearKey: { '322d06e9326f4753a7ec0908030c13d8': '1e3e0ca32d421fbfec86feced0efefda' }
+      },
+       {
+        name: '',
+        logo: 'https://th.bing.com/th/id/OIP.BFw-wd22jsRV1KUAG0CbmQHaFu?rs=1&pid=ImgDetMain',
+        manifestUri: 'https://qp-pldt-live-grp-04-prod.akamaized.net/out/u/oneph_sd.mpd',
+        clearKey: { '92834ab4a7e1499b90886c5d49220e46': 'a7108d9a6cfcc1b7939eb111daf09ab3' }
+      },
+       {
+        name: '',
+        logo: 'https://th.bing.com/th/id/OIP.lCbzkTieFISnFkOVNECqHgHaFJ?rs=1&pid=ImgDetMain',
+        manifestUri: 'https://qp-pldt-live-grp-07-prod.akamaized.net/out/u/cg_onesports_hd.mpd',
+        clearKey: { '53c3bf2eba574f639aa21f2d4409ff11': '3de28411cf08a64ea935b9578f6d0edd' }
+      },
+       {
+        name: '',
+        logo: 'https://play-lh.googleusercontent.com/wygD_Dlr6orZBJLW2TmQv1WIQkQxrDcTsQbF5JtN7rFgc-ELLkvPmdxmowK5cwUyWw',
+        manifestUri: 'https://qp-pldt-live-grp-06-prod.akamaized.net/out/u/cg_taptv_sd.mpd',
+        clearKey: { 'f6804251e90b4966889b7df94fdc621e': '55c3c014f2bd12d6bd62349658f24566' }
+      },
+       {
+        name: '',
+        logo: 'https://yt3.ggpht.com/-TlpMWJAqYHc/AAAAAAAAAAI/AAAAAAAAAAA/HYhmyrnj0SQ/s900-c-k-no-mo-rj-c0xffffff/photo.jpg',
+        manifestUri: 'https://qp-pldt-live-grp-12-prod.akamaized.net/out/u/dr_kbsworld.mpd',
+        clearKey: { '22ff2347107e4871aa423bea9c2bd363': 'c6e7ba2f48b3a3b8269e8bc360e60404' }
+      },
+       {
+        name: '',
+        logo: 'https://cms.cignal.tv/Upload/Images/kix%20hd%20(On%20White).png',
+        manifestUri: 'https://qp-pldt-live-grp-06-prod.akamaized.net/out/u/kix_hd1.mpd',
+        clearKey: { 'a8d5712967cd495ca80fdc425bc61d6b': 'f248c29525ed4c40cc39baeee9634735' }
+      },
+       {
+        name: '',
+        logo: 'https://cms.cignal.tv/Upload/Thumbnails/Tap-Action-Flix-Highlight-Thumbnail-Feb-2022.jpg',
+        manifestUri: 'https://qp-pldt-live-grp-06-prod.akamaized.net/out/u/cg_tapactionflix_hd1.mpd',
+        clearKey: { 'bee1066160c0424696d9bf99ca0645e3': 'f5b72bf3b89b9848de5616f37de040b7' }
+      },
+       {
+        name: '',
+        logo: 'https://tse2.mm.bing.net/th?id=OIP.DWOAT50nzkKBnuJsxXNH5AHaEo&pid=Api&P=0&h=180',
+        manifestUri: 'https://qp-pldt-live-grp-13-prod.akamaized.net/out/u/dr_discovery.mpd',
+        clearKey: { 'd9ac48f5131641a789328257e778ad3a': 'b6e67c37239901980c6e37e0607ceee6' }
+      },
+      {
+        name: '',
+        logo: 'https://cropper.watch.aetnd.com/cdn.watch.aetnd.com/sites/5/2020/04/new-lifetime-generic-logo-art-desktop.jpg',
+        manifestUri: 'https://qp-pldt-live-grp-11-prod.akamaized.net/out/u/dr_lifetime.mpd',
+        clearKey: { 'cf861d26e7834166807c324d57df5119': '64a81e30f6e5b7547e3516bbf8c647d0' }
+      },
+      {
+        name: '',
+        logo: 'https://tse4.mm.bing.net/th?id=OIP.P9h3o39tc9EkrdXQ4PSzWQHaHa&pid=Api&P=0&h=180',
+        manifestUri: 'https://qp-pldt-live-grp-08-prod.akamaized.net/out/u/travel_channel_sd.mpd',
+        clearKey: { 'f3047fc13d454dacb6db4207ee79d3d3': 'bdbd38748f51fc26932e96c9a2020839' }
+      },
+      {
+        name: '',
+        logo: 'https://tse1.mm.bing.net/th?id=OIP.uAeGSiTCaOnk6gTuzR2t0gHaEK&pid=Api&P=0&h=180',
+        manifestUri: 'https://qp-pldt-live-grp-12-prod.akamaized.net/out/u/dr_crime_invest.mpd',
+        clearKey: { '21e2843b561c4248b8ea487986a16d33': 'db6bb638ccdfc1ad1a3e98d728486801' }
+      },
+      {
+        name: '',
+        logo: 'https://i.ytimg.com/vi/WRwHveXhgMA/maxresdefault.jpg',
+        manifestUri: 'https://qp-pldt-live-grp-11-prod.akamaized.net/out/u/dr_historyhd.mpd',
+        clearKey: { 'a7724b7ca2604c33bb2e963a0319968a': '6f97e3e2eb2bade626e0281ec01d3675' }
+      },
+      {
+        name: '',
+        logo: 'https://tse1.mm.bing.net/th?id=OIP.08d6maH0WPePii1D1AQt7gHaHa&pid=Api&P=0&h=180',
+        manifestUri: 'https://qp-pldt-live-grp-02-prod.akamaized.net/out/u/cg_animal_planet_sd.mpd',
+        clearKey: { '436b69f987924fcbbc06d40a69c2799a': 'c63d5b0d7e52335b61aeba4f6537d54d' }
+      },
+      {
+        name: '',
+        logo: 'https://yt3.ggpht.com/a/AATXAJy1C8c3pOmn9lAsPovaRcKqIvw2OAAfHK-HtA=s900-c-k-c0xffffffff-no-rj-mo',
+        manifestUri: 'https://qp-pldt-live-grp-13-prod.akamaized.net/out/u/cg_tvnmovie.mpd',
+        clearKey: { '2e53f8d8a5e94bca8f9a1e16ce67df33': '3471b2464b5c7b033a03bb8307d9fa35' }
+      },
+      {
+        name: '',
+        logo: 'https://2.bp.blogspot.com/-JGsBKDJTcvo/XIHEvk4-_AI/AAAAAAAArxY/3Lf4bD_9gzkrGEqo04NaTcfr9SyyX6lGwCLcBGAs/s1600/2.jpg',
+        manifestUri: 'https://qp-pldt-live-grp-13-prod.akamaized.net/out/u/ibc13_sd.mpd',
+        clearKey: { '04e292bc99bd4ccba89e778651914254': 'ff0a62bdf8920ce453fe680330b563a5' }
+      },
+      {
+        name: '',
+        logo: 'https://tse1.mm.bing.net/th?id=OIP.eMBESWvU7I1p_vYDFbtIVAHaGI&pid=Api&P=0&h=180',
+        manifestUri: 'https://qp-pldt-live-grp-13-prod.akamaized.net/out/u/dr_rockextreme.mpd',
+        clearKey: { '0f852fb8412b11edb8780242ac120002': '4cbc004d8c444f9f996db42059ce8178' }
+      },
+      {
+        name: '',
+        logo: 'https://tse3.mm.bing.net/th?id=OIP.2M-d9K4S_VA_uPISnmA0oQHaEK&pid=Api&P=0&h=180',
+        manifestUri: 'https://qp-pldt-live-grp-13-prod.akamaized.net/out/u/dr_rockentertainment.mpd',
+        clearKey: { 'e4ee0cf8ca9746f99af402ca6eed8dc7': 'be2a096403346bc1d0bb0f812822bb62' }
+      },
+      {
+        name: '',
+        logo: 'https://tse3.mm.bing.net/th?id=OIP.BbiuJ63fj0Y2_o9YaUEnaQHaEK&pid=Api&P=0&h=180g',
+        manifestUri: 'https://ac-003.live.p7s1video.net/4a37da02/t_003/dazn-rise-hd/cenc-default.mpd',
+        clearKey: { '75508caa27239cd34ca45ee862f1bbf2': 'd38f9f2b690bad3fcc838013242cc5e4 ' }
+      },
+      {
+        name: '',
+        logo: 'https://logos-world.net/wp-content/uploads/2021/08/Cartoon-Network-Logo.png',
+        manifestUri: 'https://qp-pldt-live-grp-12-prod.akamaized.net/out/u/dr_cartoonnetworkhd.mpd',
+        clearKey: { 'a2d1f552ff9541558b3296b5a932136b': 'cdd48fa884dc0c3a3f85aeebca13d444' }
+      },
+      {
+        name: '',
+        logo: 'https://tse4.mm.bing.net/th?id=OIP.3fVgdgoxaiJvOn4SRSdXJAHaEK&pid=Api&P=0&h=180',
+        manifestUri: 'https://qp-pldt-live-grp-11-prod.akamaized.net/out/u/dr_historyhd.mpd',
+        clearKey: { 'a7724b7ca2604c33bb2e963a0319968a': '6f97e3e2eb2bade626e0281ec01d3675' }
+      },
 
+    ];
 
+    const playlist = document.getElementById('playlist');
 
-  
-  <!-- Repeat for 50 channels -->
-</div>
-
-
-<!-- HLS Player Popup -->
-<div id="player-container">
-  <button id="close-player">X</button>
-  <video id="video-player" controls></video> <type="video-js">
-  <source src="video.mp4" class=video.js type="video/mp4">
-
-</script>
-
-<!-- Include HLS.js -->
-<script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
-<script src="https://cdn.jsdelivr.net/npm/plyr@3"></script>
-<script src="script.js"></script>
-<script src="https://vjs.zencdn.net/8.3.0/video.min.js"></script>
-
-</div>
-
-<script>
-  // Get all channels and player elements
-  const channels = document.querySelectorAll('.channel');
-  const playerContainer = document.getElementById('player-container');
-  const videoPlayer = document.getElementById('video-player');
-  const videomp4 = document.getElementById('video.mp4');
-  const closePlayerButton = document.getElementById('close-player');
-  const videoSource = document.getElementById('video-source');
-
-
-
-  // Function to handle HLS playback
-  function playHLS(url) {
-    if (Hls.isSupported()) {
-      const hls = new Hls();
-
-      hls.loadSource(url);
-      hls.attachMedia(videoPlayer);
-         
-      // Optional: Event listeners for buffering and playback
-    } else if (Hls.isSupported()) {
-        const hls = new Hls({
-                  
-            bufferingGoal: 3, // Desired buffer length in seconds
-            rebufferingGoal: 5, // Minimum buffer required to resume playback
-            maxBufferLength: 3, // Adjust for faster buffer
-            maxBufferSize: 60 * 1000 * 1000, // Max buffer size in bytes
-            maxBufferHole: 0.5,  // Tolerate small gaps in buffer
-            startLevel: -1, // Start at auto-quality (adaptive bitrate)
-            liveSyncDuration: 3, // Sync duration for live streams
-            enableWorker: true, // Use worker for better performance
-            autoStartLoad: true,
-            debug: App.isDevelopment(),
-            manifestLoadingTimeOut : 60000,
-            /*manifestLoadingMaxRetry : 9,*/
-            manifestLoadingRetryDelay : 500,
-            levelLoadingTimeOut : 60000,
-            /*levelLoadingMaxRetry : 9,*/
-            levelLoadingRetryDelay : 500,
-            fragLoadingTimeOut : 60000,
-            /*fragLoadingMaxRetry : 6,*/
-            fragLoadingRetryDelay : 250,
-            startFragPrefetch : true,
-            overrideNative: true,
-            bandwidth: 1, // Specify bandwidth for smooth playback
-            bufferSpace: 0.5 // Set minimal buffer (in seconds)
-         
-        });
-        hls.on(Hls.Events.BUFFER_APPENDING, () => console.log('Appending buffer'));
-        hls.on(Hls.Events.BUFFER_APPENDED, () => console.log('Buffer appended'));
-      hls.on(Hls.Events.BUFFER_STALLED, () => {
-        console.log('Buffering stalled...');
-      });
-      hls.on(Hls.Events.BUFFER_FLUSHING, () => {
-        console.log('Buffer flushed...');
-      });
-    } else if (videoPlayer.canPlayType('application/vnd.apple.mpegurl')) {
-      videoPlayer.src = url;
-    } else {
-      alert('HLS not supported on this browser.');
-    }
-  }
-
-  // Handle click on a channel to play stream
-  channels.forEach(channel => {
-    channel.addEventListener('click', () => {
-      const url = channel.dataset.url;
-      playHLS(url);
-
-      // Show the player popup
-      playerContainer.style.display = 'flex';
-      videoPlayer.load();
-      videoPlayer.play();
+    channels.forEach((channel, index) => {
+      const div = document.createElement('div');
+      div.className = 'playlist-item text-center';
+      div.innerHTML = `
+        <img src="${channel.logo}" alt="${channel.name}" class="rounded-lg mb-2">
+        <div class="neon-text">${channel.name}</div>
+      `;
+      div.onclick = () => playChannel(index);
+      playlist.appendChild(div);
     });
- 
-});
 
-  // Close the player popup
-  closePlayerButton.addEventListener('click', () => {
-    playerContainer.style.display = 'none';
-    videoPlayer.load();
-    videoPlayer.pause();
-  
+    let player;
 
-  });
-  
-</script>
-<script>
-  document.addEventListener('keydown', function(event) {
-  // Disable F12 (Developer Tools)
-  if (event.key === 'F12') {
-    event.preventDefault();
-  }
-  document.addEventListener('keydown', function(event) {
-  // Disable Ctrl+U
-  if (event.ctrlKey && event.key === 'u') {
-    event.preventDefault();
-  }
-  
-});
-  // Disable Ctrl+Shift+I (Developer Tools)
-  if (event.ctrlKey && event.shiftKey && event.key === 'I') {
-    event.preventDefault();
-  }
+    function playChannel(index) {
+      const channel = channels[index];
+      const video = document.getElementById('video');
 
-});
-</script>
-
-<script>
-if (typeof console != "undefined") {
-  console.log = function() {}; // Disable console.log
-  console.debug = function() {}; // Disable console.debug
-}
-</script>
-<script>
-  // Locking the content of an element
-  document.getElementById('lockedElement').contentEditable = false; // Prevents editing
-  
-  // Or disable interaction entirely
-  document.getElementById('lockedElement').style.pointerEvents = 'none';
-</script>
-<script>
-  // Disable adding inline styles
-  Object.defineProperty(document.body.style, 'setProperty', {
-    configurable: false,
-    writable: false
-  });
-  
-
-  // Function to detect if dev tools are open
-  function detectDevTools() {
-          var devToolsOpened = false;
-
-          // Check for differences in window size which indicates the dev tools are open
-          setInterval(function() {
-              if (window.outerWidth - window.innerWidth > 100 || window.outerHeight - window.innerHeight > 100) {
-                  devToolsOpened = true;
-              }
-
-              // If dev tools are detected, redirect to a blank page
-              if (devToolsOpened) {
-                  window.location.href = "https://colorfully.eu/wp-content/uploads/2012/08/girl-see-my-middle-finger-facebook-cover.jpg"; // Redirect to a blank page
-              }
-          }, 1000); // Check every 1 second
+      if (!player) {
+        player = new shaka.Player(video);
+      } else {
+        player.unload();
       }
 
-      // Call the detection function when the page loads
-      window.onload = function() {
-          detectDevTools();
-      };
-</script>
-<script>document.getElementById('submitBtn').addEventListener('click', function() {
-  var password = document.getElementById('password').value;
+      player.configure({
+        drm: {
+          clearKeys: channel.clearKey
+        }
+      });
 
-  // Check if password is correct (you can change 'yourpassword' to your own value)
-  if (password === 'mhierob25') {
-      // Hide the modal and display the protected content
-      document.getElementById('passwordModal').style.display = 'none';
-      document.getElementById('protectedContent').style.display = 'block';
-  } else {
-      alert('Incorrect password. Please try again.');
-  }
-});
- // Disable right-click on the entire page
- document.addEventListener('contextmenu', function(event) {
-      event.preventDefault();
-      alert("Right-click is disabled.");
+      player.load(channel.manifestUri).then(() => {
+        const modal = document.getElementById('modal');
+        modal.classList.add('open');
+      }).catch(error => console.error('Error loading channel', error));
+    }
+
+    function closeModal() {
+      const modal = document.getElementById('modal');
+      modal.classList.remove('open');
+      const video = document.getElementById('video');
+      video.pause();
+      video.src = '';
+    }
+    // Disable Right-Click (Context Menu) and Close Window on Right-Click
+    document.addEventListener('contextmenu', function(e) {
+      e.preventDefault();
+      window.close(); // Close the window upon right-click
     });
 
+    // Disable DevTools (F12, Ctrl + Shift + I)
+    document.onkeydown = function(e) {
+      // Disable F12, Ctrl + Shift + I (Inspector)
+      if (e.keyCode === 123 || (e.ctrlKey && e.shiftKey && e.keyCode === 73)) {
+        e.preventDefault();
+        alert("DevTools access is blocked.");
+        return false;
+      }
+      // Disable Ctrl + U (View Source)
+      if (e.ctrlKey && e.keyCode === 85) {
+        e.preventDefault();
+        alert("View Source is blocked.");
+      }
+    };
 
-</script>
+    // Force fullscreen mode
+    function enterFullscreen() {
+      const element = document.documentElement;
+      if (element.requestFullscreen) {
+        element.requestFullscreen();
+      } else if (element.mozRequestFullScreen) { // Firefox
+        element.mozRequestFullScreen();
+      } else if (element.webkitRequestFullscreen) { // Chrome, Safari, Opera
+        element.webkitRequestFullscreen();
+      } else if (element.msRequestFullscreen) { // IE/Edge
+        element.msRequestFullscreen();
+      }
 
-    <script>
-        // Modal Elements
-        const modal = document.getElementById('videoModal');
-        const overlay = document.getElementById('modalOverlay');
-        const closeModal = document.getElementById('closeModal');
-        const videoIframe = document.getElementById('youtubeVideo');
-        const images = document.querySelectorAll('.image-list img');
+      // Configure for better performance
+    player.configure({
+      streaming: {
+        // Buffering: 30 seconds for video, 10 seconds for audio (customize based on your content)
+        bufferBehind: 30, // Amount of video to keep in the buffer behind playback head
+        bufferAhead: 60, // Amount of video to keep ahead of playback head
+        // Set max buffer length for smooth playback, this minimizes buffering
+        bufferingGoal: 30, // Buffer up to 30 seconds ahead
+        rebufferingGoal: 10, // Buffer 10 seconds minimum before rebuffering starts
+      },
+      abr: {
+        enabled: true, // Enable Adaptive Bitrate (ABR)
+        defaultBandwidthEstimate: 5000000, // 5 Mbps default (change based on your network)
+      },
+      lowLatencyMode: true, // Reduce latency, especially for live streams
+    });
+    
+    
 
+};
 
+  </script>
 
+</body>
+</html>
 
-        // Open Modal with Selected Video
-        images.forEach(image => {
-            image.addEventListener('click', () => {
-                const videoSrc = image.getAttribute('data-video');
-                videoIframe.src = videoSrc;
-                modal.classList.add('active');
-                overlay.classList.add('active');
-            });
-        });
-
-        // Close Modal
-        closeModal.addEventListener('click', () => {
-            modal.classList.remove('active');
-            overlay.classList.remove('active');
-            videoIframe.src = ''; // Stop video playback
-        });
-
-        overlay.addEventListener('click', () => {
-            modal.classList.remove('active');
-            overlay.classList.remove('active');
-            videoIframe.src = ''; // Stop video playback
-        });
-
-</script>
-   
-
-
- 
